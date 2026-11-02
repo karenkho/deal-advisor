@@ -1,0 +1,60 @@
+# AI delivery scenarios (POC v2). Estimated productivity assumptions — NOT empirically validated.
+# Components are fractions of the activity's historical baseline hours. Editable in the UI.
+version: 2
+scenarios:
+  B: {title: "AI-Augmented Agile SDLC", short: "B · AI-Augmented", note: "Current practice: every role uses AI assistants."}
+  C: {title: "AI-First Agile SDLC", short: "C · AI-First", note: "AI agents perform suitable activities under human supervision."}
+baseline_title: "Historical baseline (pre-AI, reference only)"
+hypothesis_reduction_c: 0.50     # stretch hypothesis to investigate, not a target
+
+categories: [human_led, ai_assisted, ai_first_with_review, deterministic_automated]
+# In B, ai_first_with_review is treated as ai_assisted (agents do not author whole artifacts in AI-Augmented).
+# Three named profiles, all ASSUMPTIONS: never tuned to reach the hypothesis; each result is reported as computed.
+# Only the totals per category are specified; ai_assisted keeps 0.05 each for orchestration, review and rework.
+active_profile: expected
+profiles:
+  conservative:
+    label: Conservative
+    integration_overhead: 0.04     # per AI-produced activity (every category except human_led), B and C
+    factors:
+      human_led:
+        B: {production: 0.90, orchestration: 0.0, review: 0.0, rework: 0.0}
+        C: {production: 0.90, orchestration: 0.0, review: 0.0, rework: 0.0}
+      ai_assisted:
+        B: {production: 0.60, orchestration: 0.05, review: 0.05, rework: 0.05}
+        C: {production: 0.55, orchestration: 0.05, review: 0.05, rework: 0.05}
+      ai_first_with_review:
+        C: {production: 0.15, orchestration: 0.10, review: 0.15, rework: 0.10}
+      deterministic_automated:
+        B: {production: 0.10, orchestration: 0.02, review: 0.03, rework: 0.0}
+        C: {production: 0.05, orchestration: 0.02, review: 0.03, rework: 0.0}
+  expected:
+    label: Expected
+    integration_overhead: 0.03
+    factors:
+      human_led:
+        B: {production: 0.85, orchestration: 0.0, review: 0.0, rework: 0.0}
+        C: {production: 0.85, orchestration: 0.0, review: 0.0, rework: 0.0}
+      ai_assisted:
+        B: {production: 0.50, orchestration: 0.05, review: 0.05, rework: 0.05}
+        C: {production: 0.45, orchestration: 0.05, review: 0.05, rework: 0.05}
+      ai_first_with_review:
+        C: {production: 0.10, orchestration: 0.08, review: 0.12, rework: 0.10}
+      deterministic_automated:
+        B: {production: 0.05, orchestration: 0.02, review: 0.03, rework: 0.0}
+        C: {production: 0.03, orchestration: 0.02, review: 0.03, rework: 0.0}
+  optimistic:
+    label: Optimistic
+    integration_overhead: 0.02
+    factors:
+      human_led:
+        B: {production: 0.80, orchestration: 0.0, review: 0.0, rework: 0.0}
+        C: {production: 0.80, orchestration: 0.0, review: 0.0, rework: 0.0}
+      ai_assisted:
+        B: {production: 0.40, orchestration: 0.05, review: 0.05, rework: 0.05}
+        C: {production: 0.35, orchestration: 0.05, review: 0.05, rework: 0.05}
+      ai_first_with_review:
+        C: {production: 0.06, orchestration: 0.06, review: 0.10, rework: 0.08}
+      deterministic_automated:
+        B: {production: 0.02, orchestration: 0.02, review: 0.02, rework: 0.0}
+        C: {production: 0.02, orchestration: 0.01, review: 0.02, rework: 0.0}

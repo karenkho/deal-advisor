@@ -1,0 +1,546 @@
+{
+ "items": [
+  {
+   "item": "S01",
+   "feature": "F-90c19f",
+   "activity": "Backend.code_review_integration",
+   "human": "ai_assisted",
+   "stored_llm": "human_led",
+   "stored_final": "human_led",
+   "V1_llm": "ai_assisted",
+   "V1_final": "ai_assisted",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_assisted"
+  },
+  {
+   "item": "S02",
+   "feature": "F-9d09b7",
+   "activity": "Backend.unit_tests",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S03",
+   "feature": "F-d72740",
+   "activity": "BA.elicitation_clarification",
+   "human": "human_led",
+   "stored_llm": "human_led",
+   "stored_final": "human_led",
+   "V1_llm": "human_led",
+   "V1_final": "human_led",
+   "V3_llm": "human_led",
+   "V3_final": "human_led"
+  },
+  {
+   "item": "S04",
+   "feature": "F-d121ee",
+   "activity": "QA.test_design",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "human_led",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S05",
+   "feature": "F-a09dc5",
+   "activity": "QA.test_automation",
+   "human": "ai_first_with_review",
+   "stored_llm": "deterministic_automated",
+   "stored_final": "deterministic_automated",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "deterministic_automated",
+   "V3_final": "deterministic_automated"
+  },
+  {
+   "item": "S06",
+   "feature": "F-fbb769",
+   "activity": "BA.wireframes_prototypes",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "ai_assisted",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S07",
+   "feature": "F-9d09b7",
+   "activity": "BA.wireframes_prototypes",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "ai_assisted",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S08",
+   "feature": "F-04eaea",
+   "activity": "BA.elicitation_clarification",
+   "human": "human_led",
+   "stored_llm": "human_led",
+   "stored_final": "human_led",
+   "V1_llm": "human_led",
+   "V1_final": "human_led",
+   "V3_llm": "human_led",
+   "V3_final": "human_led"
+  },
+  {
+   "item": "S09",
+   "feature": "F-e9e512",
+   "activity": "Frontend.component_tests",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S10",
+   "feature": "F-2f7285",
+   "activity": "Frontend.component_tests",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S11",
+   "feature": "F-d52ff4",
+   "activity": "Backend.code_review_integration",
+   "human": "ai_assisted",
+   "stored_llm": "human_led",
+   "stored_final": "human_led",
+   "V1_llm": "human_led",
+   "V1_final": "human_led",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_assisted"
+  },
+  {
+   "item": "S12",
+   "feature": "F-04eaea",
+   "activity": "QA.test_automation",
+   "human": "ai_first_with_review",
+   "stored_llm": "deterministic_automated",
+   "stored_final": "deterministic_automated",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_assisted"
+  },
+  {
+   "item": "S13",
+   "feature": "F-a09dc5",
+   "activity": "BA.wireframes_prototypes",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "human_led",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S14",
+   "feature": "F-a54bd4",
+   "activity": "Frontend.ui_implementation",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "human_led",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S15",
+   "feature": "F-9a3dda",
+   "activity": "QA.test_design",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "ai_assisted",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S16",
+   "feature": "F-bf04ca",
+   "activity": "QA.test_execution",
+   "human": "human_led",
+   "stored_llm": "human_led",
+   "stored_final": "ai_assisted",
+   "V1_llm": "human_led",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "human_led",
+   "V3_final": "deterministic_automated"
+  },
+  {
+   "item": "S17",
+   "feature": "F-bf04ca",
+   "activity": "Frontend.api_integration",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_assisted",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_assisted"
+  },
+  {
+   "item": "S18",
+   "feature": "F-9a3dda",
+   "activity": "Backend.coding",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_assisted",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S19",
+   "feature": "F-aac0fe",
+   "activity": "QA.test_automation",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S20",
+   "feature": "F-aac0fe",
+   "activity": "QA.test_design",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "ai_assisted",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S21",
+   "feature": "F-e9e512",
+   "activity": "QA.test_automation",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S22",
+   "feature": "F-a54bd4",
+   "activity": "Backend.technical_design",
+   "human": "ai_assisted",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_assisted",
+   "V1_llm": "human_led",
+   "V1_final": "human_led",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_assisted"
+  },
+  {
+   "item": "S23",
+   "feature": "F-45610c",
+   "activity": "QA.test_design",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "ai_assisted",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S24",
+   "feature": "F-aac0fe",
+   "activity": "Backend.unit_tests",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S25",
+   "feature": "F-f50b24",
+   "activity": "Backend.code_review_integration",
+   "human": "ai_first_with_review",
+   "stored_llm": "human_led",
+   "stored_final": "human_led",
+   "V1_llm": "human_led",
+   "V1_final": "human_led",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S26",
+   "feature": "F-d72740",
+   "activity": "QA.test_execution",
+   "human": "human_led",
+   "stored_llm": "human_led",
+   "stored_final": "ai_assisted",
+   "V1_llm": "human_led",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "deterministic_automated"
+  },
+  {
+   "item": "S27",
+   "feature": "F-fbb769",
+   "activity": "Backend.coding",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_assisted",
+   "stored_final": "ai_assisted",
+   "V1_llm": "human_led",
+   "V1_final": "human_led",
+   "V3_llm": "ai_assisted",
+   "V3_final": "ai_assisted"
+  },
+  {
+   "item": "S28",
+   "feature": "F-fbb769",
+   "activity": "Frontend.component_tests",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S29",
+   "feature": "F-d52ff4",
+   "activity": "QA.test_automation",
+   "human": "ai_first_with_review",
+   "stored_llm": "deterministic_automated",
+   "stored_final": "deterministic_automated",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "deterministic_automated",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  },
+  {
+   "item": "S30",
+   "feature": "F-82546d",
+   "activity": "Backend.unit_tests",
+   "human": "ai_first_with_review",
+   "stored_llm": "ai_first_with_review",
+   "stored_final": "ai_first_with_review",
+   "V1_llm": "deterministic_automated",
+   "V1_final": "ai_first_with_review",
+   "V3_llm": "ai_first_with_review",
+   "V3_final": "ai_first_with_review"
+  }
+ ],
+ "variants": {
+  "V1": {
+   "llm": {
+    "accuracy": 0.167,
+    "kappa": 0.105,
+    "predicted": {
+     "ai_assisted": 6,
+     "deterministic_automated": 13,
+     "human_led": 11
+    },
+    "per_category": {
+     "human_led": {
+      "labelled": 4,
+      "right": 4
+     },
+     "ai_assisted": {
+      "labelled": 3,
+      "right": 1
+     },
+     "ai_first_with_review": {
+      "labelled": 23,
+      "right": 0
+     },
+     "deterministic_automated": {
+      "labelled": 0,
+      "right": 0
+     }
+    }
+   },
+   "after_rules": {
+    "accuracy": 0.5,
+    "kappa": 0.246,
+    "predicted": {
+     "ai_assisted": 1,
+     "ai_first_with_review": 12,
+     "human_led": 6,
+     "deterministic_automated": 11
+    },
+    "per_category": {
+     "human_led": {
+      "labelled": 4,
+      "right": 2
+     },
+     "ai_assisted": {
+      "labelled": 3,
+      "right": 1
+     },
+     "ai_first_with_review": {
+      "labelled": 23,
+      "right": 12
+     },
+     "deterministic_automated": {
+      "labelled": 0,
+      "right": 0
+     }
+    }
+   },
+   "usd": 0.0079,
+   "tokens": 14877,
+   "seconds_per_item": 1.51
+  },
+  "V3": {
+   "llm": {
+    "accuracy": 0.8,
+    "kappa": 0.581,
+    "predicted": {
+     "ai_assisted": 7,
+     "ai_first_with_review": 19,
+     "human_led": 3,
+     "deterministic_automated": 1
+    },
+    "per_category": {
+     "human_led": {
+      "labelled": 4,
+      "right": 3
+     },
+     "ai_assisted": {
+      "labelled": 3,
+      "right": 3
+     },
+     "ai_first_with_review": {
+      "labelled": 23,
+      "right": 18
+     },
+     "deterministic_automated": {
+      "labelled": 0,
+      "right": 0
+     }
+    }
+   },
+   "after_rules": {
+    "accuracy": 0.8,
+    "kappa": 0.588,
+    "predicted": {
+     "ai_assisted": 6,
+     "ai_first_with_review": 19,
+     "human_led": 2,
+     "deterministic_automated": 3
+    },
+    "per_category": {
+     "human_led": {
+      "labelled": 4,
+      "right": 2
+     },
+     "ai_assisted": {
+      "labelled": 3,
+      "right": 3
+     },
+     "ai_first_with_review": {
+      "labelled": 23,
+      "right": 19
+     },
+     "deterministic_automated": {
+      "labelled": 0,
+      "right": 0
+     }
+    }
+   },
+   "usd": 0.0141,
+   "tokens": 30406,
+   "seconds_per_item": 1.77
+  }
+ },
+ "stored_production": {
+  "llm": {
+   "accuracy": 0.467,
+   "kappa": 0.241,
+   "predicted": {
+    "human_led": 7,
+    "ai_first_with_review": 9,
+    "ai_assisted": 11,
+    "deterministic_automated": 3
+   },
+   "per_category": {
+    "human_led": {
+     "labelled": 4,
+     "right": 4
+    },
+    "ai_assisted": {
+     "labelled": 3,
+     "right": 1
+    },
+    "ai_first_with_review": {
+     "labelled": 23,
+     "right": 9
+    },
+    "deterministic_automated": {
+     "labelled": 0,
+     "right": 0
+    }
+   }
+  },
+  "after_rules": {
+   "accuracy": 0.633,
+   "kappa": 0.332,
+   "predicted": {
+    "human_led": 5,
+    "ai_first_with_review": 16,
+    "deterministic_automated": 3,
+    "ai_assisted": 6
+   },
+   "per_category": {
+    "human_led": {
+     "labelled": 4,
+     "right": 2
+    },
+    "ai_assisted": {
+     "labelled": 3,
+     "right": 1
+    },
+    "ai_first_with_review": {
+     "labelled": 23,
+     "right": 16
+    },
+    "deterministic_automated": {
+     "labelled": 0,
+     "right": 0
+    }
+   }
+  }
+ },
+ "pair_agreement_v1_v3": 0.167
+}

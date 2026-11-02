@@ -1,0 +1,122 @@
+{
+ "tor_id": "module_matrix",
+ "title": "Water utility app (module matrix with bulleted cells, no requirement IDs)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 2,
+ "features": [
+  {
+   "id": "U01",
+   "name": "Service number auto-verification",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U02",
+   "name": "Fingerprint login on supported phones",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U03",
+   "name": "Paperless billing enrolment",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U04",
+   "name": "Balance and due date prompts",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U05",
+   "name": "Partial and advance payments in the app",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U06",
+   "name": "Downloadable e-receipts",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U07",
+   "name": "Outage map with pins",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U08",
+   "name": "Photo uploads for fault reports",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U09",
+   "name": "Push updates on repair status",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U10",
+   "name": "Appliance consumption calculator",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "U11",
+   "name": "Monthly usage trend graphs",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  }
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

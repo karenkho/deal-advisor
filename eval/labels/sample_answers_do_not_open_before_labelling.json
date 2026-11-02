@@ -1,0 +1,182 @@
+{
+ "S01": {
+  "key": "F-90c19f|Backend.code_review_integration",
+  "llm_suggestion": "human_led",
+  "after_rules": "human_led",
+  "rule": null
+ },
+ "S02": {
+  "key": "F-9d09b7|Backend.unit_tests",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-05"
+ },
+ "S03": {
+  "key": "F-d72740|BA.elicitation_clarification",
+  "llm_suggestion": "human_led",
+  "after_rules": "human_led",
+  "rule": "DP-07"
+ },
+ "S04": {
+  "key": "F-d121ee|QA.test_design",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-03"
+ },
+ "S05": {
+  "key": "F-a09dc5|QA.test_automation",
+  "llm_suggestion": "deterministic_automated",
+  "after_rules": "deterministic_automated",
+  "rule": null
+ },
+ "S06": {
+  "key": "F-fbb769|BA.wireframes_prototypes",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-02"
+ },
+ "S07": {
+  "key": "F-9d09b7|BA.wireframes_prototypes",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-02"
+ },
+ "S08": {
+  "key": "F-04eaea|BA.elicitation_clarification",
+  "llm_suggestion": "human_led",
+  "after_rules": "human_led",
+  "rule": "DP-07"
+ },
+ "S09": {
+  "key": "F-e9e512|Frontend.component_tests",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": null
+ },
+ "S10": {
+  "key": "F-2f7285|Frontend.component_tests",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-05"
+ },
+ "S11": {
+  "key": "F-d52ff4|Backend.code_review_integration",
+  "llm_suggestion": "human_led",
+  "after_rules": "human_led",
+  "rule": null
+ },
+ "S12": {
+  "key": "F-04eaea|QA.test_automation",
+  "llm_suggestion": "deterministic_automated",
+  "after_rules": "deterministic_automated",
+  "rule": null
+ },
+ "S13": {
+  "key": "F-a09dc5|BA.wireframes_prototypes",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-02"
+ },
+ "S14": {
+  "key": "F-a54bd4|Frontend.ui_implementation",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-05"
+ },
+ "S15": {
+  "key": "F-9a3dda|QA.test_design",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-03"
+ },
+ "S16": {
+  "key": "F-bf04ca|QA.test_execution",
+  "llm_suggestion": "human_led",
+  "after_rules": "ai_assisted",
+  "rule": "DP-04"
+ },
+ "S17": {
+  "key": "F-bf04ca|Frontend.api_integration",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_assisted",
+  "rule": null
+ },
+ "S18": {
+  "key": "F-9a3dda|Backend.coding",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_assisted",
+  "rule": null
+ },
+ "S19": {
+  "key": "F-aac0fe|QA.test_automation",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": null
+ },
+ "S20": {
+  "key": "F-aac0fe|QA.test_design",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-03"
+ },
+ "S21": {
+  "key": "F-e9e512|QA.test_automation",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": null
+ },
+ "S22": {
+  "key": "F-a54bd4|Backend.technical_design",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_assisted",
+  "rule": null
+ },
+ "S23": {
+  "key": "F-45610c|QA.test_design",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-03"
+ },
+ "S24": {
+  "key": "F-aac0fe|Backend.unit_tests",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-05"
+ },
+ "S25": {
+  "key": "F-f50b24|Backend.code_review_integration",
+  "llm_suggestion": "human_led",
+  "after_rules": "human_led",
+  "rule": null
+ },
+ "S26": {
+  "key": "F-d72740|QA.test_execution",
+  "llm_suggestion": "human_led",
+  "after_rules": "ai_assisted",
+  "rule": "DP-04"
+ },
+ "S27": {
+  "key": "F-fbb769|Backend.coding",
+  "llm_suggestion": "ai_assisted",
+  "after_rules": "ai_assisted",
+  "rule": null
+ },
+ "S28": {
+  "key": "F-fbb769|Frontend.component_tests",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": null
+ },
+ "S29": {
+  "key": "F-d52ff4|QA.test_automation",
+  "llm_suggestion": "deterministic_automated",
+  "after_rules": "deterministic_automated",
+  "rule": null
+ },
+ "S30": {
+  "key": "F-82546d|Backend.unit_tests",
+  "llm_suggestion": "ai_first_with_review",
+  "after_rules": "ai_first_with_review",
+  "rule": "DP-05"
+ }
+}

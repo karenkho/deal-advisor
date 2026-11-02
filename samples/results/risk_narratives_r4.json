@@ -1,0 +1,136 @@
+{
+"1c7fb5a413bfe7af5cf5d77da9aad43b78f32315f260706b7879c82be76aabd2": {
+"conditions": [
+"Client dependencies must be resolved before project start.",
+"Acceptance criteria must be clearly defined and agreed.",
+"Payment terms should be renegotiated to reduce cash exposure.",
+"Scope gaps must be clarified and finalized.",
+"Productivity assumptions need validation during execution."
+],
+"reasons": [
+"Scenario C offers the lowest price meeting margin floor requirements.",
+"No high risks are unacknowledged under scenario C.",
+"Scenario C duration is acceptable despite being slightly longer than requested.",
+"Payment terms and cash exposure risks are acknowledged and mitigated."
+]
+},
+"1d2f22fdd411cdf0e30f5d6d0797e9cbbf977db97cfd3c07aa4d5984429fd15b": {
+"action": "Negotiate payment terms to improve financial balance.",
+"impact": "Client-favored payment terms increase financial risk and cash flow pressure.",
+"mitigation": "Seek more balanced payment terms to reduce risk."
+},
+"2360fee136a1144e4c4e86a7521cad2d17988b3cc0fd846c115ff5c4149f7fe3": {
+"action": "Review and adjust payment terms to improve cash flow.",
+"impact": "Large negative cash flow peak stresses finances and liquidity.",
+"mitigation": "Negotiate payment schedule to reduce peak cash outflow."
+},
+"3926698538c0118b82b02d3d97f55c2b767dbc41a075951c7fe287049d396121": {
+"action": "Engage client to finalize dependencies promptly.",
+"impact": "Unresolved client dependencies may delay progress and cause scope changes.",
+"mitigation": "Clarify and resolve all client dependencies early."
+},
+"5288ad01e00532074060b20d8d17bfca658bdbfa9228817bd05b7c10d9f917ec": {
+"action": "Review pricing basis to ensure realistic rates.",
+"impact": "Using illustrative rates may misrepresent true costs and margins.",
+"mitigation": "Use actual published rates for pricing accuracy."
+},
+"5fdae688ef25284683c5c572a7c12bc779b5072f3f11c261567f0da29a37387e": {
+"action": "Plan for extended warranty support and costs.",
+"impact": "Longer warranty increases post-delivery support obligations and costs.",
+"mitigation": "Allocate sufficient reserves and support resources for warranty."
+},
+"910cc1357cb293a0ded84a71613f4f59ee24e016bd45d7d305f62c2de27c5362": {
+"action": "Work with client to specify privacy standards clearly.",
+"impact": "Undefined privacy requirements risk non-compliance and costly rework.",
+"mitigation": "Define measurable privacy requirements before development."
+},
+"9129aef7bc0fdbc9d7e3adfb0e3a149b4de353e3b8fdedc5f284c73f4eb1b713": {
+"action": "Confirm schedule feasibility with team.",
+"impact": "Schedule shorter than computed risks rushed work and quality issues.",
+"mitigation": "Adjust timeline or add resources to meet schedule."
+},
+"966825635b797371c421810d98f41d2266d9359692e6d9a378570a347b4e26e3": {
+"action": "Allocate resources for AI output verification.",
+"impact": "AI-generated code requires thorough human review to ensure quality.",
+"mitigation": "Implement rigorous code review and testing."
+},
+"9e1fee0e25e7c030dd424da53591b77b7fc400eb9a4f25f90ac1a5e351679ca5": {
+"conditions": [
+"Client dependencies must be resolved before project start.",
+"Payment and acceptance terms need formal agreement.",
+"Privacy requirements must be clearly defined and agreed."
+],
+"reasons": [
+"Scenario C offers the lowest price meeting margin floor requirements.",
+"No high risks are unacknowledged under scenario C.",
+"Scenario C duration matches requested timeline, supporting timely delivery."
+]
+},
+"be9c13edafc4b1ef750e400720dc0c4d32ea4463af0ca435b52b0214b61198e7": {
+"action": "Define acceptance terms with client before start.",
+"impact": "Undefined acceptance criteria may cause disputes and delivery delays.",
+"mitigation": "Establish clear acceptance criteria for all deliverables."
+},
+"c00df1bc5f2c0ab17b33b197ca7bf63d61ba7dac2a5ba45d9988695d8e1af7e5": {
+"action": "Establish clear privacy standards with client.",
+"impact": "Undefined privacy requirements risk non-compliance and data breaches.",
+"mitigation": "Define measurable privacy requirements and controls."
+},
+"cc5643a2cbeab7fede5718c3ac386e74b11a8272d6ab7fad39fae97f33f35f45": {
+"action": "Review and adjust payment milestones to smooth cash flow.",
+"impact": "Large negative cash flow peak increases financial strain and risk of liquidity issues.",
+"mitigation": "Negotiate payment schedule to reduce peak cash outflow."
+},
+"cec8a9f6b5f43cd427c5c9721f70c30c62a0ee61452e8454374214066ed5ad78": {
+"action": "Finalize scope with client before start.",
+"impact": "Undefined scope elements risk rework and missed requirements.",
+"mitigation": "Clarify scope and resolve open questions."
+},
+"d1375d5cb13456f14ca130f76e1b8a3dbfdacfd75ed9c9003dc5619fb353216c": {
+"action": "Resolve scope ambiguities with client early.",
+"impact": "Unclear scope details may lead to misunderstandings and scope creep.",
+"mitigation": "Clarify all open questions and scope items before work."
+},
+"d6e30ca0cfbe7745a486b8ff15691ea5538d0c733ae6906785df11905467740e": {
+"conditions": [
+"Client agrees to clarify all open dependencies and scope questions.",
+"Payment terms are reviewed to manage cash flow risks.",
+"Acceptance criteria are defined and agreed before project start."
+],
+"reasons": [
+"Scenario C offers the lowest price meeting margin floor requirements.",
+"No high risks are present that cannot be acknowledged or mitigated.",
+"Scenario C duration matches requested months, supporting timely delivery."
+]
+},
+"e031c0254e3c07d7afbeff08e671abf06d5c1e062ea23fc6d1235c582fd77502": {
+"action": "Engage client to finalize dependencies.",
+"impact": "Unresolved client dependencies may delay or block progress.",
+"mitigation": "Clarify and resolve all client dependencies early."
+},
+"eb4e731301db8c38559af1dfe9b6994c8d87443dc19b627605c1e76cf1dc5fc8": {
+"action": "Develop detailed integration and contingency plans.",
+"impact": "Multiple external integrations increase complexity and failure risk.",
+"mitigation": "Plan and test integrations thoroughly with external systems."
+},
+"f25be526baa310b503cc4e0dc55627384bf2c2e1eb1a5c2f1da2a4f7eb4b42b8": {
+"action": "Monitor productivity closely and adjust plans as needed.",
+"impact": "Assumed productivity may not reflect reality, risking overruns.",
+"mitigation": "Validate productivity assumptions with empirical data."
+},
+"f722e00435dcd021b11395f6607151d857e3c6f791815e0da19516c3cd573fcc": {
+"action": "Allocate resources for detailed AI output review.",
+"impact": "AI-generated output requires thorough human review to ensure quality.",
+"mitigation": "Implement rigorous human verification of AI outputs."
+},
+"f83d2b4eeaf34493b08369a2511179640b4223ffb828b80bc47c290a97163c57": {
+"action": "Review and adjust payment schedule.",
+"impact": "Large negative cash flow peak risks liquidity and financial stability.",
+"mitigation": "Negotiate payment terms to reduce peak cash exposure."
+},
+"ff34175d42d083580fcfd3422902a9ce61a336cebf6ac8e2e6e38df6cecd3202": {
+"action": "Allocate resources for verification of AI-produced outputs.",
+"impact": "AI-generated code requires thorough human review to ensure quality.",
+"mitigation": "Implement rigorous code review and testing processes."
+}
+}

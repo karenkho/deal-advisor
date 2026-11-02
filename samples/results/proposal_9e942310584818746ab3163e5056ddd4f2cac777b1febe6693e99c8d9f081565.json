@@ -1,0 +1,22 @@
+{
+"delivery_methodology": [
+"The project will be executed using an AI-enabled agile approach characterized by short, time-boxed development cycles with regular demonstrations and continuous client feedback to ensure alignment with requirements. This iterative process allows for incremental releases and timely adjustments based on evolving needs.",
+"AI tools will assist in drafting documentation, code generation, and testing, while human experts will review, integrate, and approve all outputs to maintain quality and relevance. Scope changes will be managed carefully to preserve project focus and delivery timelines, ensuring a collaborative and transparent development process."
+],
+"executive_summary": [
+"Kalinaw Trading Corporation aims to enhance its human resource management through a comprehensive Human Resource Information System (HRIS) that streamlines employee data management, leave and attendance tracking, and reporting. This initiative is critical to improving operational efficiency, data accuracy, and decision-making within the HR function.",
+"Exist Software Labs proposes a cloud-deployed microservices solution built on a modern technology stack including Java, Spring Boot, React, and PostgreSQL. The system will be delivered using an AI-enabled agile methodology, ensuring iterative development with continuous client feedback. Upon completion, Kalinaw Trading Corporation will have a robust, scalable HRIS tailored to its operational needs."
+],
+"proposed_solution": [
+"The proposed HRIS solution integrates key capabilities such as employee information management, leave and attendance tracking, payroll interfacing, and comprehensive reporting. It supports various user roles including employees, HR staff, approvers, and management, facilitating workflows like leave applications, approvals, and document management aligned with the company\u2019s organizational structure.",
+"This solution is designed to fit Kalinaw Trading Corporation\u2019s way of working by automating routine HR processes, providing self-service portals for employees, and enabling management with insightful dashboards. The system\u2019s configurable leave policies and role-based access control ensure compliance with company rules and data security, enhancing overall HR operational effectiveness."
+],
+"technical_architecture": [
+"The system architecture is based on cloud-deployed microservices utilizing Java and Spring Boot for backend services, React for the frontend interface, and PostgreSQL as the data store. The architecture includes separate environments for development, testing (UAT), and production to ensure quality and stability.",
+"Integration with the payroll system is handled through defined data exchange services, maintaining reconciliation records for accuracy. The design supports scalability to handle up to 300 concurrent users with high availability and performance targets. Security is enforced through role-based access control, audit trails, and encrypted communications, aligning with the client\u2019s non-functional requirements."
+],
+"warranty_support": [
+"The warranty period covers defect correction and system stabilization following the go-live date, with a clear process for reporting and resolving issues. This warranty ensures that the delivered system meets the agreed specifications and operates reliably in the production environment.",
+"Support beyond the warranty period, including enhancements or additional services, will be offered as separate options. The warranty excludes issues arising from unauthorized modifications or external factors beyond the vendor\u2019s control, providing clarity on the scope of post-delivery responsibilities."
+]
+}

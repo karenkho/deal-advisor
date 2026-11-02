@@ -1,0 +1,490 @@
+[
+ {
+  "id": "guideline-purpose",
+  "text": "Purpose\nThis guideline describes how a delivery team turns a client Terms of Reference (TOR) for a ground-up software build into a sized feature backlog. It is decision support: every backlog and size produced with it must be reviewed by a Business Analyst (BA) before it is used. Sizes are expressed as T-shirt tiers (S, M, L, XL); hours per tier and role live in a separate estimation configuration owned by delivery leads. This guideline never covers pricing, rates, or margins \u2014 costing is done by sales from the hours hand-off. All examples in this corpus are synthetic."
+ },
+ {
+  "id": "guideline-feature_types",
+  "text": "Feature types\nEvery feature is classified into exactly one type. The type selects the sizing rubric.\n\n- **screen_crud** \u2014 data entry and maintenance screens: create, read, update, delete, list, search and filter for one business entity.\n- **workflow** \u2014 multi-step processes with states, approvals, routing, escalations, or SLAs.\n- **integration** \u2014 exchange of data with an external system: payment gateway, government API, ERP, SMS/email provider, SSO identity provider, file-based interfaces.\n- **report_dashboard** \u2014 read-only outputs: printable reports, exports, KPI dashboards, charts.\n- **data_migration** \u2014 moving legacy data (spreadsheets, old databases, paper records already encoded) into the new system, including cleansing, mapping and reconciliation.\n- **notification** \u2014 email, SMS, push or in-app messages triggered by events or schedules.\n- **admin_config** \u2014 reference data maintenance, system parameters, templates, user and role administration screens.\n- **nfr** \u2014 non-functional work that produces a deliverable of its own: performance tuning to a stated target, accessibility conformance, security hardening, high availability or DR setup.\n\nWhen a requirement spans types, split it into one feature per type (for example, \"approve permit and notify applicant by SMS\" becomes a workflow feature plus a notification feature)."
+ },
+ {
+  "id": "guideline-sizing_rubric_screen_crud",
+  "text": "Sizing rubric: screen_crud\n- **S** \u2014 one entity, up to ~10 fields, simple validation, single list with basic filter, no file attachments.\n- **M** \u2014 one entity with child records (master-detail), 10\u201330 fields, cross-field validation, search with several filters, CSV export, or file attachment.\n- **L** \u2014 several related entities managed together, dynamic forms, complex validation rules from a rule table, bulk edit, or role-dependent field visibility.\n- **XL** \u2014 configurable form builder, highly dynamic screens driven by metadata, or offline-capable data capture with sync.\n\nSize up one tier when the screen must support more than two languages or strict accessibility conformance (WCAG 2.1 AA) beyond the project default."
+ },
+ {
+  "id": "guideline-sizing_rubric_workflow",
+  "text": "Sizing rubric: workflow\n- **S** \u2014 single-step approval (approve/reject) with status field and history, one role.\n- **M** \u2014 two-level approval or a linear 3\u20135 state process, return-for-correction, basic SLA timestamp.\n- **L** \u2014 three or more approval levels, conditional routing by amount/type/location, delegation, escalation on SLA breach, parallel reviewers.\n- **XL** \u2014 configurable workflow engine (admin-defined steps and rules), or a workflow spanning multiple organizations with external hand-offs.\n\nA workflow feature includes its state history and audit entries. Notifications triggered by the workflow are separate notification features."
+ },
+ {
+  "id": "guideline-sizing_rubric_integration",
+  "text": "Sizing rubric: integration\n- **S** \u2014 outbound call to a well-documented REST API with a sandbox, one operation, no callback (e.g., address lookup).\n- **M** \u2014 two to four operations on a documented API, or a file drop (CSV/SFTP) in a fixed format, with retry and error logging.\n- **L** \u2014 payment gateway with callbacks/webhooks and reconciliation, SSO with an enterprise identity provider, or a government API with certificates, IP allow-listing, or onboarding steps.\n- **XL** \u2014 undocumented or legacy system integration (no sandbox, no spec), bi-directional sync with conflict handling, or a high-volume real-time interface.\n\nSize up one tier when the counterparty's API documentation or sandbox is not yet available at estimation time and record an assumption."
+ },
+ {
+  "id": "guideline-sizing_rubric_report_dashboard",
+  "text": "Sizing rubric: report_dashboard\n- **S** \u2014 one tabular report with up to 5 filters, export to CSV/Excel.\n- **M** \u2014 formatted printable report (PDF with header/footer/signatories), or a report with grouping, subtotals and drill-down to records.\n- **L** \u2014 dashboard with 4\u20138 KPI widgets and charts, role-based data scope, date-range comparison.\n- **XL** \u2014 self-service ad-hoc reporting, or a dashboard on near-real-time data from multiple sources requiring a separate reporting store."
+ },
+ {
+  "id": "guideline-sizing_rubric_data_migration",
+  "text": "Sizing rubric: data_migration\n- **S** \u2014 one clean spreadsheet, under ~5,000 rows, one target entity, client does cleansing.\n- **M** \u2014 two to four source files or tables, mapping rules, validation report of rejected rows, one rehearsal run.\n- **L** \u2014 legacy database with many tables, code-value mapping, deduplication, two rehearsals plus cut-over plan and reconciliation report.\n- **XL** \u2014 multiple legacy systems, poor data quality requiring vendor-side cleansing, document/attachment migration, or phased migration with coexistence.\n\nData migration is frequently implied but not stated (e.g., \"the system shall contain all existing member records\"). Raise it as a feature and a client question when existing records are mentioned."
+ },
+ {
+  "id": "guideline-sizing_rubric_ai_ml_feature",
+  "text": "Sizing rubric: ai_ml_feature\nAI or machine-learning capability the TOR asks the system itself to provide (chatbots, document extraction, recommendations, forecasting), owned by the AI Engineer. S: one call to a hosted model behind an existing screen, no custom data. M: a prompt or retrieval pipeline over the client's documents with evaluation checks. L: several models or a custom training set, with monitoring and human review of outputs. XL: a regulated or decision-making use with bias, audit and explainability requirements, or custom model development."
+ },
+ {
+  "id": "guideline-sizing_rubric_notification",
+  "text": "Sizing rubric: notification\n- **S** \u2014 one or two event-triggered emails from fixed templates.\n- **M** \u2014 a set of event-triggered email and SMS notifications through one provider, editable templates, delivery log.\n- **L** \u2014 scheduled reminders and escalations, user notification preferences, multiple channels (email, SMS, in-app), retry on provider failure.\n- **XL** \u2014 campaign-style bulk messaging with segmentation, throttling and opt-out management."
+ },
+ {
+  "id": "guideline-sizing_rubric_admin_config",
+  "text": "Sizing rubric: admin_config\n- **S** \u2014 maintain one simple reference table (code, name, active flag).\n- **M** \u2014 maintain several reference tables, or system parameters with validation and change history.\n- **L** \u2014 user and role administration with permission matrix, or document/letter template management with placeholders.\n- **XL** \u2014 tenant/organization hierarchy administration with delegated administration."
+ },
+ {
+  "id": "guideline-sizing_rubric_nfr",
+  "text": "Sizing rubric: nfr\n- **S** \u2014 documented configuration only (e.g., session timeout, password policy values).\n- **M** \u2014 measurable target requiring work: load test to a stated concurrency, WCAG 2.1 AA audit and fixes for a small app, backup/restore runbook.\n- **L** \u2014 high-availability deployment across zones, DR with stated RPO/RTO and a DR drill, third-party penetration test remediation.\n- **XL** \u2014 strict regulatory certification or performance targets requiring architecture change.\n\nGeneric NFR boilerplate does not become a feature (see \"Treating NFR boilerplate\")."
+ },
+ {
+  "id": "guideline-definition_of_ready",
+  "text": "Definition of Ready\nA feature is ready for sizing when:\n\n1. It has a clear actor and a business outcome (\"As a registrar, I can \u2026\").\n2. The data it handles is identified at the entity level.\n3. Business rules are stated or explicitly assumed.\n4. External systems it touches are named, with documentation availability known.\n5. It has at least two acceptance criteria in Given/When/Then form.\n6. Open questions are logged as client questions, not hidden in the size.\n\nA feature that fails points 1\u20133 is routed as **unclear** and becomes a client question instead of being sized."
+ },
+ {
+  "id": "guideline-writing_acceptance_criteria",
+  "text": "Writing acceptance criteria\nFeatures follow INVEST: Independent, Negotiable, Valuable, Estimable, Small, Testable. Acceptance criteria use Given/When/Then:\n\n- *Given* a precondition and context,\n- *When* the actor performs an action,\n- *Then* an observable, testable outcome occurs.\n\nWrite 2\u20134 criteria per feature covering the main path and the most important rule or error case. Avoid UI-implementation detail (\"click the blue button\"). Each criterion must be verifiable by QA without asking the BA.\n\nExample: *Given* an applicant with an incomplete application, *When* they submit, *Then* the system lists the missing required fields and does not change the status."
+ },
+ {
+  "id": "guideline-foundation_epic",
+  "text": "Foundation epic\nDefault architecture: cloud-deployed microservices; cloud and license costs are excluded and handled in the costing sheet.\n\nEvery ground-up build includes a Foundation epic, estimated separately from TOR features with fixed hours from the estimation configuration. It always contains:\n\n- cloud environments and infrastructure-as-code (development, UAT, production);\n- container platform setup (cluster or container apps, ingress, secrets);\n- API gateway and a service template (shared libraries, health checks, configuration);\n- identity and authentication service (login, password policy or SSO hook, RBAC);\n- CI/CD pipeline per service (build, automated tests, deployment);\n- centralized logging, monitoring and distributed tracing;\n- core data model (base entities, reference data, audit columns);\n- UI shell and design system (layout, navigation, shared components).\n\nIf the TOR implies user accounts (applicants, staff, approvers, \"my records\") but never mentions login or authentication, authentication is still required: it is covered by the Foundation epic, and the BA should confirm the login method (local accounts vs SSO) as a client question. Cross-cutting items that are NOT in Foundation and must be checked as separate features: audit trail viewer, data migration, user administration screens, notification framework, and reporting."
+ },
+ {
+  "id": "guideline-coverage_checklist",
+  "text": "Coverage checklist\nBefore finalizing a backlog, check for these frequently missed features:\n\n1. Authentication and user administration (who creates accounts? self-registration?).\n2. Role and permission management.\n3. Audit trail of create/update/delete and approvals, and a screen to view it.\n4. Data migration of existing records.\n5. Notifications for workflow state changes.\n6. Reference data / lookup maintenance.\n7. Reports implied by \"monitor\", \"track\", \"summary\", \"statistics\".\n8. Document upload and storage if forms mention attachments or requirements checklists.\n9. Search and filter on every main list.\n10. Integration points named anywhere in the TOR, including annexes."
+ },
+ {
+  "id": "guideline-standard_exclusions",
+  "text": "Standard exclusions\nUnless the TOR explicitly makes them a vendor deliverable and they are agreed, the following are excluded and listed in the exclusion list:\n\n- supply of hardware (laptops, desktops, servers, printers, scanners, network equipment, tablets);\n- software licenses and subscriptions (database, OS, office, third-party SaaS);\n- third-party fees (payment gateway transaction fees, SMS charges, certificate fees, government API onboarding fees, cloud hosting charges);\n- content entry and data encoding of paper records;\n- warranty, hypercare and end-user help-desk after go-live (development-phase estimate only);\n- business process re-engineering and organizational change management;\n- internet connectivity at client sites."
+ },
+ {
+  "id": "guideline-standard_assumptions",
+  "text": "Standard assumptions\n- The client provides a single product owner with decision authority and timely feedback (within 3 working days).\n- The client provides access to external system documentation and sandboxes before the related sprint.\n- The estimate covers the development phase only: UAT support and warranty not included (quoted separately if required).\n- English is the only UI language unless stated.\n- The application is web-based and responsive; no native mobile apps unless stated.\n- Default architecture: cloud-deployed microservices; cloud and license costs are excluded and handled in the costing sheet."
+ },
+ {
+  "id": "guideline-treating_nfr_boilerplate",
+  "text": "Treating NFR boilerplate\nAI-generated and template TORs often contain long NFR sections (\"the system shall be secure, scalable, user-friendly, available 24/7, and compliant with all applicable laws\"). Treat such statements as follows:\n\n- Generic, unmeasurable statements become **assumptions** (\"standard secure coding practices per OWASP Top 10 apply\"), not features.\n- A measurable target (e.g., \"99.9% availability\", \"500 concurrent users with < 3 s response\", \"RPO 1 hour\") becomes an **nfr** feature sized with the nfr rubric, and the target is copied into its acceptance criteria.\n- Contradictory or impossible NFRs (e.g., \"zero downtime\" with a single-server budget) become **client questions**.\n- Compliance references (e.g., Data Privacy Act) become an assumption plus, if specific controls are named (consent capture, data subject access request), a feature."
+ },
+ {
+  "id": "guideline-handling_duplicates_and_conflicts",
+  "text": "Handling duplicates and conflicts\nLong TORs repeat the same requirement in several sections. Merge duplicates into one feature and keep every page citation. When two statements of the same requirement conflict (different numbers of approval levels, different deadlines, different user groups), do not pick one silently: size with the more conservative interpretation, mark it, and raise a client question quoting both citations."
+ },
+ {
+  "id": "guideline-out_of_scope_and_unclear_items",
+  "text": "Out-of-scope and unclear items\n- **Out of scope**: items that are not software build work (hardware supply, licenses, physical installation, manpower augmentation) are routed out_of_scope and listed as exclusions with the TOR citation.\n- **Unclear**: requirements with no actor, no outcome, or undefined terms (\"the system shall handle all relevant transactions efficiently\") are routed unclear and converted to a client question. They are not sized until answered.\n- **Novel**: requirements with no close precedent in past projects are sized with the rubric only and flagged for BA attention."
+ },
+ {
+  "id": "guideline-ai_suitability_guidance",
+  "text": "AI suitability guidance\nEvery delivery activity (per feature and role) is classified into one AI strategy. The classification drives the AI-Augmented (B) and AI-First (C) effort; the factors are configurable assumptions, not validated benchmarks. Consider requirements clarity, functional complexity, integration complexity, security sensitivity, standardization and reusability, testability, the need for human verification, and expected rework.\n\n- **human_led**: people do the work; AI helps only with drafting and lookup. Use for client-facing elicitation and clarification, client acceptance and UAT support, negotiation of unclear scope, and decisions with accountability (security design sign-off). Examples: elicitation workshops with HR managers; acceptance walkthroughs with the client.\n- **ai_assisted**: a person produces the output with an AI assistant (code completion, test suggestions, story drafting). Use for security LOGIC (authentication, authorization and RBAC enforcement, encryption, personal-data export and handling logic, payroll computation), complex or novel business rules, integrations with unspecified or external counterparts, and anything where requirements are unclear. A screen, report or form that merely displays or captures personal data is NOT security logic: classify it like any other screen. Examples: RBAC enforcement code; payroll interface logic; leave-accrual rules with many exceptions.\n- **ai_first_with_review**: an AI agent produces the first complete version and a person reviews, integrates and verifies it. Use for standardized, well-specified, testable work with strong precedents: CRUD screens and APIs, standard reports and exports, unit and component tests for clear rules, test case design from clear acceptance criteria, wireframes for standard screens, notification templates. Examples: employee master-data screens; standard tabular reports; unit tests for a documented computation.\n- **deterministic_automated**: generators, templates or pipelines produce the output with minimal human effort. Use for scaffolding from templates, pipeline-as-code from a standard template, regression suites re-run by CI, and code generated from schemas. Examples: CI/CD pipeline from the company template; API client generated from an OpenAPI schema.\n\nNever classify elicitation or client acceptance as anything but human_led, and never classify security logic above ai_assisted. Wireframes and prototypes are at least ai_assisted (BAs already generate them with AI)."
+ },
+ {
+  "id": "patterns-login_with_mfa",
+  "text": "Login with MFA\n- **Type:** integration (when OTP via SMS/email provider) or screen_crud (TOTP app only)\n- **Typical size:** M\n- **Description:** Users sign in with username/email and password and confirm with a one-time code sent by SMS/email or generated by an authenticator app.\n- **Acceptance criteria:**\n  - Given a registered user with MFA enabled, When they enter valid credentials, Then the system sends a 6-digit code valid for 5 minutes and grants access only after the code is entered.\n  - Given five consecutive failed attempts, When the user tries again, Then the account is locked for 15 minutes and the attempt is logged.\n- **Variations that change size:** SSO with enterprise IdP instead (L); MFA optional per role (+0); risk-based MFA by device/location (L)."
+ },
+ {
+  "id": "patterns-self_registration_with_email_verification",
+  "text": "Self-registration with email verification\n- **Type:** screen_crud\n- **Typical size:** M\n- **Description:** External users create their own account, verify their email, and accept terms and privacy consent.\n- **Acceptance criteria:**\n  - Given a new user, When they submit the registration form, Then a verification link is emailed and the account stays inactive until the link is used.\n  - Given an email already registered, When a user registers with it, Then the system rejects it without revealing account details.\n- **Variations that change size:** identity verification with ID upload and staff approval (L); government ID / KYC API check (L)."
+ },
+ {
+  "id": "patterns-role_based_access_control_rbac",
+  "text": "Role-based access control (RBAC)\n- **Type:** admin_config\n- **Typical size:** L\n- **Description:** Administrators define roles and assign permissions per module and action; menus and actions are shown according to role.\n- **Acceptance criteria:**\n  - Given a user with the \"Viewer\" role, When they open a record, Then edit and delete actions are not available and direct API calls are rejected.\n  - Given an administrator, When they change a role's permissions, Then the change applies at the user's next request and is written to the audit trail.\n- **Variations that change size:** fixed roles only, no admin screen (S, part of Foundation); data-scope restrictions by branch/region (XL)."
+ },
+ {
+  "id": "patterns-user_administration",
+  "text": "User administration\n- **Type:** admin_config\n- **Typical size:** M\n- **Description:** Administrators create, deactivate, and reset staff accounts and assign roles and offices.\n- **Acceptance criteria:**\n  - Given an administrator, When they create a staff account, Then the user receives an activation email and must set a password at first login.\n  - Given a deactivated user, When they attempt to log in, Then access is denied.\n- **Variations that change size:** bulk user import from CSV (+1 tier); sync from Active Directory (L integration)."
+ },
+ {
+  "id": "patterns-audit_trail",
+  "text": "Audit trail\n- **Type:** admin_config\n- **Typical size:** M\n- **Description:** Every create, update, delete, approval and login is recorded with who, when, what changed (before/after), and source IP; authorized users can search the log.\n- **Acceptance criteria:**\n  - Given any record update, When it is saved, Then an audit entry stores the user, timestamp, field changes, and IP address.\n  - Given an auditor, When they filter the audit log by user and date range, Then matching entries are listed and exportable to CSV.\n- **Variations that change size:** tamper-evident (hash-chained) log (L); retention and archiving rules (+1 tier)."
+ },
+ {
+  "id": "patterns-single_level_approval",
+  "text": "Single-level approval\n- **Type:** workflow\n- **Typical size:** S\n- **Description:** A submitted record is approved or rejected by one role with remarks.\n- **Acceptance criteria:**\n  - Given a submitted request, When the approver approves it, Then the status becomes \"Approved\" and the action is recorded in the history.\n  - Given a rejection, When the approver rejects without remarks, Then the system requires remarks.\n- **Variations that change size:** return-for-correction loop (M)."
+ },
+ {
+  "id": "patterns-n_level_approval_workflow",
+  "text": "N-level approval workflow\n- **Type:** workflow\n- **Typical size:** L\n- **Description:** Requests pass through two or more approval levels with routing rules, return-for-correction, delegation and SLA escalation.\n- **Acceptance criteria:**\n  - Given a request above the amount threshold, When level 1 approves, Then it routes to level 2; otherwise it is final.\n  - Given an approval pending past its SLA, When the SLA expires, Then the request escalates to the next approver and both are notified.\n  - Given an approver on leave, When delegation is active, Then the delegate can act and the history shows \"on behalf of\".\n- **Variations that change size:** fixed 2 levels without routing (M); admin-configurable workflow designer (XL)."
+ },
+ {
+  "id": "patterns-email_notification",
+  "text": "Email notification\n- **Type:** notification\n- **Typical size:** S\n- **Description:** Event-triggered emails from fixed templates (e.g., submission received, approved).\n- **Acceptance criteria:**\n  - Given a request is approved, When the status changes, Then the requester receives an email with the reference number within 5 minutes.\n  - Given the email provider is unavailable, When sending fails, Then the system retries and logs the failure.\n- **Variations that change size:** admin-editable templates (M); multiple languages (+1 tier)."
+ },
+ {
+  "id": "patterns-sms_notification",
+  "text": "SMS notification\n- **Type:** notification\n- **Typical size:** M\n- **Description:** Event-triggered or scheduled SMS through an SMS aggregator API with delivery log.\n- **Acceptance criteria:**\n  - Given a mobile number on file, When an appointment is confirmed, Then an SMS is sent with date, time and reference number.\n  - Given a delivery failure report, When the aggregator returns an error, Then the log shows the failure and the message is retried once.\n- **Variations that change size:** two-way SMS (reply to confirm) (L); bulk campaigns (XL)."
+ },
+ {
+  "id": "patterns-csv_excel_import",
+  "text": "CSV / Excel import\n- **Type:** screen_crud\n- **Typical size:** M\n- **Description:** Authorized users upload a spreadsheet in a published template; the system validates rows and imports valid ones.\n- **Acceptance criteria:**\n  - Given a file in the template, When it is uploaded, Then the system shows a preview with row-level validation errors before import.\n  - Given confirmed import, When rows are valid, Then they are created and a summary of imported and rejected rows is downloadable.\n- **Variations that change size:** update-or-insert matching on keys (+1 tier); scheduled SFTP drop (integration M)."
+ },
+ {
+  "id": "patterns-standard_tabular_report",
+  "text": "Standard tabular report\n- **Type:** report_dashboard\n- **Typical size:** S\n- **Description:** A filtered list report exportable to Excel/CSV.\n- **Acceptance criteria:**\n  - Given filters for date range and status, When the user runs the report, Then matching rows display with totals.\n  - Given results, When the user exports, Then an Excel file with the same columns downloads.\n- **Variations that change size:** PDF with official layout and signatories (M)."
+ },
+ {
+  "id": "patterns-printable_official_form_certificate",
+  "text": "Printable official form / certificate\n- **Type:** report_dashboard\n- **Typical size:** M\n- **Description:** Generate a PDF document (permit, certificate, statement) from record data with official layout, QR code and reference number.\n- **Acceptance criteria:**\n  - Given an approved permit, When the applicant downloads it, Then a PDF with the official layout, QR code and permit number is generated.\n  - Given a QR code scan, When the verification page is opened, Then it shows whether the document is valid.\n- **Variations that change size:** digital signature with certificates (L)."
+ },
+ {
+  "id": "patterns-kpi_dashboard",
+  "text": "KPI dashboard\n- **Type:** report_dashboard\n- **Typical size:** L\n- **Description:** Management dashboard with 4\u20138 KPI widgets, trend charts and date filters, scoped to the user's role.\n- **Acceptance criteria:**\n  - Given a manager, When they open the dashboard, Then KPIs for their office are shown for the current month by default.\n  - Given a date range, When it is changed, Then all widgets refresh consistently.\n- **Variations that change size:** 1\u20133 simple counters (M); near-real-time from multiple sources (XL)."
+ },
+ {
+  "id": "patterns-payment_gateway_integration",
+  "text": "Payment gateway integration\n- **Type:** integration\n- **Typical size:** L\n- **Description:** Online payment of fees through a payment gateway with redirect/checkout, webhook confirmation and daily reconciliation.\n- **Acceptance criteria:**\n  - Given an unpaid assessment, When the user pays successfully, Then the gateway callback marks it paid and an official receipt number is issued.\n  - Given a callback not received, When the daily reconciliation runs, Then mismatches are listed for finance review.\n- **Variations that change size:** multiple gateways/e-wallets (XL); pay-over-the-counter reference code only (M)."
+ },
+ {
+  "id": "patterns-government_api_integration",
+  "text": "Government API integration\n- **Type:** integration\n- **Typical size:** L\n- **Description:** Verification or submission to a government agency API (e.g., business registry, tax ID validation) with certificates, onboarding and IP allow-listing.\n- **Acceptance criteria:**\n  - Given a registration number, When the user requests verification, Then the system calls the agency API and stores the response with timestamp.\n  - Given the agency API is down, When verification fails, Then the record is marked \"pending verification\" and retried later.\n- **Variations that change size:** no sandbox or documentation available (XL)."
+ },
+ {
+  "id": "patterns-e_invoicing_submission",
+  "text": "E-invoicing submission\n- **Type:** integration\n- **Typical size:** XL\n- **Description:** Transmission of electronic invoices to the tax authority's e-invoicing system in the prescribed format, with acknowledgment handling.\n- **Acceptance criteria:**\n  - Given a finalized invoice, When it is transmitted, Then the acknowledgment ID is stored and shown on the invoice.\n  - Given a rejection, When the tax system returns errors, Then the invoice is flagged for correction with the error details.\n- **Variations that change size:** via an accredited third-party provider with a clean API (L)."
+ },
+ {
+  "id": "patterns-document_upload_and_management",
+  "text": "Document upload and management\n- **Type:** screen_crud\n- **Typical size:** M\n- **Description:** Upload of supporting documents against a requirements checklist, with type/size validation, preview and versioning.\n- **Acceptance criteria:**\n  - Given a checklist of required documents, When the applicant uploads a PDF over 10 MB, Then the upload is rejected with a message.\n  - Given all required documents, When they are uploaded, Then the checklist shows complete and submission is enabled.\n- **Variations that change size:** virus scanning and OCR (L); staff-side document verification step (+1 tier)."
+ },
+ {
+  "id": "patterns-search_and_filter",
+  "text": "Search and filter\n- **Type:** screen_crud\n- **Typical size:** S\n- **Description:** Keyword search and filters on a main list with sorting and pagination.\n- **Acceptance criteria:**\n  - Given 10,000 records, When the user searches by name, Then results return within 3 seconds with pagination.\n  - Given filters for status and date, When applied together, Then only records matching both are shown.\n- **Variations that change size:** full-text search across documents (L)."
+ },
+ {
+  "id": "patterns-user_self_service_profile",
+  "text": "User self-service profile\n- **Type:** screen_crud\n- **Typical size:** S\n- **Description:** Users view and update their own profile, contact details and password.\n- **Acceptance criteria:**\n  - Given a logged-in user, When they change their mobile number, Then an OTP verifies the new number before saving.\n  - Given a password change, When the new password violates the policy, Then it is rejected with the rule shown.\n- **Variations that change size:** profile changes needing staff approval (M)."
+ },
+ {
+  "id": "patterns-appointment_slot_booking",
+  "text": "Appointment / slot booking\n- **Type:** workflow\n- **Typical size:** L\n- **Description:** Users book from available time slots defined by capacity per branch/resource; booking, rescheduling and cancellation with rules.\n- **Acceptance criteria:**\n  - Given a slot at full capacity, When a user tries to book it, Then it is shown unavailable.\n  - Given a booking, When the user cancels less than 24 hours before, Then the system applies the late-cancellation rule.\n- **Variations that change size:** fixed schedule only (M); waitlist and auto-fill (XL)."
+ },
+ {
+  "id": "patterns-case_ticket_tracking",
+  "text": "Case / ticket tracking\n- **Type:** workflow\n- **Typical size:** M\n- **Description:** Requests or complaints are logged, assigned, worked and closed with status history and a public tracking number.\n- **Acceptance criteria:**\n  - Given a new request, When it is submitted, Then a tracking number is issued and the requester can view status without logging in using the number and their email.\n  - Given an assigned case, When it is resolved, Then the requester is asked to confirm closure.\n- **Variations that change size:** SLA timers with escalation and auto-routing by category/location (L)."
+ },
+ {
+  "id": "patterns-reference_data_maintenance",
+  "text": "Reference data maintenance\n- **Type:** admin_config\n- **Typical size:** S\n- **Description:** Administrators maintain lookup tables (categories, offices, fee types) with active/inactive flags.\n- **Acceptance criteria:**\n  - Given an inactive category, When users create a new record, Then the category is not selectable but existing records still show it.\n  - Given a change, When it is saved, Then it is audit-logged.\n- **Variations that change size:** effective-dated values such as fee schedules (M)."
+ },
+ {
+  "id": "patterns-fee_assessment_computation_rules",
+  "text": "Fee assessment / computation rules\n- **Type:** workflow\n- **Typical size:** L\n- **Description:** Compute fees or charges from a rule table (by type, size, location, penalties) and produce an assessment for review.\n- **Acceptance criteria:**\n  - Given an application type and declared values, When assessment is run, Then the fee breakdown is computed from the active rule table.\n  - Given a late renewal, When assessed, Then the surcharge rule is applied and shown as a separate line.\n- **Variations that change size:** fixed fee per type (S); admin-editable formula engine (XL)."
+ },
+ {
+  "id": "patterns-legacy_data_migration",
+  "text": "Legacy data migration\n- **Type:** data_migration\n- **Typical size:** L\n- **Description:** Migrate existing records from spreadsheets or a legacy database with mapping, validation, rehearsal and reconciliation.\n- **Acceptance criteria:**\n  - Given the migration rehearsal, When it completes, Then a reconciliation report shows source vs target counts per entity.\n  - Given rows that fail validation, When migration runs, Then they are written to a rejected-rows file with reasons.\n- **Variations that change size:** single clean spreadsheet (S); several legacy systems with poor quality (XL)."
+ },
+ {
+  "id": "patterns-data_privacy_consent_and_data_subject_requests",
+  "text": "Data privacy consent and data subject requests\n- **Type:** screen_crud\n- **Typical size:** M\n- **Description:** Capture consent at registration, show privacy notice, and handle data subject access/correction/erasure requests.\n- **Acceptance criteria:**\n  - Given a new registration, When the user has not ticked consent, Then registration cannot complete.\n  - Given an access request, When the DPO approves, Then a downloadable export of the subject's personal data is generated.\n- **Variations that change size:** consent only, no DSR handling (S)."
+ },
+ {
+  "id": "patterns-inventory_stock_movement",
+  "text": "Inventory stock movement\n- **Type:** workflow\n- **Typical size:** L\n- **Description:** Record receipts, issues, transfers and adjustments of stock per location with running balances.\n- **Acceptance criteria:**\n  - Given an issue larger than the on-hand quantity, When it is posted, Then it is rejected.\n  - Given a transfer, When it is received at the destination, Then both locations' balances update.\n- **Variations that change size:** lot/expiry tracking (+1 tier); barcode scanning on mobile (+1 tier)."
+ },
+ {
+  "id": "patterns-availability_and_dr_setup",
+  "text": "Availability and DR setup\n- **Type:** nfr\n- **Typical size:** L\n- **Description:** Deploy for a stated availability target with backups, a DR environment, stated RPO/RTO, and a DR drill.\n- **Acceptance criteria:**\n  - Given the DR drill, When production is made unavailable, Then service is restored in the DR environment within the agreed RTO.\n  - Given daily backups, When a restore test is run, Then data loss does not exceed the agreed RPO.\n- **Variations that change size:** backup/restore runbook only (M)."
+ },
+ {
+  "id": "glossary-api_gateway",
+  "text": "API gateway\nA managed entry point in front of back-end APIs that handles routing, authentication, rate limiting and logging. In a TOR it usually implies integration work and an infrastructure assumption."
+ },
+ {
+  "id": "glossary-audit_trail",
+  "text": "Audit trail\nA chronological, tamper-resistant record of who did what and when in the system (creates, updates, deletes, approvals, logins). Usually expected even when not explicitly requested."
+ },
+ {
+  "id": "glossary-business_continuity_plan_bcp",
+  "text": "Business continuity plan (BCP)\nThe organization's plan for keeping critical services running during disruption. A TOR mentioning BCP usually expects DR documentation and a drill from the vendor."
+ },
+ {
+  "id": "glossary-ci_cd",
+  "text": "CI/CD\nContinuous Integration / Continuous Delivery: automated build, test and deployment pipeline. Part of the Foundation epic."
+ },
+ {
+  "id": "glossary-cut_over",
+  "text": "Cut-over\nThe planned switch from the legacy process or system to the new system, including final data migration, freeze period and go/no-go decision."
+ },
+ {
+  "id": "glossary-data_privacy_act_dpa",
+  "text": "Data Privacy Act (DPA)\nThe Philippine Data Privacy Act of 2012 (RA 10173), which governs processing of personal information. TOR references usually imply consent capture, privacy notices, access controls, and breach procedures."
+ },
+ {
+  "id": "glossary-data_protection_officer_dpo",
+  "text": "Data Protection Officer (DPO)\nThe person designated by the organization to oversee data privacy compliance. Usually the approver for data subject requests."
+ },
+ {
+  "id": "glossary-definition_of_done_dod",
+  "text": "Definition of Done (DoD)\nThe checklist a backlog item must satisfy to be considered complete: code reviewed, tests passed, acceptance criteria met, documentation updated."
+ },
+ {
+  "id": "glossary-disaster_recovery_dr",
+  "text": "Disaster recovery (DR)\nThe capability to restore a system after a major failure, usually stated with RPO and RTO targets and a DR site or region."
+ },
+ {
+  "id": "glossary-e_invoicing",
+  "text": "e-Invoicing\nElectronic issuance and transmission of invoices to the tax authority's system in a prescribed format. Implies a large integration with accreditation steps."
+ },
+ {
+  "id": "glossary-epic",
+  "text": "Epic\nA large body of work grouping related features, often aligned to a business capability (e.g., \"Applications\", \"Payments\")."
+ },
+ {
+  "id": "glossary-go_live",
+  "text": "Go-live\nThe date the system is used in production by real users."
+ },
+ {
+  "id": "glossary-hypercare",
+  "text": "Hypercare\nA period of heightened vendor support immediately after go-live (commonly 30 days) to fix defects and stabilize operations."
+ },
+ {
+  "id": "glossary-interoperability",
+  "text": "Interoperability\nThe ability to exchange data with other systems using agreed standards. In a TOR it often signals unnamed integrations that must be clarified."
+ },
+ {
+  "id": "glossary-know_your_customer_kyc",
+  "text": "Know Your Customer (KYC)\nIdentity verification of customers, usually with ID documents, selfie/liveness checks, and screening lists. Common in financial-service TORs."
+ },
+ {
+  "id": "glossary-lgu",
+  "text": "LGU\nLocal Government Unit (province, city, municipality, barangay) in the Philippines. LGU TORs commonly involve permits, citizen requests, and fee payments."
+ },
+ {
+  "id": "glossary-master_data",
+  "text": "Master data\nCore reference entities shared across the system (customers, products, offices, employees). Needs maintenance screens and often migration."
+ },
+ {
+  "id": "glossary-mfa",
+  "text": "MFA\nMulti-factor authentication: a login requiring two or more factors such as password plus one-time code."
+ },
+ {
+  "id": "glossary-minimum_viable_product_mvp",
+  "text": "Minimum viable product (MVP)\nThe smallest release that delivers usable value to real users, used to validate the solution before further phases."
+ },
+ {
+  "id": "glossary-non_functional_requirement_nfr",
+  "text": "Non-functional requirement (NFR)\nA quality attribute of the system (performance, security, availability, usability) rather than a function. Generic NFRs become assumptions; measurable ones become nfr features."
+ },
+ {
+  "id": "glossary-otp",
+  "text": "OTP\nOne-time password/code sent via SMS or email or generated by an authenticator app, used for MFA or verification."
+ },
+ {
+  "id": "glossary-owasp_top_10",
+  "text": "OWASP Top 10\nA widely used list of the most critical web application security risks. A common basis for secure-coding assumptions and security testing."
+ },
+ {
+  "id": "glossary-penetration_test_vapt",
+  "text": "Penetration test (VAPT)\nVulnerability Assessment and Penetration Testing, often done by a third party before go-live. Remediation effort should be assumed or sized."
+ },
+ {
+  "id": "glossary-pii",
+  "text": "PII\nPersonally Identifiable Information: data that identifies a person (name, address, mobile number, email, government ID). Must be protected and masked in logs."
+ },
+ {
+  "id": "glossary-product_owner",
+  "text": "Product owner\nThe client representative who prioritizes the backlog and accepts features."
+ },
+ {
+  "id": "glossary-rbac",
+  "text": "RBAC\nRole-Based Access Control: permissions assigned to roles, and roles assigned to users."
+ },
+ {
+  "id": "glossary-reconciliation",
+  "text": "Reconciliation\nComparing two sets of records (e.g., payments in the system vs. gateway settlement report, source vs. migrated counts) to find mismatches."
+ },
+ {
+  "id": "glossary-rpo",
+  "text": "RPO\nRecovery Point Objective: maximum acceptable data loss measured in time (e.g., 1 hour)."
+ },
+ {
+  "id": "glossary-rto",
+  "text": "RTO\nRecovery Time Objective: maximum acceptable time to restore service after a failure (e.g., 4 hours)."
+ },
+ {
+  "id": "glossary-sandbox",
+  "text": "Sandbox\nA test environment provided by an external party (payment gateway, government agency) to develop and test an integration without real transactions."
+ },
+ {
+  "id": "glossary-sla",
+  "text": "SLA\nService Level Agreement: a committed service target, such as response/resolution times for support or processing time limits in a workflow."
+ },
+ {
+  "id": "glossary-sso",
+  "text": "SSO\nSingle Sign-On: users log in once with an enterprise identity provider (e.g., via SAML or OpenID Connect) and access several applications."
+ },
+ {
+  "id": "glossary-terms_of_reference_tor",
+  "text": "Terms of Reference (TOR)\nThe client document describing the scope, requirements, deliverables, timeline and conditions for a procurement or project."
+ },
+ {
+  "id": "glossary-uat",
+  "text": "UAT\nUser Acceptance Testing: testing by client users to confirm the system meets business needs before go-live."
+ },
+ {
+  "id": "glossary-webhook",
+  "text": "Webhook\nAn HTTP callback sent by an external system (e.g., payment gateway) to notify the application of an event such as a successful payment."
+ },
+ {
+  "id": "glossary-wcag_2_1_aa",
+  "text": "WCAG 2.1 AA\nWeb Content Accessibility Guidelines level AA, a common accessibility conformance target for public-facing government and enterprise sites."
+ },
+ {
+  "id": "glossary-work_breakdown_structure_wbs",
+  "text": "Work breakdown structure (WBS)\nA hierarchical decomposition of project scope into deliverables and work packages, often requested in TOR proposals."
+ },
+ {
+  "id": "P01-TOR_summary",
+  "text": "Past project P01 (Port Management System with berth scheduling). TOR summary:\nA fictional regional port terminal operator needed one system for vessel calls, berth planning, container yard, gates, passenger terminals and billing. Shipping lines register online and are approved by the port. Each vessel visit is applied for, assessed, berthed, worked (discharge/load, tally, cargo movements), completed and billed. The container yard needed a configurable block/stack/tier layout with slot positioning. Gates issue and check gate passes, including weighing-scale lanes. Passenger terminals record onboarding with QR tickets. Billing produces statements of account per visit and monthly, from rate tables, and posts invoices to the client's ERP. Delivered in 6 months by a Mid team (PM 1, TA 0.5, Dev 4, UI 1, BA 1, QA 2), development phase only."
+ },
+ {
+  "id": "P01-Foundation",
+  "text": "Past project P01 (Port Management System with berth scheduling). Foundation:\nCloud-deployed services on a managed Kubernetes cluster with GitOps deployment and CI pipelines; container registry; local accounts with JWT and fine-grained permissions; metrics endpoint and monitoring console; core data model with audit columns."
+ },
+ {
+  "id": "P01-Assumptions",
+  "text": "Past project P01 (Port Management System with berth scheduling). Assumptions:\n- Default architecture: cloud-deployed microservices on a managed container platform; cloud and license costs are excluded and handled in the costing sheet.\n- The client provides ERP API documentation and a test instance.\n- Estimate covers the development phase only; UAT support and warranty not included."
+ },
+ {
+  "id": "P01-Exclusions",
+  "text": "Past project P01 (Port Management System with berth scheduling). Exclusions:\n- Gate hardware, weighing scales, QR scanners and printers.\n- ERP licenses and configuration.\n- Data migration of historical visits (not required)."
+ },
+ {
+  "id": "P02-TOR_summary",
+  "text": "Past project P02 (Energy Trading & Billing System). TOR summary:\nA fictional power generation and retail supply company needed one platform for customer and contract management, wholesale-market trading operations, and customer billing and collections. Customers and their supply contracts are registered and reviewed. Trading staff extract market data on a schedule, declare bilateral contract quantities, nominate plant capacity, submit offers to the market, and monitor real-time dispatch. Billing computes monthly bills from contract formulas, market determinants and rate tables, applies interest and penalties, records payments, and produces statements, invoices and revenue reports. Customers use a self-service portal. Delivered in 9 months by a Large team (PM 1, TA 1, Dev 4, UI 1.5, BA 1, QA 3), development phase only."
+ },
+ {
+  "id": "P02-Foundation",
+  "text": "Past project P02 (Energy Trading & Billing System). Foundation:\nCloud-deployed microservices (about ten deployables) on a managed Kubernetes cluster: API gateway, service discovery and central configuration, message broker between services, shared service libraries, distributed tracing and metrics, central audit service, GitOps deployment with CI pipelines, local accounts with JWT and roles."
+ },
+ {
+  "id": "P02-Assumptions",
+  "text": "Past project P02 (Energy Trading & Billing System). Assumptions:\n- Default architecture: cloud-deployed microservices on a managed container platform; cloud and license costs are excluded and handled in the costing sheet.\n- Market operator interfaces and file formats are documented and stable.\n- Estimate covers the development phase only; UAT support and warranty not included."
+ },
+ {
+  "id": "P02-Exclusions",
+  "text": "Past project P02 (Energy Trading & Billing System). Exclusions:\n- Market operator registration and fees.\n- ERP licenses and configuration.\n- Metering hardware."
+ },
+ {
+  "id": "P03-TOR_summary",
+  "text": "Past project P03 (On-demand motorcycle courier app, Metro Manila). TOR summary:\nA fictional courier start-up wanted a same-day motorcycle delivery service in Metro Manila with a 90-minute delivery promise. Customers book pickups in a mobile app, see a computed fare, add built-in package insurance, pay by e-wallet or card, and track their rider live on a map. Riders apply through a rider app, complete training and an exam, and receive jobs from an automatic dispatch and matching engine. Operations staff monitor every active delivery against the 90-minute SLA on a live map, reassign jobs, handle insurance claims and support tickets, and pay riders weekly. Delivered in 6 months by a Mid team (PM 1, TA 0.5, Dev 4, UI 1, BA 1, QA 2), development phase only."
+ },
+ {
+  "id": "P03-Foundation",
+  "text": "Past project P03 (On-demand motorcycle courier app, Metro Manila). Foundation:\nCloud-deployed microservices (customer, rider, dispatch, pricing, payments, notifications) behind an API gateway, on a managed container platform; infrastructure-as-code for dev/UAT/prod; CI/CD per service; customer and rider identity with OTP; central logging, metrics and tracing; core data model."
+ },
+ {
+  "id": "P03-Assumptions",
+  "text": "Past project P03 (On-demand motorcycle courier app, Metro Manila). Assumptions:\n- Default architecture: cloud-deployed microservices; cloud and license costs are excluded and handled in the costing sheet.\n- Native mobile apps for customers and riders built with one cross-platform framework.\n- Map, SMS, e-wallet and insurance-partner APIs have sandboxes.\n- Estimate covers the development phase only; UAT support and warranty not included."
+ },
+ {
+  "id": "P03-Exclusions",
+  "text": "Past project P03 (On-demand motorcycle courier app, Metro Manila). Exclusions:\n- Rider phones, helmets and delivery boxes.\n- Map API, SMS and payment transaction fees.\n- Insurance underwriting (provided by an insurance partner)."
+ },
+ {
+  "id": "P04-TOR_summary",
+  "text": "Past project P04 (Loans Originating System with automated loanable-amount computation). TOR summary:\nA fictional consumer lending company wanted applicants to apply for salary and personal loans online and get an automated loanable amount. Applicants register, complete a multi-step application, and upload documents. A rules engine checks eligibility and computes the loanable amount from income, existing obligations and product rules. A credit-bureau check is run automatically. Applications are approved in two levels (credit officer, then credit manager), and applicants are notified at each step. Administrators maintain loan products and rules without code changes. Delivered in 4 months by a Small team (PM 1, TA 0.5, Dev 2, UI 1, BA 1, QA 1), development phase only."
+ },
+ {
+  "id": "P04-Foundation",
+  "text": "Past project P04 (Loans Originating System with automated loanable-amount computation). Foundation:\nCloud-deployed microservices (applicant, origination, rules, notifications) behind an API gateway; infrastructure-as-code for dev/UAT/prod; CI/CD per service; applicant and staff identity with RBAC; central logging and monitoring; core data model."
+ },
+ {
+  "id": "P04-Assumptions",
+  "text": "Past project P04 (Loans Originating System with automated loanable-amount computation). Assumptions:\n- Default architecture: cloud-deployed microservices; cloud and license costs are excluded and handled in the costing sheet.\n- One credit bureau with documented API and sandbox.\n- Loan servicing (disbursement, collections) is out of scope.\n- Estimate covers the development phase only; UAT support and warranty not included."
+ },
+ {
+  "id": "P04-Exclusions",
+  "text": "Past project P04 (Loans Originating System with automated loanable-amount computation). Exclusions:\n- Credit bureau subscription and per-inquiry fees.\n- Third-party penetration test fees.\n- Loan management/servicing system."
+ },
+ {
+  "id": "P05-TOR_summary",
+  "text": "Past project P05 (Inventory and Warehouse Management System). TOR summary:\nA fictional consumer-goods distributor with three warehouses and its own delivery trucks wanted a web and mobile warehouse system. Scope covered item and supplier masters, purchase requisitions and orders with approval, goods receipt with lot and expiry, putaway, stock transfers, cycle counts, order intake from an e-commerce channel, wave picking, packing, dispatch, proof of delivery, customer returns, replenishment, kitting, and reports. Warehouse staff use a mobile scanning app that works offline. Stock and receipts are exchanged with the existing ERP. Delivered in 6 months by a Mid team (PM 1, TA 0.5, Dev 4, UI 1, BA 1, QA 2), development phase only."
+ },
+ {
+  "id": "P05-Foundation",
+  "text": "Past project P05 (Inventory and Warehouse Management System). Foundation:\nCloud-deployed microservices (catalog, inbound, inventory, outbound, integration, reporting) behind an API gateway; infrastructure-as-code for dev/UAT/prod; CI/CD per service; staff identity with RBAC scoped by warehouse; central logging and monitoring; core data model."
+ },
+ {
+  "id": "P05-Assumptions",
+  "text": "Past project P05 (Inventory and Warehouse Management System). Assumptions:\n- Default architecture: cloud-deployed microservices; cloud and license costs are excluded and handled in the costing sheet.\n- ERP and e-commerce channel APIs are documented with test environments.\n- Mobile scanning app runs on Android handhelds.\n- Estimate covers the development phase only; UAT support and warranty not included."
+ },
+ {
+  "id": "P05-Exclusions",
+  "text": "Past project P05 (Inventory and Warehouse Management System). Exclusions:\n- Handheld scanners, label printers and racking.\n- ERP changes and licenses.\n- Courier service fees."
+ },
+ {
+  "id": "P06-TOR_summary",
+  "text": "Past project P06 (LGU Citizen Request and Complaint Tracker). TOR summary:\nA fictional municipality wanted citizens to file requests and complaints (road repair, garbage collection, streetlights, document requests) online or through the public assistance desk, track them with a reference number, and receive updates. Requests are routed automatically to the responsible department by category and barangay, with SLA timers and escalation to the department head when overdue. The mayor's office wanted a public statistics page and an internal dashboard. Citizens could attach photos and a map location. The TOR required WCAG 2.1 AA for the public site. Delivered in 4 months by a Small team (PM 1, TA 0.5, Dev 2, UI 1, BA 1, QA 1), development phase only."
+ },
+ {
+  "id": "P06-Foundation",
+  "text": "Past project P06 (LGU Citizen Request and Complaint Tracker). Foundation:\nCloud-deployed microservices (intake, case management, notifications, reporting) behind an API gateway; infrastructure-as-code for dev/UAT/prod; CI/CD per service; staff identity with RBAC; central logging and monitoring; core data model."
+ },
+ {
+  "id": "P06-Assumptions",
+  "text": "Past project P06 (LGU Citizen Request and Complaint Tracker). Assumptions:\n- Default architecture: cloud-deployed microservices; cloud and license costs are excluded and handled in the costing sheet.\n- Map pin uses a free map tile service; no paid GIS license.\n- Barangay-to-department mapping is provided by the municipality.\n- Estimate covers the development phase only; UAT support and warranty not included."
+ },
+ {
+  "id": "P06-Exclusions",
+  "text": "Past project P06 (LGU Citizen Request and Complaint Tracker). Exclusions:\n- Desktop computers for the public assistance desk.\n- Hotline/call-center telephony.\n- Content writing for the public page."
+ },
+ {
+  "id": "proposal_sections-executive_summary",
+  "text": "Executive summary\nOpen with what the client wants to achieve and why it matters to the business, then state in one or two sentences what the vendor proposes. Say how the work will be delivered, and close with what the client gets at the end. Stay under two short paragraphs. Do not list features or commercial details here."
+ },
+ {
+  "id": "proposal_sections-client_requirements",
+  "text": "Client requirements\nRestate the client's needs in the client's own terms, grouped by business area. This section shows that the vendor read and understood the request. Each item is short, faithful to the Terms of Reference and free of solution detail."
+ },
+ {
+  "id": "proposal_sections-proposed_solution",
+  "text": "Proposed solution\nDescribe the solution as a whole: the main capabilities it brings together, who uses them and how they fit the client's way of working. Explain the approach in plain language and name the benefits the client asked for. Avoid product marketing and avoid promises the scope does not support."
+ },
+ {
+  "id": "proposal_sections-functional_and_non_functional_scope",
+  "text": "Functional and non-functional scope\nSet out what will be built. Functional items are grouped by module with one clear statement each. Non-functional items cover quality targets, hosting, security and compatibility, stated as the client stated them. Anything still to be confirmed is pointed out rather than hidden."
+ },
+ {
+  "id": "proposal_sections-project_deliverables",
+  "text": "Project deliverables\nList what the client receives: planning documents, requirements and design documents, the deployed system, test results, manuals, training and turnover materials. Each entry is a concrete item the client can check and sign off."
+ },
+ {
+  "id": "proposal_sections-technical_architecture",
+  "text": "Technical architecture\nSummarize the architecture at reference level: application layers, services, data store, integration approach, environments and how the system scales and is secured. Explain why the design suits the requirement. Leave low-level design to the project itself."
+ },
+ {
+  "id": "proposal_sections-assumptions_and_exclusions",
+  "text": "Assumptions and exclusions\nState the conditions the proposal relies on and what is outside it. Typical topics are the client's product owner and decision-making, the working arrangement between the teams, how new features are handled through change requests, sign-off of deliverables, third-party dependencies, who runs user acceptance testing and who operates the system after turnover. Exclusions are listed plainly."
+ },
+ {
+  "id": "proposal_sections-delivery_methodology",
+  "text": "Delivery methodology\nExplain the agile, iterative approach: short time-boxed cycles, regular demonstrations, continuous feedback from the client and incremental releases. Describe quality practices across the cycle and how changes to scope are controlled. Describe how AI assistants and agents support delivery under human supervision, with people reviewing, integrating and approving every output."
+ },
+ {
+  "id": "proposal_sections-project_team",
+  "text": "Project team\nPresent the roles the vendor assigns and what each is responsible for, such as project manager, technical architect, business analyst, developers, quality engineers and infrastructure engineer. Mention what is expected from the client's side. Show roles and their allocation, never individual names or internal costs."
+ },
+ {
+  "id": "proposal_sections-timeline_and_milestones",
+  "text": "Timeline and milestones\nShow the phases from mobilization to go-live in a simple table, with the main milestones and what the client must provide for each. Note that dates assume timely client decisions and access."
+ },
+ {
+  "id": "proposal_sections-commercial_pricing_and_payment_milestones",
+  "text": "Commercial pricing and payment milestones\nPresent the total price in a clear table, with tax shown separately, followed by the payment schedule tied to milestones. Keep this section factual. Show only the price and the payment terms, never how the price was built up."
+ },
+ {
+  "id": "proposal_sections-warranty_and_support",
+  "text": "Warranty and support\nExplain what the warranty covers, how long it lasts, how defects are reported and corrected, and what falls outside it. Any further support is described as a separate option."
+ },
+ {
+  "id": "proposal_sections-terms_requiring_management_review",
+  "text": "Terms requiring management review\nFor internal review before the draft is sent: list the terms that differ from the client's request or still need a decision. Each entry is one neutral line. Remove this section once management has decided."
+ }
+]

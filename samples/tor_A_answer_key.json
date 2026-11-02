@@ -1,0 +1,35 @@
+{
+  "tor_id": "tor_A_clean",
+  "title": "Online School Enrollment System — Terms of Reference (synthetic)",
+  "domain": "school_enrollment",
+  "domain_complexity": "standard",
+  "pages": 5,
+  "features": [
+    {"id": "A01", "name": "Parent/guardian account registration with email verification", "type": "screen_crud", "expected_size": "M", "source_section": "3.1", "source_pages": [2]},
+    {"id": "A02", "name": "New student online enrollment application", "type": "screen_crud", "expected_size": "M", "source_section": "3.2", "source_pages": [2]},
+    {"id": "A03", "name": "Returning student re-enrollment prefilled from prior year", "type": "screen_crud", "expected_size": "S", "source_section": "3.3", "source_pages": [2]},
+    {"id": "A04", "name": "Requirements document upload with checklist", "type": "screen_crud", "expected_size": "M", "source_section": "3.4", "source_pages": [2]},
+    {"id": "A05", "name": "Registrar review with approve and return-for-correction", "type": "workflow", "expected_size": "M", "source_section": "3.5", "source_pages": [3]},
+    {"id": "A06", "name": "Section assignment with capacity limits", "type": "workflow", "expected_size": "L", "source_section": "3.6", "source_pages": [3]},
+    {"id": "A07", "name": "Tuition and fee assessment with discounts and payment plans", "type": "workflow", "expected_size": "L", "source_section": "3.7", "source_pages": [3]},
+    {"id": "A08", "name": "Online payment through payment gateway with reconciliation", "type": "integration", "expected_size": "L", "source_section": "3.8", "source_pages": [3]},
+    {"id": "A09", "name": "Email and SMS enrollment status notifications", "type": "notification", "expected_size": "M", "source_section": "3.9", "source_pages": [3]},
+    {"id": "A10", "name": "Certificate of enrollment PDF with QR verification", "type": "report_dashboard", "expected_size": "M", "source_section": "3.10", "source_pages": [4]},
+    {"id": "A11", "name": "Class list report per section", "type": "report_dashboard", "expected_size": "S", "source_section": "3.11", "source_pages": [4]},
+    {"id": "A12", "name": "Enrollment dashboard for school administrators", "type": "report_dashboard", "expected_size": "L", "source_section": "3.12", "source_pages": [4]},
+    {"id": "A13", "name": "School year, grade level, section and fee table maintenance", "type": "admin_config", "expected_size": "M", "source_section": "3.13", "source_pages": [4]},
+    {"id": "A14", "name": "Staff user and role administration", "type": "admin_config", "expected_size": "M", "source_section": "3.14", "source_pages": [4]},
+    {"id": "A15", "name": "Audit trail with search", "type": "admin_config", "expected_size": "M", "source_section": "3.15", "source_pages": [4]},
+    {"id": "A16", "name": "Migration of existing student records from spreadsheets", "type": "data_migration", "expected_size": "M", "source_section": "3.16", "source_pages": [4]}
+  ],
+  "expected_questions": [
+    "Which payment gateway provider will the school use, and is a sandbox available?",
+    "Which SMS provider will be used for notifications?"
+  ],
+  "expected_exclusions": [
+    "Supply of computers, printers or scanners for the registrar's office",
+    "Payment gateway transaction fees and SMS charges",
+    "Encoding of paper-only student records"
+  ],
+  "planted_flaws": []
+}

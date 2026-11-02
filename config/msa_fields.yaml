@@ -1,0 +1,16 @@
+# Filling the MSA from the record. Keys are the template's placeholder labels, in lower case, without the angle brackets; values are
+# contract fields. No clause text belongs in this file: the template itself is read at runtime from the private Drive templates/ folder.
+placeholders:
+  insert client name: client_name
+  client: client_name
+  insert client's representative name: client_representative
+  designation: representative_designation
+# Clauses listed for legal review: a heading matching one of these goes on the checklist.
+review_categories:
+  Intellectual property: intellectual property|ownership
+  Confidentiality: confidential
+  Data privacy: data privacy|data protection|personal data
+  Liability and indemnification: liabilit|indemni
+  Term and termination: \bterm\b|terminat
+  Payment: payment|fees?\b|invoic
+  Dispute resolution: dispute|arbitrat|governing law

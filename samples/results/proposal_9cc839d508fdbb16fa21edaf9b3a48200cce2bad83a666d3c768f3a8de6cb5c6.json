@@ -1,0 +1,22 @@
+{
+"delivery_methodology": [
+"The project will be executed using an AI-enabled agile approach characterized by short, time-boxed development cycles with regular demonstrations and continuous client feedback. This iterative process allows for incremental delivery of features, ensuring alignment with client expectations and timely adjustments to scope.",
+"AI tools assist in drafting documentation, code generation, and testing, while human experts review, integrate, and approve all outputs to maintain quality and relevance. Quality assurance practices are embedded throughout the cycle, including automated testing and code reviews. Change management processes ensure that any modifications to requirements are controlled and communicated effectively."
+],
+"executive_summary": [
+"Kalinaw Trading Corporation seeks to enhance its human resource management through a comprehensive Human Resource Information System (HRIS) that streamlines employee data management, leave and attendance tracking, and reporting. This initiative is critical to improving operational efficiency, data accuracy, and employee self-service capabilities across the organization.",
+"Exist Software Labs proposes a tailored HRIS solution that integrates seamlessly with the Company's existing workflows and payroll systems. The project will be delivered using an AI-enabled agile methodology, ensuring iterative development with continuous client feedback. Upon completion, Kalinaw Trading Corporation will have a robust, cloud-deployed system that supports management decision-making and empowers employees with self-service tools."
+],
+"proposed_solution": [
+"The proposed HRIS solution consolidates key human resource functions including employee information management, leave and attendance tracking, payroll interfacing, and comprehensive reporting. It supports multiple user roles such as employees, HR staff, approvers, and management, each with tailored access and capabilities. Employees can view and update personal data, file leave and overtime requests, and access payslips, while HR staff manage organizational structures, leave policies, and approvals.",
+"This solution aligns with Kalinaw Trading Corporation\u2019s operational needs by automating routine HR processes, enhancing data accuracy, and providing real-time insights through dashboards and reports. The integration with payroll systems ensures seamless data exchange, reducing manual effort and errors. The system\u2019s mobile accessibility supports employees at branches without dedicated computers, promoting inclusivity and ease of use."
+],
+"technical_architecture": [
+"The HRIS is designed as a cloud-deployed microservices architecture utilizing Java with Spring Boot for backend services, React for the frontend interface, and PostgreSQL as the primary data store. This layered architecture separates concerns across presentation, business logic, and data persistence, facilitating scalability and maintainability.",
+"Integration with the payroll system is achieved through secure, scheduled data exchanges, ensuring synchronization of attendance, leave, and payslip information. The system is hosted in a public cloud environment with distinct development, test (UAT), and production environments to support continuous integration and deployment. Security is enforced through role-based access control, audit trails, and encrypted communications, meeting the Company\u2019s data privacy requirements."
+],
+"warranty_support": [
+"The solution includes a warranty period during which any defects or issues identified will be promptly addressed and corrected at no additional cost. Defects can be reported through a defined support channel, and resolution timelines will be communicated transparently.",
+"The warranty covers functional defects and system performance issues arising from the delivered solution. It excludes enhancements, new features, or issues caused by external factors. Additional support and maintenance services beyond the warranty period are available as separate options to ensure ongoing system reliability and performance."
+]
+}

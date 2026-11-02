@@ -1,0 +1,152 @@
+{
+ "tor_id": "delivery",
+ "title": "On-demand multi-merchant delivery ecosystem (Label: description bullets)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 5,
+ "features": [
+  {
+   "id": "D01",
+   "name": "Identity and profile",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "2.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "D02",
+   "name": "Discovery engine (search and filtering)",
+   "type": "screen_crud",
+   "expected_size": "L",
+   "source_section": "2.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "D03",
+   "name": "Checkout and payment settlement",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "2.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "D04",
+   "name": "Live order tracking",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "D05",
+   "name": "Rider onboarding and duty toggle",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2.2",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D06",
+   "name": "Intelligent job dispatch",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "2.2",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D07",
+   "name": "Turn-by-turn navigation",
+   "type": "integration",
+   "expected_size": "M",
+   "source_section": "2.2",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D08",
+   "name": "Proof of delivery",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2.2",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D09",
+   "name": "Merchant order lifecycle management",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2.3",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D10",
+   "name": "Dynamic catalogue management",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "2.3",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D11",
+   "name": "Merchant financial settlement",
+   "type": "report_dashboard",
+   "expected_size": "M",
+   "source_section": "2.3",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D12",
+   "name": "Global control tower",
+   "type": "report_dashboard",
+   "expected_size": "L",
+   "source_section": "2.4",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D13",
+   "name": "Financial configuration (fees and commissions)",
+   "type": "admin_config",
+   "expected_size": "M",
+   "source_section": "2.4",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "D14",
+   "name": "User authorization (RBAC)",
+   "type": "admin_config",
+   "expected_size": "M",
+   "source_section": "2.4",
+   "source_pages": [
+    3
+   ]
+  }
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

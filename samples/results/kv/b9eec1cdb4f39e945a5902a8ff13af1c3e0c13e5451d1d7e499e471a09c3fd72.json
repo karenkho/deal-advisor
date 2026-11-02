@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Leave Applications", "Approvers"], "feature_id": "F-084165", "nfr_ids": [], "question_keys": [], "rule_ids": [], "statement": "The system shall allow approvers to approve, reject or return a leave application with remarks."}

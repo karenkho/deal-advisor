@@ -1,0 +1,44 @@
+{
+ "generated_at": "2026-10-30 19:15 UTC",
+ "commit": "01e69bb",
+ "uncommitted_changes": false,
+ "tests": {
+  "total": 285,
+  "passed": 285,
+  "leak_guardrail": {
+   "total": 12,
+   "passed": 12
+  },
+  "injection_and_pii": {
+   "total": 4,
+   "passed": 4
+  }
+ },
+ "regressions": [
+  {
+   "project": "P01",
+   "size": "Mid",
+   "target_months": 6,
+   "computed_months": 6.06,
+   "within_10_pct": true
+  },
+  {
+   "project": "P02",
+   "size": "Large",
+   "target_months": 9,
+   "computed_months": 9.02,
+   "within_10_pct": true
+  }
+ ],
+ "quick_eval": {
+  "doc": "docs/poc_results.md",
+  "summary": "## Summary\n\n| TOR | Pages | Features (key) | Coverage recall (LLM judge) | Coverage recall (fuzzy/embedding) | Extra features not in key | Sizing exact | Sizing within one tier | Planted flaws caught | Runtime | Tokens | Est. LLM cost |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| tor_A_clean | 5 | 17 (16) | 100% | 100% | 0 | 14/16 (88%) | 16/16 (100%) | n/a | 43 s | 73,806 | $0.039 |\n| tor_B_messy | 16 | 22 (18) | 100% | 78% | 3 | 8/18 (44%) | 18/18 (100%) | 7/7 | 78 s | 103,829 | $0.051 |\n\nMatching: each answer-key feature is matched to an in-scope system feature by an LLM judge (gpt-4.1-mini, one call per TOR: same capability, possibly broader or differently worded; several key features may map to one system feature). The score column shows the embedding similarity for reference. Fallback if the judge fails: an answer-key feature counts as found when a system feature has embedding cosine ≥ 0.65 (≥ 0.6 when feature types agree; key name without parentheses vs system name, or vs system name + description) or rapidfuzz token-set ratio ≥ 75. Several key features may map to one broader system feature."
+ },
+ "stability": {
+  "doc": "docs/stability.md",
+  "hris": "## tor_A_clean\n\n3 runs with the extraction and result caches bypassed (temperature 0, fixed seed). Features per run: [18, 18, 19]. Live cost of the runs: $0.147. Development-set input (prompts were tuned on it), not a held-out result.\n\n| Metric | Mean | Worst pair | Target | Result |\n|---|---:|---:|---:|---|\n| Feature-set overlap, strict (same name or embedding ≥ 0.85) | 0.87 | 0.76 | ≥ 0.85 | PASS |\n| Feature-set overlap, capability-matched (LLM judge) | 0.93 | 0.85 | ≥ 0.85 | PASS |\n| Size agreement (matched features) | 83% | 76% | ≥ 85% | BELOW |\n| Total hours, Traditional (pre-AI) | 3745, 4153, 4204 | ±7.2% | ±5% | BELOW |\n| Total hours, AI-enabled, same team | 2574, 2857, 2893 | ±7.2% | ±5% | BELOW |\n| Total hours, AI-enabled, same deadline | 2853, 3164, 3203 | ±7.2% | ±5% | BELOW |",
+  "tor_a": "## tor_A_clean\n\n3 runs with the extraction and result caches bypassed (temperature 0, fixed seed). Features per run: [18, 18, 19]. Live cost of the runs: $0.147. Development-set input (prompts were tuned on it), not a held-out result.\n\n| Metric | Mean | Worst pair | Target | Result |\n|---|---:|---:|---:|---|\n| Feature-set overlap, strict (same name or embedding ≥ 0.85) | 0.87 | 0.76 | ≥ 0.85 | PASS |\n| Feature-set overlap, capability-matched (LLM judge) | 0.93 | 0.85 | ≥ 0.85 | PASS |\n| Size agreement (matched features) | 83% | 76% | ≥ 85% | BELOW |\n| Total hours, Traditional (pre-AI) | 3745, 4153, 4204 | ±7.2% | ±5% | BELOW |\n| Total hours, AI-enabled, same team | 2574, 2857, 2893 | ±7.2% | ±5% | BELOW |\n| Total hours, AI-enabled, same deadline | 2853, 3164, 3203 | ±7.2% | ±5% | BELOW |"
+ },
+ "calibration_doc": "docs/calibration.md",
+ "spend_ledger_usd_at_build": 3.844
+}

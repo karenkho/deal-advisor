@@ -1,0 +1,338 @@
+{
+ "cold": {
+  "reps": 1,
+  "seconds": [
+   194.6
+  ],
+  "seconds_median": 194.6,
+  "usd_mean": 0.0837,
+  "tokens_mean": 104244,
+  "brs": [
+   28
+  ],
+  "steps": {
+   "intake_guard": {
+    "ms": 2510,
+    "usd": 0.0003,
+    "status": "live"
+   },
+   "extract_consolidate": {
+    "ms": 20902,
+    "usd": 0.0169,
+    "status": "live"
+   },
+   "router": {
+    "ms": 10299,
+    "usd": 0.0003,
+    "status": "live"
+   },
+   "sizing_agent": {
+    "ms": 61052,
+    "usd": 0.0021,
+    "status": "live"
+   },
+   "coverage_critic": {
+    "ms": 4608,
+    "usd": 0.0033,
+    "status": "live"
+   },
+   "calculator": {
+    "ms": 0,
+    "usd": 0,
+    "status": "live"
+   },
+   "assess_ai_suitability": {
+    "ms": 51592,
+    "usd": 0.0414,
+    "status": "live"
+   },
+   "extract_brd": {
+    "ms": 28279,
+    "usd": 0.0144,
+    "status": "live"
+   },
+   "evaluate_deal_risks": {
+    "ms": 14025,
+    "usd": 0.0051,
+    "status": "live"
+   }
+  }
+ },
+ "extraction_stored": {
+  "reps": 1,
+  "seconds": [
+   186.83
+  ],
+  "seconds_median": 186.83,
+  "usd_mean": 0.0687,
+  "tokens_mean": 82547,
+  "brs": [
+   28
+  ],
+  "steps": {
+   "intake_guard": {
+    "ms": 1185,
+    "usd": 0.0003,
+    "status": "live"
+   },
+   "extract_consolidate": {
+    "ms": 5920,
+    "usd": 0.0015,
+    "status": "live"
+   },
+   "router": {
+    "ms": 9490,
+    "usd": 0.0003,
+    "status": "live"
+   },
+   "sizing_agent": {
+    "ms": 66190,
+    "usd": 0.0022,
+    "status": "live"
+   },
+   "coverage_critic": {
+    "ms": 4552,
+    "usd": 0.0033,
+    "status": "live"
+   },
+   "calculator": {
+    "ms": 0,
+    "usd": 0,
+    "status": "live"
+   },
+   "assess_ai_suitability": {
+    "ms": 57046,
+    "usd": 0.0415,
+    "status": "live"
+   },
+   "extract_brd": {
+    "ms": 26670,
+    "usd": 0.0145,
+    "status": "live"
+   },
+   "evaluate_deal_risks": {
+    "ms": 14392,
+    "usd": 0.0051,
+    "status": "live"
+   }
+  }
+ },
+ "item_caches": {
+  "reps": 3,
+  "seconds": [
+   3.51,
+   3.41,
+   3.81
+  ],
+  "seconds_median": 3.51,
+  "usd_mean": 0.0,
+  "tokens_mean": 1506,
+  "brs": [
+   28,
+   28,
+   28
+  ],
+  "steps": {
+   "intake_guard": {
+    "ms": 1,
+    "usd": 0,
+    "status": "live"
+   },
+   "extract_consolidate": {
+    "ms": 20,
+    "usd": 0,
+    "status": "live"
+   },
+   "router": {
+    "ms": 1,
+    "usd": 0,
+    "status": "live"
+   },
+   "sizing_agent": {
+    "ms": 2,
+    "usd": 0,
+    "status": "live"
+   },
+   "coverage_critic": {
+    "ms": 1612,
+    "usd": 0.0,
+    "status": "live"
+   },
+   "calculator": {
+    "ms": 0,
+    "usd": 0,
+    "status": "live"
+   },
+   "assess_ai_suitability": {
+    "ms": 846,
+    "usd": 0,
+    "status": "cached"
+   },
+   "extract_brd": {
+    "ms": 4,
+    "usd": 0,
+    "status": "cached"
+   },
+   "evaluate_deal_risks": {
+    "ms": 30,
+    "usd": 0,
+    "status": "cached"
+   }
+  }
+ },
+ "full_result": {
+  "reps": 3,
+  "seconds": [
+   2.2,
+   2.18,
+   2.15
+  ],
+  "seconds_median": 2.18,
+  "usd_mean": 0.0,
+  "tokens_mean": 1506,
+  "brs": [
+   28,
+   28,
+   28
+  ],
+  "steps": {
+   "intake_guard": {
+    "ms": 1,
+    "usd": 0,
+    "status": "cached"
+   },
+   "extract_consolidate": {
+    "ms": 20,
+    "usd": 0,
+    "status": "cached"
+   },
+   "router": {
+    "ms": 1,
+    "usd": 0,
+    "status": "cached"
+   },
+   "sizing_agent": {
+    "ms": 2,
+    "usd": 0,
+    "status": "cached"
+   },
+   "coverage_critic": {
+    "ms": 1612,
+    "usd": 0.0,
+    "status": "cached"
+   },
+   "calculator": {
+    "ms": 0,
+    "usd": 0,
+    "status": "cached"
+   },
+   "assess_ai_suitability": {
+    "ms": 835,
+    "usd": 0,
+    "status": "cached"
+   },
+   "extract_brd": {
+    "ms": 4,
+    "usd": 0,
+    "status": "cached"
+   },
+   "evaluate_deal_risks": {
+    "ms": 32,
+    "usd": 0,
+    "status": "cached"
+   }
+  }
+ },
+ "bundled_sample": {
+  "reps": 3,
+  "seconds": [
+   14.512,
+   2.186,
+   2.16
+  ],
+  "seconds_median": 2.186,
+  "usd_mean": 0.0,
+  "note": "First rep includes the risk agent for the one risk text that no longer matches the shipped cache."
+ },
+ "assumption_edit": {
+  "reps": 3,
+  "seconds": [
+   2.201,
+   2.147,
+   2.178
+  ],
+  "seconds_median": 2.178,
+  "usd_mean": 0.0
+ },
+ "resume_from_postgres_query": {
+  "reps": 3,
+  "seconds": [
+   0.017,
+   0.014,
+   0.014
+  ],
+  "seconds_median": 0.014,
+  "usd_mean": 0.0
+ },
+ "resume_screen": {
+  "reps": 3,
+  "seconds": [
+   0.791,
+   0.089,
+   0.076
+  ],
+  "seconds_median": 0.089,
+  "usd_mean": 0.0
+ },
+ "bulletin_incremental": {
+  "reps": 1,
+  "seconds": [
+   0.23
+  ],
+  "seconds_median": 0.23,
+  "usd_mean": 0.0,
+  "brs_changed": 2,
+  "note": "By rule: no LLM on this bulletin. The optional merged wording costs about USD 0.001 per BR."
+ },
+ "bulletin_full_reprocess": {
+  "reps": 1,
+  "seconds": [
+   115.77
+  ],
+  "seconds_median": 115.77,
+  "usd_mean": 0.0392,
+  "brs": 30,
+  "note": "TOR extraction reused, all else fresh: every BR is sized and reviewed again."
+ },
+ "embedding_unchanged": {
+  "reps": 3,
+  "seconds": [
+   0.076,
+   0.055,
+   0.056
+  ],
+  "seconds_median": 0.056,
+  "usd_mean": 0.0,
+  "embedded": 0,
+  "chunks": 348
+ },
+ "embedding_one_changed": {
+  "reps": 1,
+  "seconds": [
+   0.497
+  ],
+  "seconds_median": 0.497,
+  "usd_mean": 0.0,
+  "embedded": 1,
+  "chunks": 348
+ },
+ "partly_warm_earlier_cold_runs": {
+  "reps": 2,
+  "seconds": [
+   125.47,
+   122.38
+  ],
+  "usd_mean": 0.0515,
+  "note": "This machine's local item cache served part of these; kept for the record."
+ }
+}

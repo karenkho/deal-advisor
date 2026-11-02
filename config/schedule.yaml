@@ -1,0 +1,74 @@
+# Phase timeline (POC v2). ASSUMPTIONS. Agile overlap model, never total effort / developers:
+# - core window (requirements -> testing) = the role-capacity bottleneck over all core work (role hours / (FTE x
+#   hours per FTE-month), every role working in parallel: the calibrated v1 rule, P01 ~6 / P02 ~9 months), but never
+#   shorter than the critical path requirements -> architecture -> SIT -> testing;
+# - requirements, architecture, SIT and testing durations = the role-capacity bottleneck of their own hours;
+#   development fills the rest of the core window (BA one sprint batch ahead, QA in-sprint);
+# - the core window is the DEVELOPMENT WINDOW the P01/P02 calibration covers (their UAT and pilot were not
+#   included); UAT, pilot run (client-bound, fixed weeks, NOT reduced by AI, staffed by the support team below)
+#   and deployment / go-live (fixed weeks) follow it.
+version: 1
+hours_per_fte_month: 160          # activity hours already include the calibrated delivery overhead
+weeks_per_month: 4.33
+default_start_date: "2027-01-04"  # editable; milestone dates are computed from it
+phases: [requirements, architecture, development, sit, testing, uat, pilot, deployment]
+labels: {requirements: Requirements, architecture: Architecture, development: Development (sprints),
+         sit: Integration (SIT), testing: Testing, uat: "Final UAT (sprint-level demos and acceptance happen during development)", pilot: Pilot run, deployment: Deployment / go-live}
+architecture_overlap: 0.5         # architecture starts when this share of requirements is done
+uat_weeks: 4                      # final UAT, client-bound: NOT reduced by AI (usually 3-4)
+uat_weeks_range: [2, 6]           # validation range
+pilot_weeks: 4                    # pilot run before go-live: NOT reduced by AI
+deployment_weeks: 2               # deployment / go-live
+# UAT and pilot are staffed by a support team (FTE per scenario), costed at the active rates. Durations stay
+# client-bound in every scenario; productivity profiles never change this staffing.
+# Development-window activities carry no UAT/pilot hours, so nothing is counted twice; PM and TA overhead covers
+# the other phases.
+support_fte:
+  baseline: {PM: 0.5, TA: 0.25, BA: 0.5, Backend: 1, Frontend: 0.5, QA: 1, DevOps: 0.25}
+  B:        {PM: 0.5, TA: 0.25, BA: 0.5, Backend: 1, Frontend: 0.5, QA: 1, DevOps: 0.25}
+  C:        {PM: 0.5, TA: 0.25, BA: 0.5, Backend: 0.75, Frontend: 0.5, QA: 0.5, DevOps: 0.25}
+support_fte_reason:
+  C: "DP-04: automated regression suites re-run during UAT and the pilot, so C needs less QA and Backend support (QA 1 → 0.5, Backend 1 → 0.75)."
+# Share of each activity's hours per phase (rows sum to 1). BA works one sprint batch ahead during
+# development (its story work is in the development phase); QA test design/automation overlap development.
+activity_phases:
+  BA.elicitation_clarification: {requirements: 0.4, development: 0.6}
+  BA.wireframes_prototypes:     {requirements: 0.4, development: 0.6}
+  BA.stories_acceptance:        {requirements: 0.1, development: 0.9}
+  BA.review_acceptance_support: {development: 0.6, testing: 0.4}
+  Backend.technical_design:     {architecture: 0.4, development: 0.6}
+  Backend.coding:               {development: 1.0}
+  Backend.unit_tests:           {development: 1.0}
+  Backend.code_review_integration: {development: 0.7, sit: 0.3}
+  Frontend.ui_implementation:   {development: 1.0}
+  Frontend.component_tests:     {development: 1.0}
+  Frontend.api_integration:     {development: 0.7, sit: 0.3}
+  QA.test_design:               {development: 1.0}
+  QA.test_execution:            {development: 0.7, sit: 0.15, testing: 0.15}
+  QA.test_automation:           {development: 1.0}
+  QA.regression_defects:        {development: 0.5, testing: 0.5}
+  DevOps.pipeline_environment:  {architecture: 0.5, development: 0.5}
+  DevOps.ops_verification:      {development: 0.4, sit: 0.2, testing: 0.1, deployment: 0.3}
+# Team per project size for B and C (v1 template remapped: Dev -> Backend, UI -> Frontend, plus DevOps).
+# The historical baseline has no DevOps FTE: developers did infrastructure work (pooled with Backend).
+devops_fte: {Small: 0.5, Mid: 0.5, Large: 1, XL: 1}
+size_tolerance: 0.10              # size = smallest template whose team finishes the development window within
+                                  # the template's months x (1 + tolerance), historical baseline
+# AI Engineer, pending management confirmation; all ASSUMPTIONS. In B and C the orchestration component of ai_assisted and
+# ai_first_with_review activities moves to this role (hours unchanged, owner changed). Its FTE is sized from those hours
+# first (like other roles, rounded up to fte_step); only spare capacity (FTE minus that need) x coding_share counts as
+# Backend capacity, so nothing is counted twice. At 0 the role does pipeline and orchestration only. The baseline has none,
+# so the baseline and the P01/P02 regressions do not change.
+ai_engineer:
+  coding_share: 0.5
+  fte_step: 0.25
+  pipeline_setup_hours: 120       # B and C only: agent configuration, prompt/template library, test-generation pipeline, evaluation checks
+# Team sizing for B and C. target_duration: FTE per feature-driven role = round_up_to_step(role hours / (window x
+# hours per FTE-month)), min_fte per role with hours and for the BA. same_team: the template team and the duration it
+# produces. PM and TA always come from the template. The baseline always uses the template team.
+team_sizing:
+  mode: target_duration           # target_duration | same_team
+  target_window: baseline         # baseline | client_requested | custom
+  custom_months: 3.0              # used when target_window is custom
+  fte_step: 0.5
+  min_fte: 0.5

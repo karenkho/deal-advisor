@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Holiday Calendar", "Branch", "HR staff"], "feature_id": "F-82546d", "nfr_ids": [], "question_keys": [], "rule_ids": [], "statement": "The system shall allow HR staff to maintain a holiday calendar with regular and special non-working holidays, including local holidays that apply only to specific branches."}

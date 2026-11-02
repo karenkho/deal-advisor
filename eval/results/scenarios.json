@@ -1,0 +1,575 @@
+{
+ "S01": {
+  "id": "S01",
+  "title": "HRIS full v3 flow",
+  "kind": "flow",
+  "outcome": "Intake to Contract-Ready with three approvals",
+  "passed": true,
+  "checks": {
+   "reached Contract-Ready": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S02": {
+  "id": "S02",
+  "title": "Injection line in a TOR",
+  "kind": "guardrail",
+  "outcome": "Line removed, finding logged, never reaches the LLM",
+  "passed": true,
+  "checks": {
+   "line removed": true,
+   "finding logged": true,
+   "the requirement stays": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S03": {
+  "id": "S03",
+  "title": "PII in a TOR",
+  "kind": "guardrail",
+  "outcome": "Masked before the LLM and logs",
+  "passed": true,
+  "checks": {
+   "email masked": true,
+   "mobile masked": true,
+   "count recorded": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S04": {
+  "id": "S04",
+  "title": "Non-TOR upload",
+  "kind": "guardrail",
+  "outcome": "Rejected with a reason, no further tools",
+  "passed": true,
+  "checks": {
+   "rejected": true,
+   "no BRs": true,
+   "a reason": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S05": {
+  "id": "S05",
+  "title": "Vague requirement",
+  "kind": "behaviour",
+  "outcome": "Open question raised",
+  "passed": true,
+  "checks": {
+   "open question on the vague requirement": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S06": {
+  "id": "S06",
+  "title": "Conflicting statements",
+  "kind": "behaviour",
+  "outcome": "Conflict question; neutral BR title",
+  "passed": true,
+  "checks": {
+   "conflict question": true,
+   "neutral title": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S07": {
+  "id": "S07",
+  "title": "Implied migration",
+  "kind": "behaviour",
+  "outcome": "Critic suggests scope; not priced",
+  "passed": true,
+  "checks": {
+   "critic suggested migration": true,
+   "marked suggested, so not priced": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S08": {
+  "id": "S08",
+  "title": "Hardware item",
+  "kind": "behaviour",
+  "outcome": "An exclusion or vendor supply, not a BR",
+  "passed": true,
+  "checks": {
+   "found": true,
+   "never a software BR": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0058
+ },
+ "S09": {
+  "id": "S09",
+  "title": "Bid bulletin",
+  "kind": "flow",
+  "outcome": "Superseded statement marked; incremental only",
+  "passed": true,
+  "checks": {
+   "superseded marked": true,
+   "BRs kept": true,
+   "incremental minor version": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S10": {
+  "id": "S10",
+  "title": "Risk agent on 10/90 terms",
+  "kind": "agent",
+  "outcome": "Calls cost and schedule tools; cash risk high",
+  "passed": true,
+  "checks": {
+   "agent called the cost tool": true,
+   "agent called the schedule tool": true,
+   "payment or cash risk high": true,
+   "text from the agent": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S11": {
+  "id": "S11",
+  "title": "Proposal agent",
+  "kind": "agent",
+  "outcome": "Calls both; no amounts in the LLM input",
+  "passed": true,
+  "checks": {
+   "LLM called": true,
+   "no amount in the LLM input": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S12": {
+  "id": "S12",
+  "title": "Estimate before BRD approval",
+  "kind": "refusal",
+  "outcome": "Refused by the state machine; nothing generated",
+  "passed": true,
+  "checks": {
+   "refused": true,
+   "nothing generated": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S13": {
+  "id": "S13",
+  "title": "Planted leak in a proposal",
+  "kind": "guardrail",
+  "outcome": "Download blocked, section named",
+  "passed": true,
+  "checks": {
+   "blocked": true,
+   "section named": true,
+   "both kinds": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S14": {
+  "id": "S14",
+  "title": "Hosted-API tooling profile",
+  "kind": "guardrail",
+  "outcome": "Approval blocked until consent is recorded",
+  "passed": true,
+  "checks": {
+   "required": true,
+   "blocked without consent": true,
+   "allowed with consent": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S15": {
+  "id": "S15",
+  "title": "Price below the floor",
+  "kind": "guardrail",
+  "outcome": "No-go, not overridable",
+  "passed": true,
+  "checks": {
+   "no-go": true,
+   "no scenario eligible": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S16": {
+  "id": "S16",
+  "title": "LLM timeout",
+  "kind": "failure",
+  "outcome": "Item marked needs manual review; run completes",
+  "passed": true,
+  "checks": {
+   "run completed": true,
+   "marked for manual review": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0012
+ },
+ "S17": {
+  "id": "S17",
+  "title": "Retrieval returns nothing",
+  "kind": "failure",
+  "outcome": "Sizing falls back to the rubric, flagged",
+  "passed": true,
+  "checks": {
+   "run completed": true,
+   "sized from the rubric": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0185
+ },
+ "S18": {
+  "id": "S18",
+  "title": "Malformed rates CSV",
+  "kind": "failure",
+  "outcome": "Clear error; illustrative rates kept",
+  "passed": true,
+  "checks": {
+   "clear error": true,
+   "illustrative rates kept": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S19": {
+  "id": "S19",
+  "title": "Per-run cost cap exceeded",
+  "kind": "failure",
+  "outcome": "Refused gracefully with a message",
+  "passed": true,
+  "checks": {
+   "refused with a message": true,
+   "nothing spent": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S20": {
+  "id": "S20",
+  "title": "Injection via a supplementary document",
+  "kind": "guardrail",
+  "outcome": "Same guard as S02",
+  "passed": true,
+  "checks": {
+   "line not proposed": true,
+   "the requirement is": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S21": {
+  "id": "S21",
+  "title": "Wrong role",
+  "kind": "refusal",
+  "outcome": "Refused and the attempt is logged",
+  "passed": true,
+  "checks": {
+   "refused": true,
+   "status unchanged": true,
+   "attempt logged": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S22": {
+  "id": "S22",
+  "title": "Stale save",
+  "kind": "refusal",
+  "outcome": "Second save refused, its draft kept",
+  "passed": true,
+  "checks": {
+   "second save refused": true,
+   "draft kept": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S23": {
+  "id": "S23",
+  "title": "Unexpected BRD change",
+  "kind": "failure",
+  "outcome": "Stability check blocks; nothing written; audit entry",
+  "passed": true,
+  "checks": {
+   "blocked": true,
+   "nothing written": true,
+   "audit entry": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S24": {
+  "id": "S24",
+  "title": "Tampered BR ID in a re-upload",
+  "kind": "refusal",
+  "outcome": "Refused with a clear message; nothing changed",
+  "passed": true,
+  "checks": {
+   "refused": true,
+   "clear message": true,
+   "nothing changed": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S25": {
+  "id": "S25",
+  "title": "Bulletin after approval",
+  "kind": "flow",
+  "outcome": "Change request, only affected BRs change, v1.1, estimate Outdated, re-estimate keeps overrides",
+  "passed": true,
+  "checks": {
+   "change request": true,
+   "only affected BRs": true,
+   "v1.1": true,
+   "estimate Outdated": true,
+   "overrides kept": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S26": {
+  "id": "S26",
+  "title": "Proposal re-upload with an edited price",
+  "kind": "refusal",
+  "outcome": "Blocked by the consistency check",
+  "passed": true,
+  "checks": {
+   "blocked": true,
+   "nothing saved": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S27": {
+  "id": "S27",
+  "title": "MSA template missing",
+  "kind": "failure",
+  "outcome": "MSA template not available; SOW still generated; no crash",
+  "passed": true,
+  "checks": {
+   "SOW generated": true,
+   "MSA unavailable, no crash": true,
+   "message exists": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S28": {
+  "id": "S28",
+  "title": "Drive unavailable",
+  "kind": "failure",
+  "outcome": "Saved in the database, publish pending, Retry publish works",
+  "passed": true,
+  "checks": {
+   "saved in the database": true,
+   "marked pending": true,
+   "retry works": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S29": {
+  "id": "S29",
+  "title": "Coverage guard live",
+  "kind": "failure",
+  "outcome": "Guard fires: LLM extraction for the section, or a blocking question",
+  "passed": true,
+  "checks": {
+   "guard fired": true,
+   "never silent": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0008
+ },
+ "S30": {
+  "id": "S30",
+  "title": "Re-upload with removed and renumbered questions",
+  "kind": "flow",
+  "outcome": "Removed become Withdrawn after confirming; renumbered matched by text",
+  "passed": true,
+  "checks": {
+   "one removed in the diff": true,
+   "renumbered found": true,
+   "no text moved": true,
+   "Withdrawn on apply": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S31": {
+  "id": "S31",
+  "title": "Admin purge",
+  "kind": "refusal",
+  "outcome": "Non-admin, protected, wrong code and running run refused; full purge leaves only the anonymous line",
+  "passed": true,
+  "checks": {
+   "non-admin": true,
+   "protected code": true,
+   "wrong confirmation": true,
+   "running run": true,
+   "rows gone": true,
+   "only the anonymous line": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S32": {
+  "id": "S32",
+  "title": "Tooling profile switch",
+  "kind": "flow",
+  "outcome": "Tooling lines and net savings change; the client copy has no breakdown",
+  "passed": true,
+  "checks": {
+   "lines change": true,
+   "net savings change": true,
+   "GPU only self-hosted": true,
+   "seats only commercial": true,
+   "client copy has no breakdown": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0
+ },
+ "S33": {
+  "id": "S33",
+  "title": "A passage Azure's content filter refuses",
+  "kind": "failure",
+  "outcome": "Only the passage is left out; the rest is read; the reviewer is told, with no words quoted",
+  "passed": true,
+  "checks": {
+   "run completed": true,
+   "reviewer told": true,
+   "no words quoted": true,
+   "passage not read": true,
+   "rest of the section read": true,
+   "finding recorded": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0018
+ },
+ "S34": {
+  "id": "S34",
+  "title": "Bulletin that changes a stated value",
+  "kind": "flow",
+  "outcome": "The BR is amended, the new value replaces the old, a new BR is added",
+  "passed": true,
+  "checks": {
+   "one BR amended": true,
+   "new value in": true,
+   "old value out": true,
+   "one BR added": true
+  },
+  "error": null,
+  "tools_ok": true,
+  "tools_missing": [],
+  "tools_forbidden": [],
+  "usd": 0.0511
+ }
+}

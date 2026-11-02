@@ -1,0 +1,66 @@
+flowchart TB
+  classDef llm fill:#fde9b0,stroke:#a9770b,color:#2a2000
+  classDef code fill:#dce8f7,stroke:#34608f,color:#10233a
+  classDef human fill:#d9f0dc,stroke:#2f7a3d,color:#10300f
+  classDef store fill:#ece6f5,stroke:#65509a,color:#20153a
+  classDef ext fill:#f1f1f1,stroke:#777,color:#222
+
+  subgraph IN["Intake"]
+    UP["Upload TOR, RFP or bulletin"]:::human --> MASK["PII masking, injection rules"]:::code
+    MASK --> CLS["Is it a TOR? Injection check<br/>gpt-4.1-nano"]:::llm
+  end
+
+  subgraph EX["Requirements"]
+    CLS --> READ["AI read, section by section<br/>items and section roles"]:::llm
+    READ --> CHK["Rule checker: quotes verified,<br/>BR structure, coverage by role"]:::code
+    CHK --> RT["Router: clear, novel,<br/>unclear, out of scope"]:::llm
+    RT --> SZ["Sizing agent<br/>tool-calling"]:::llm
+    SZ --> CR["Coverage critic<br/>checklist, one loop"]:::llm
+    CR -- "new items" --> RT
+  end
+
+  subgraph RAG["Retrieval"]
+    IDX["Hybrid search: dense + BM25, RRF<br/>guideline, patterns, past projects"]:::code
+  end
+  SZ <-- "rubric, precedents, glossary" --> IDX
+  CR <-- "checklist, precedents, from code" --> IDX
+
+  CR --> BRD["Draft BRD<br/>stable IDs"]:::code
+  BRD --> G1{{"Solutions Specialist validates,<br/>re-uploads, approves"}}:::human
+  G1 --> CALC["Calculators: effort, schedule,<br/>cost, AI tooling, net savings"]:::code
+  CALC --> RULES["Risk rules set triggers and severity"]:::code
+  RULES --> RA["Risk agent explains<br/>tool-calling"]:::llm
+  RA --> G2{{"Specialist validates and<br/>approves the estimate"}}:::human
+  G2 --> PA["Proposal agent writes narrative<br/>no amounts in its input"]:::llm
+  PA --> LEAK["Leak and consistency checks"]:::code
+  LEAK --> G3{{"BDM and Legal approve;<br/>BDM marks submitted, awarded"}}:::human
+  G3 --> CT["SOW and MSA filled by code"]:::code
+  CT --> G4{{"Legal, Specialist, BDM<br/>three approvals"}}:::human
+  G4 --> DONE(["Contract-Ready"]):::human
+
+  BUL["Bid bulletin"]:::human -- "incremental: only<br/>affected BRs change" --> G1
+
+  subgraph DATA["System of record and services"]
+    SM["State machine, roles,<br/>stability check"]:::code
+    PG[("PostgreSQL: versions, statements,<br/>append-only audit")]:::store
+    DR[("Google Drive: flat folders,<br/>stamped copies")]:::store
+    CA[("Caches: stored extraction,<br/>items, results, embeddings")]:::store
+    LS["LangSmith traces,<br/>sanitized, no rates"]:::ext
+    AZ["Azure OpenAI<br/>content filter as a second layer"]:::ext
+  end
+  G1 -.-> SM
+  G2 -.-> SM
+  G3 -.-> SM
+  G4 -.-> SM
+  SM -.-> PG
+  PG -.-> DR
+  READ -.-> CA
+  READ -.-> AZ
+  SZ -.-> LS
+
+  subgraph KEY["Key"]
+    K1["LLM decides or writes"]:::llm
+    K2["Code decides"]:::code
+    K3{{"A person decides"}}:::human
+    K4[("Stored")]:::store
+  end

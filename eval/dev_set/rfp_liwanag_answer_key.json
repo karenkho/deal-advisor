@@ -1,0 +1,296 @@
+{
+ "tor_id": "rfp_liwanag",
+ "title": "Customer mobile app (3-column requirements table with bullets inside cells)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 4,
+ "features": [
+  {
+   "id": "F01",
+   "name": "Service ID Number (SIN) auto-verification",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Identity & Services",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F02",
+   "name": "Biometric login (FaceID / TouchID)",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Identity & Services",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F03",
+   "name": "Paperless billing enrollment workflows",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Identity & Services",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F04",
+   "name": "Real-time ledger balances & due date prompts",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Billing & Payments",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F05",
+   "name": "In-app partial & advance payments",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Billing & Payments",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F06",
+   "name": "Auto-generated, downloadable official e- receipts",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Billing & Payments",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F07",
+   "name": "Geo-located outage mapping & drop-pins",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Grid & Incident Care",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F08",
+   "name": "Photo/video attachment uploads for fault reporting",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Grid & Incident Care",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F09",
+   "name": "Push notification engine for repair status updates",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Grid & Incident Care",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F10",
+   "name": "Appliance Consumption Calculator",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Energy Analytics",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F11",
+   "name": "Industrial Load Profile trend graphs",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Energy Analytics",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F12",
+   "name": "'Orange Tag' equivalent cost efficiency indexing",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Energy Analytics",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F13",
+   "name": "Dynamic location finder for Service Centers",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Facility Locator",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "F14",
+   "name": "Distance mapping & driving directions",
+   "type": "workflow",
+   "expected_size": "M",
+   "module": "Facility Locator",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I01",
+   "name": "OAuth 2.0 (Google, Apple, Facebook)",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Identity & Services",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I02",
+   "name": "Enterprise ERP Core",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Identity & Services",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I03",
+   "name": "Payment Gateways (Bayad, GCash, Bank APIs)",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Billing & Payments",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I04",
+   "name": "Secure Card Vaulting (PCI-DSS)",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Billing & Payments",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I05",
+   "name": "Device Camera & Media Library permissions",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Grid & Incident Care",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I06",
+   "name": "Enterprise GIS Mapping Systems",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Grid & Incident Care",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I07",
+   "name": "Smart Meter/AMI Data Lake Access",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Energy Analytics",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I08",
+   "name": "WESM Price & Indices Data Feeds",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Energy Analytics",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I09",
+   "name": "Device GPS & Location Services",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Facility Locator",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "I10",
+   "name": "Google Maps Platform API",
+   "type": "integration",
+   "expected_size": "M",
+   "module": "Facility Locator",
+   "source_section": "2",
+   "source_pages": [
+    2
+   ]
+  }
+ ],
+ "expected_nfrs": [
+  "Data Privacy Compliance",
+  "Platform Availability",
+  "Offline Resiliency"
+ ],
+ "expected_modules": [
+  "Identity & Services",
+  "Billing & Payments",
+  "Grid & Incident Care",
+  "Energy Analytics",
+  "Facility Locator"
+ ],
+ "not_requirements": [
+  "Project Background & Vision",
+  "Core Functional Requirements Matrix",
+  "Bidding Procurement Logistics",
+  "proposal file-size limit (15 MB)",
+  "eligibility documents",
+  "12-week timeline"
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

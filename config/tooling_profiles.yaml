@@ -1,0 +1,37 @@
+# AI tooling of the DELIVERY TEAM (POC v2, cost lines added 1 Nov 2026), not this app's own model.
+# ALL PRICES AND USAGE FIGURES ARE ILLUSTRATIVE (PHP): assumptions to edit here, not quotes or measurements.
+# quality_adjustment is added to the rework and review factors of ai_assisted and ai_first_with_review activities.
+version: 2
+active_profile: commercial_assistants
+
+usage:                            # the same for every profile; the prices below differ
+  tokens_per_hour:                # estimated tokens per hour of each AI activity type
+    ai_assisted: 150000
+    ai_first_with_review: 600000
+  test_runs_per_month:            # AI test generation and automation runs
+    B: 40
+    C: 120
+  contingency_pct: 0.20           # on usage only: model usage and test runs, not seats or the GPU
+
+profiles:
+  commercial_assistants:
+    label: Commercial assistants
+    seat_php_per_month: 2000
+    php_per_million_tokens: 250
+    php_per_test_run: 30
+  hosted_low_cost_api:
+    label: Hosted low-cost API (e.g., DeepSeek API)
+    seat_php_per_month: 0
+    php_per_million_tokens: 67
+    php_per_test_run: 10
+    quality_adjustment: {rework: 0.03, review: 0.02}
+    data_residency_risk: true     # client code and data processed outside the Philippines (Phase 3 risk)
+  self_hosted_open_weights:
+    label: Self-hosted open weights (e.g., qwen3 / DeepSeek via Ollama or vLLM)
+    seat_php_per_month: 0
+    php_per_million_tokens: 0     # the GPU share below pays for this
+    php_per_test_run: 2
+    gpu_php_per_month: 60000      # for the project duration
+    gpu_shared_projects: 3        # project cost = monthly cost x duration / shared projects
+    setup_devops_hours: 40        # one-time
+    quality_adjustment: {rework: 0.05, review: 0.03}

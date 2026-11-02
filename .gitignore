@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local caches
+.cache/
+*.log
+.DS_Store
+
+# Claude Code personal settings (deny rules for client repos)
+.claude/settings.local.json
+
+# Real deployment values: never published
+docs/private/
+
+# Opportunity records (runtime data)
+data/
+# Rate files are confidential: never commit
+*rates*.txt
+*rates*.csv
+!config/rates.illustrative.yaml
+.venv-ragas/

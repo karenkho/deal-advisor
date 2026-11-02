@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": ["ST-8f8761ad01"], "entities": ["Correction Request", "Employee"], "feature_id": "F-fbb769", "nfr_ids": ["ST-1824eab479", "ST-abecda5c63"], "question_keys": [], "rule_ids": ["ST-26170e6e2b"], "statement": "The system shall allow employees to file correction requests for missed or wrong time entries, including a reason for the correction."}

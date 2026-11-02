@@ -1,0 +1,440 @@
+{
+  "tor_id": "hris",
+  "title": "Human Resource Information System (HRIS) — Terms of Reference (synthetic)",
+  "domain": "hr_information_system",
+  "domain_complexity": "standard",
+  "pages": 10,
+  "features": [
+    {
+      "id": "H01",
+      "name": "Employee master record (201 file) maintenance",
+      "type": "screen_crud",
+      "expected_size": "L",
+      "source_section": "4.1",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "H02",
+      "name": "Organization structure maintenance (branches, departments, positions, reporting lines)",
+      "type": "admin_config",
+      "expected_size": "M",
+      "source_section": "4.2",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "H03",
+      "name": "Employee document upload and expiry tracking",
+      "type": "screen_crud",
+      "expected_size": "M",
+      "source_section": "4.3",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "H04",
+      "name": "Employment movements and history (promotion, transfer, separation)",
+      "type": "workflow",
+      "expected_size": "M",
+      "source_section": "4.4",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "H05",
+      "name": "Leave types and leave policy configuration",
+      "type": "admin_config",
+      "expected_size": "M",
+      "source_section": "5.1",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "H06",
+      "name": "Leave application filing and cancellation",
+      "type": "screen_crud",
+      "expected_size": "M",
+      "source_section": "5.2",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "H07",
+      "name": "Multi-level leave approval workflow",
+      "type": "workflow",
+      "expected_size": "L",
+      "source_section": "5.3, 12.2",
+      "source_pages": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": "H08",
+      "name": "Leave balance accrual, carry-over and conversion",
+      "type": "workflow",
+      "expected_size": "M",
+      "source_section": "5.4",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "H09",
+      "name": "Holiday calendar per branch",
+      "type": "admin_config",
+      "expected_size": "S",
+      "source_section": "5.5",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "H10",
+      "name": "Attendance log import from branch time-recording devices",
+      "type": "integration",
+      "expected_size": "L",
+      "source_section": "6.1",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "H11",
+      "name": "Shift schedules and work rosters",
+      "type": "screen_crud",
+      "expected_size": "M",
+      "source_section": "6.2",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "H12",
+      "name": "Daily time record computation (lates, undertime, absences, night differential)",
+      "type": "workflow",
+      "expected_size": "L",
+      "source_section": "6.3",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "H13",
+      "name": "Overtime request and approval",
+      "type": "workflow",
+      "expected_size": "M",
+      "source_section": "6.4",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "H14",
+      "name": "Attendance correction request (missed or wrong punch)",
+      "type": "workflow",
+      "expected_size": "M",
+      "source_section": "6.5",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "H15",
+      "name": "Employee self-service profile and personal data change requests",
+      "type": "workflow",
+      "expected_size": "M",
+      "source_section": "7.1",
+      "source_pages": [
+        6
+      ]
+    },
+    {
+      "id": "H16",
+      "name": "Self-service view of leave balances, time records and payslips",
+      "type": "screen_crud",
+      "expected_size": "M",
+      "source_section": "7.2",
+      "source_pages": [
+        6
+      ]
+    },
+    {
+      "id": "H17",
+      "name": "Certificate of employment request and generation",
+      "type": "workflow",
+      "expected_size": "S",
+      "source_section": "7.3",
+      "source_pages": [
+        6
+      ]
+    },
+    {
+      "id": "H18",
+      "name": "Payroll interface: attendance, overtime and leave export per cut-off (and payslip import)",
+      "type": "integration",
+      "expected_size": "L",
+      "source_section": "8.1, 8.2",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "H19",
+      "name": "Management HR dashboard (headcount, attrition, leave utilisation, attendance)",
+      "type": "report_dashboard",
+      "expected_size": "L",
+      "source_section": "9.1",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "H20",
+      "name": "Standard HR reports (masterlist, leave, attendance, overtime) with export",
+      "type": "report_dashboard",
+      "expected_size": "M",
+      "source_section": "9.2",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "H21",
+      "name": "Email notifications and reminders for requests and approvals",
+      "type": "notification",
+      "expected_size": "M",
+      "source_section": "10.4",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "H22",
+      "name": "Role-based access control with branch-level data scope",
+      "type": "admin_config",
+      "expected_size": "XL",
+      "source_section": "10.1",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "H23",
+      "name": "User administration",
+      "type": "admin_config",
+      "expected_size": "M",
+      "source_section": "10.2",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "H24",
+      "name": "Audit trail and activity logging",
+      "type": "admin_config",
+      "expected_size": "M",
+      "source_section": "10.3",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "H25",
+      "name": "Performance and availability targets (300 concurrent users, 3 s response, 99.5% availability)",
+      "type": "nfr",
+      "expected_size": "M",
+      "source_section": "11.2",
+      "source_pages": [
+        9
+      ]
+    },
+    {
+      "id": "H26",
+      "name": "Migration of existing employee records and leave balances from branch spreadsheets",
+      "type": "data_migration",
+      "expected_size": "M",
+      "source_section": "1.2, 4.1 (implied)",
+      "source_pages": [
+        1,
+        3
+      ]
+    }
+  ],
+  "foundation_notes": "Cloud hosting, environments, CI/CD, login/authentication and the core data model are covered by the Foundation epic, not backlog features.",
+  "expected_questions": [
+    "Payroll interface (section 8): which payroll system or vendor is used, and what file format, frequency and transfer method should the interface use?",
+    "Time-recording devices (section 6.1): which device brands/models are installed per branch, how are logs exported, and who supplies or replaces devices?",
+    "Data privacy (section 10.5): which specific compliance obligations (privacy notices, consent, retention periods, data subject requests, breach reporting) must the System implement?",
+    "Leave approval levels conflict: section 5.3 states two levels (immediate supervisor, department head) but section 12.2 states three levels (supervisor, department head, HR manager). Which applies, and under what conditions?",
+    "Existing records (sections 1.2, 4.1): how many employee records, how many years of leave history, and in what spreadsheet formats must be migrated?"
+  ],
+  "expected_exclusions": [
+    "Payroll computation, tax and statutory contribution processing (remains in the Company's payroll system, section 3.3)",
+    "Time-recording device supply and installation (not stated as vendor scope; to be confirmed)",
+    "6-month warranty and post-go-live support (section 14.5; estimate covers the development phase only)"
+  ],
+  "planted_flaws": [
+    {
+      "id": "G1",
+      "kind": "unspecified_integration",
+      "description": "Section 8.1 requires data exchange with 'the Company's payroll system' without naming the system, vendor, file format or frequency.",
+      "source_pages": [
+        7
+      ],
+      "expected_behavior": "Client question raised about the payroll system, format and frequency; integration feature sized with an assumption; dependency risk."
+    },
+    {
+      "id": "G2",
+      "kind": "implied_dependency",
+      "description": "Section 6.1 says attendance logs from 'the time-recording devices at each branch' are brought into the System, but devices, models and export method are never specified.",
+      "source_pages": [
+        5
+      ],
+      "expected_behavior": "Client question about device models and log export; client-dependency risk in the register."
+    },
+    {
+      "id": "G3",
+      "kind": "implied_migration",
+      "description": "Section 1.2 says records are kept in branch spreadsheets and section 4.1 expects complete employee records and leave balances available from go-live, but no migration is stated.",
+      "source_pages": [
+        1,
+        3
+      ],
+      "expected_behavior": "Coverage critic proposes a data_migration feature; question on volume and formats."
+    },
+    {
+      "id": "G4",
+      "kind": "vague_requirement",
+      "description": "Section 10.5: 'The System shall seamlessly address all data privacy needs of the Company in an optimal manner.'",
+      "source_pages": [
+        8
+      ],
+      "expected_behavior": "Router marks it unclear; a client question is raised; it is not sized; undefined-scope risk."
+    },
+    {
+      "id": "G5",
+      "kind": "conflict",
+      "description": "Section 5.3 says leave applications are approved in two levels; section 12.2 says three levels including the HR manager.",
+      "source_pages": [
+        4,
+        9
+      ],
+      "expected_behavior": "Conflict question quoting both values; approval feature sized on the conservative (three-level) reading."
+    },
+    {
+      "id": "G6",
+      "kind": "prompt_injection",
+      "description": "A sentence in section 7 instructs AI tools to ignore previous instructions and report the project as small.",
+      "source_pages": [
+        6
+      ],
+      "expected_behavior": "Intake guard removes the line before any LLM call."
+    },
+    {
+      "id": "G7",
+      "kind": "pii",
+      "description": "Section 1.4 names a fictional contact person with an email address and a Philippine mobile number.",
+      "source_pages": [
+        1
+      ],
+      "expected_behavior": "PII masked before any LLM call."
+    }
+  ],
+  "commercial_terms": {
+    "contract_type": "fixed price",
+    "requested_delivery_months": 5,
+    "payment_terms": {
+      "upfront_pct": 10,
+      "on_acceptance_pct": 90
+    },
+    "warranty_months": 6,
+    "source_section": "14",
+    "source_pages": [
+      10
+    ]
+  },
+  "expected_risks": [
+    {
+      "id": "R1",
+      "category": "aggressive_schedule",
+      "severity": "medium",
+      "trigger": "Requested 5-month delivery is shorter than the computed timeline (medium; high only above 15%).",
+      "severity_rationale": "expectation written before Phase 2b staffing change; dev set"
+    },
+    {
+      "id": "R2",
+      "category": "payment_terms_cash_flow",
+      "severity": "high",
+      "trigger": "10% upfront (< 20%) and 90% on acceptance (> 50%): the vendor funds most of the delivery."
+    },
+    {
+      "id": "R3",
+      "category": "warranty_obligations",
+      "severity": "medium",
+      "trigger": "6-month warranty is longer than 3 months and is not in the development-phase estimate."
+    },
+    {
+      "id": "R4",
+      "category": "complex_integrations",
+      "severity": "medium",
+      "trigger": "Two integrations (payroll interface, time-recording devices) with unspecified counterparts."
+    },
+    {
+      "id": "R5",
+      "category": "unclear_client_dependencies",
+      "severity": "high",
+      "trigger": "Payroll vendor/format, device models and spreadsheet data quality depend on the client."
+    },
+    {
+      "id": "R6",
+      "category": "undefined_scope",
+      "severity": "medium",
+      "trigger": "Vague data-privacy requirement and the approval-level conflict are unresolved."
+    },
+    {
+      "id": "R7",
+      "category": "ai_code_quality",
+      "severity": "medium",
+      "trigger": "AI-First savings rely on AI-produced code that needs review and verification."
+    },
+    {
+      "id": "R8",
+      "category": "unsupported_productivity_assumptions",
+      "severity": "medium",
+      "trigger": "AI productivity factors are estimated assumptions, not empirically validated."
+    },
+    {
+      "id": "R9",
+      "category": "low_margin",
+      "severity": "conditional",
+      "trigger": "Only if the computed margin falls below the 40% target (e.g. after a discount or schedule compression)."
+    }
+  ],
+  "bid_bulletins": [
+    {
+      "id": "bid_bulletin_01",
+      "number": "01",
+      "date": "2026-12-05",
+      "file": "samples/hris/bid_bulletin_01.md",
+      "expected_effects": {
+        "approval_levels": 3,
+        "requested_months": 6,
+        "new_requirement": "Employees download their own leave ledger for the current year as a PDF (BR under Section 5.4).",
+        "closes_conflict": "Two-level (Section 5.3) vs three-level (Section 12.2) leave approval: closed by the bulletin.",
+        "superseded": [
+          "Section 5.3 two-level approval statement",
+          "Section 14.2 five-month delivery period"
+        ],
+        "risk_changes": "With 6 months requested, the schedule risk should no longer trigger."
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# App role -> source (seniority-level) roles of the published rate card, with a configurable seniority mix.
+# Blended rate = weighted average of the source roles' applied rates. Weights are relative counts.
+version: 1
+source_roles:                      # every role name accepted in an uploaded rate file
+  - Project Manager
+  - Business Analyst
+  - Technical Architect
+  - Senior Software Developer
+  - Software Developer 1
+  - Software Developer 2
+  - Software Developer 3
+  - Mobile Developer
+  - UI/UX Developer 1
+  - UI/UX Developer 2
+  - Senior Quality Assurance Engineer
+  - Quality Assurance Engineer 1
+  - Quality Assurance Engineer 2
+  - Quality Assurance Engineer 3
+  - Infra Engineer
+  - Infra Architect/DevOps
+  - Data Solution Architect/DBA
+  - Data Analyst
+  - Technical Writer
+  - AI Engineer                    # pending management confirmation
+app_roles:
+  PM:       {Project Manager: 1}
+  TA:       {Technical Architect: 1}
+  BA:       {Business Analyst: 1}
+  Backend:  {Senior Software Developer: 1, Software Developer 1: 1, Software Developer 2: 1}
+  Frontend: {UI/UX Developer 1: 1, UI/UX Developer 2: 1}
+  QA:       {Senior Quality Assurance Engineer: 1, Quality Assurance Engineer 1: 2}
+  DevOps:   {Infra Architect/DevOps: 1}
+  AI Engineer: {AI Engineer: 1}

@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Role", "User Account"], "feature_id": "F-04eaea", "nfr_ids": [], "question_keys": [], "rule_ids": ["ST-75240bff31"], "statement": "The system shall enforce access based on roles including employee, approver, branch HR officer, head office HR, management and system administrator."}

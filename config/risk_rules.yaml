@@ -1,0 +1,161 @@
+# Deal risk triggers (POC v2). Deterministic: code decides what triggers. The agent only explains triggered risks.
+# ASSUMPTIONS, editable. Text in {braces} comes from the rule's source data. client_term: wording safe for the proposal's
+# "Terms requiring management review" section (never numbers from the internal estimate).
+version: 1
+thresholds:
+  schedule_shortfall_high: 0.15     # requested timeline shorter than computed by more than this: high
+  unclear_features: 3
+  integrations: 2
+  upfront_min: 0.20
+  final_max: 0.50
+  warranty_months: 3
+  cash_exposure_share: 0.30         # peak negative cash as a share of the contract value
+  ai_first_savings_share: 0.50      # share of C's activity savings from ai_first_with_review
+rules:
+  low_margin:
+    category: low_margin
+    severity: high
+    title: Margin below target
+    explanation: "Gross margin {margin:.0f}% is below the {target:.0f}% target."
+    mitigation: Reprice, reduce scope or challenge the assumptions before committing.
+    action: Decide whether to accept the lower margin.
+    client_term: Commercial price and scope to be confirmed.
+  below_floor:
+    category: low_margin
+    severity: high
+    acknowledgeable: false      # no acknowledgement makes this acceptable: the scenario is not recommended
+    title: Negotiated price below the floor
+    explanation: "The negotiated price is below the price floor of PHP {floor:,.0f} at the {min_margin:.0f}% minimum margin."
+    mitigation: Hold the floor, or reduce scope to restore the margin.
+    action: Approve an exception or return to negotiation.
+    client_term: Commercial price to be confirmed.
+  aggressive_schedule:
+    category: aggressive_schedule
+    severity: medium
+    high_above: schedule_shortfall_high
+    title: Requested timeline is shorter than computed
+    explanation: "The TOR asks for {requested:g} months; the computed timeline is {computed:.1f} months ({shortfall:.0%} over)."
+    mitigation: Agree a longer period, phase the delivery or add capacity (see the client-requested window).
+    action: Confirm the delivery period to commit to.
+    client_term: Delivery period and the Notice to Proceed date to be confirmed.
+  unclear_features:
+    category: undefined_scope
+    severity: medium
+    title: Many unclear features
+    explanation: "{count} features cannot be sized until the client clarifies them."
+    mitigation: Resolve the clarification questions before pricing.
+    action: Send the questions to the client.
+    client_term: Scope items awaiting clarification are listed in the assumptions.
+  acceptance_terms_undefined:
+    category: missing_acceptance_criteria
+    severity: medium
+    title: Acceptance terms are not defined
+    explanation: "The TOR does not define {terms} terms."
+    mitigation: Propose acceptance terms for each deliverable and for the project, tied to the payment milestones.
+    action: Agree the acceptance terms before contract signing.
+    client_term: Acceptance terms for deliverables and the project to be agreed.
+  complex_integrations:
+    category: complex_integrations
+    severity: medium
+    title: Multiple integrations
+    explanation: "{count} integration features depend on external systems."
+    mitigation: Get interface specifications and test access early; plan integration contingency in the schedule.
+    action: Confirm the interface owners.
+    client_term: Interface specifications and test access to be provided by the client.
+  client_dependencies:
+    category: unclear_client_dependencies
+    severity: high
+    title: Unresolved client dependencies
+    explanation: "{count} open questions about external systems or data depend on the client."
+    mitigation: Make the answers a condition of the schedule, and state the assumptions in the proposal.
+    action: Escalate the questions to the client sponsor.
+    client_term: External system details and data sources to be confirmed by the client.
+  payment_terms:
+    category: payment_terms_cash_flow
+    severity: high
+    title: Payment terms favour the client
+    explanation: "The TOR asks for {upfront:.0f}% upfront and {final:.0f}% on acceptance."
+    mitigation: Propose the common-practice milestones; negotiate at least a larger mobilization payment.
+    action: Decide the minimum acceptable terms.
+    client_term: Payment milestones differ from the TOR and need agreement.
+  cash_exposure:
+    category: payment_terms_cash_flow
+    severity: high
+    title: High peak cash exposure
+    explanation: "Under the TOR's payment terms, cash is negative by up to PHP {peak:,.0f} in month {month} ({share:.0%} of the contract value)."
+    mitigation: Negotiate progress payments or arrange financing for the exposed months.
+    action: Approve the exposure or require better terms.
+    client_term: Payment milestones differ from the TOR and need agreement.
+  warranty:
+    category: warranty_obligations
+    severity: medium
+    title: Warranty longer than usual
+    explanation: "The warranty is {months:g} months, above the usual {usual:g}; a reserve of PHP {reserve:,.0f} is in the delivery cost."
+    mitigation: Limit the warranty to defect correction and negotiate the period.
+    action: Accept the period or propose a shorter one.
+    client_term: Warranty period and coverage to be confirmed.
+  ai_code_quality:
+    category: ai_code_quality
+    severity: medium
+    title: AI-generated output needs verification
+    explanation: "{share:.0f}% of baseline hours are planned as AI-first with human review."
+    mitigation: Apply review gates, automated tests and security review to AI-produced work.
+    action: Confirm the quality gates.
+    client_term: ""
+  ai_savings_concentration:
+    category: ai_code_quality
+    severity: medium
+    title: AI-First savings rest on AI-first activities
+    explanation: "{share:.0%} of C's activity savings come from AI-first activities."
+    mitigation: Pilot the AI-first approach on a few features before relying on the full saving.
+    action: Decide how much of the saving to price in.
+    client_term: ""
+  unvalidated_productivity:
+    category: unsupported_productivity_assumptions
+    severity: medium
+    title: Productivity assumptions are not validated
+    explanation: "The {profile} profile is an estimated assumption, not an empirically validated figure."
+    mitigation: Use the estimate range, and calibrate against delivery actuals.
+    action: Confirm the profile used for pricing.
+    client_term: ""
+  optimistic_profile:
+    category: unsupported_productivity_assumptions
+    severity: high
+    title: Priced on the optimistic profile
+    explanation: The optimistic productivity profile is selected for pricing.
+    mitigation: Price on the expected profile, and keep the optimistic one as a stretch.
+    action: Approve the profile explicitly or change it.
+    client_term: ""
+  data_residency:
+    category: data_residency
+    severity: high
+    requires_consent: true      # blocks approval until client or legal consent is recorded (name and date)
+    title: Client code and data leave the Philippines
+    explanation: The selected AI tooling processes client code and data outside the Philippines.
+    mitigation: Use a tool hosted in-country or get written client consent; check the Data Privacy Act and the contract.
+    action: Choose the tooling profile.
+    client_term: AI tooling and data-processing location to be agreed with the client.
+  scope_gaps:
+    category: undefined_scope
+    severity: medium
+    title: Scope is not fully defined
+    explanation: "{blocked} requirements depend on open questions, {unsupported} items have no exact TOR locator and {conflicts} conflict(s) are open."
+    mitigation: Answer the questions before sign-off; state the assumptions in the proposal.
+    action: Send the open questions to the client.
+    client_term: Open questions in the scope to be answered before contract signing.
+  data_privacy:
+    category: data_privacy
+    severity: high
+    title: Data privacy requirement is undefined
+    explanation: "The TOR's privacy requirement is not measurable, and {count} requirements use personal data."
+    mitigation: Agree specific controls with the client and include them in the scope (Data Privacy Act).
+    action: Raise the question with the client's data protection officer.
+    client_term: Specific data privacy controls to be agreed with the client.
+  illustrative_rates:
+    category: pricing_basis
+    severity: info
+    title: Priced with illustrative rates
+    explanation: Costs and prices use illustrative rates, not the company's published rates.
+    mitigation: Upload the published rates under Admin before relying on the numbers.
+    action: Upload the rates before approval.
+    client_term: ""

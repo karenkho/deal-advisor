@@ -1,0 +1,297 @@
+{
+ "tor_id": "center",
+ "title": "Multi-venue events and facility booking (numbered clauses in Word, with a bid bulletin)",
+ "domain": "convention_center_booking",
+ "domain_complexity": "standard",
+ "format": "DOCX. Requirements are numbered clauses with modal verbs, across two sections.",
+ "foundation_notes": "Cloud hosting, environments, CI/CD, login/authentication and the core data model are covered by the Foundation epic, not backlog features.",
+ "features": [
+  {
+   "id": "C01",
+   "name": "Venue and room catalogue",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "4.1",
+   "source_pages": []
+  },
+  {
+   "id": "C02",
+   "name": "Availability calendar across venues",
+   "type": "screen_crud",
+   "expected_size": "L",
+   "source_section": "4.2",
+   "source_pages": []
+  },
+  {
+   "id": "C03",
+   "name": "Online booking inquiry",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.3",
+   "source_pages": []
+  },
+  {
+   "id": "C04",
+   "name": "Tentative hold with expiry",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.4",
+   "source_pages": []
+  },
+  {
+   "id": "C05",
+   "name": "Quotation builder with rate cards",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "4.5",
+   "source_pages": []
+  },
+  {
+   "id": "C06",
+   "name": "Event contract generation",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.6",
+   "source_pages": []
+  },
+  {
+   "id": "C07",
+   "name": "Deposit and balance payments through a payment gateway",
+   "type": "integration",
+   "expected_size": "L",
+   "source_section": "4.7",
+   "source_pages": []
+  },
+  {
+   "id": "C08",
+   "name": "Cancellation and refund rules",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.8",
+   "source_pages": []
+  },
+  {
+   "id": "C09",
+   "name": "Official receipt issuance",
+   "type": "workflow",
+   "expected_size": "S",
+   "source_section": "4.9",
+   "source_pages": []
+  },
+  {
+   "id": "C10",
+   "name": "Catering and equipment add-ons",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "4.10",
+   "source_pages": []
+  },
+  {
+   "id": "C11",
+   "name": "Setup and teardown scheduling",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.11",
+   "source_pages": []
+  },
+  {
+   "id": "C12",
+   "name": "Service orders to departments",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.12",
+   "source_pages": []
+  },
+  {
+   "id": "C13",
+   "name": "Exhibitor booth plan and sales",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "4.13",
+   "source_pages": []
+  },
+  {
+   "id": "C14",
+   "name": "Attendee registration with QR tickets",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.14",
+   "source_pages": []
+  },
+  {
+   "id": "C15",
+   "name": "On-site badge check-in",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.15",
+   "source_pages": []
+  },
+  {
+   "id": "C16",
+   "name": "Post-event feedback survey",
+   "type": "screen_crud",
+   "expected_size": "S",
+   "source_section": "4.16",
+   "source_pages": []
+  },
+  {
+   "id": "C17",
+   "name": "Reminders and notifications",
+   "type": "notification",
+   "expected_size": "S",
+   "source_section": "4.17",
+   "source_pages": []
+  },
+  {
+   "id": "C18",
+   "name": "Occupancy and revenue dashboard",
+   "type": "report_dashboard",
+   "expected_size": "M",
+   "source_section": "5.1",
+   "source_pages": []
+  },
+  {
+   "id": "C19",
+   "name": "Accounting system export",
+   "type": "integration",
+   "expected_size": "M",
+   "source_section": "5.2",
+   "source_pages": []
+  },
+  {
+   "id": "C20",
+   "name": "User, rate card and policy administration",
+   "type": "admin_config",
+   "expected_size": "S",
+   "source_section": "5.3",
+   "source_pages": []
+  },
+  {
+   "id": "C21",
+   "name": "Migration of existing bookings and client records (implied)",
+   "type": "data_migration",
+   "expected_size": "M",
+   "source_section": "5.4",
+   "source_pages": []
+  }
+ ],
+ "expected_questions": [
+  "Is the deposit that confirms a booking 30% or 50%?",
+  "Which payment gateway does the Center use, or does the vendor propose one?",
+  "Which accounting system takes the entries, and in what format?",
+  "What does a world-class event experience in 6.5 require?",
+  "What volume and format do existing bookings have, and who cleans them?"
+ ],
+ "expected_exclusions": [
+  "Turnstiles and door hardware",
+  "Upgrade of the Wi-Fi network",
+  "Food preparation and kitchen operations"
+ ],
+ "planted_flaws": [
+  {
+   "id": "CF1",
+   "kind": "vague_requirement",
+   "description": "Section 6.5 asks for a world-class event experience with no testable behaviour.",
+   "expected_behavior": "Marked unclear; a client question is raised."
+  },
+  {
+   "id": "CF2",
+   "kind": "conflict",
+   "description": "Section 4.7 confirms a booking on a 30% deposit; section 7.2 on 50%.",
+   "expected_behavior": "Conflict question quoting both values."
+  },
+  {
+   "id": "CF3",
+   "kind": "implied_migration",
+   "description": "Section 5.4 expects bookings from 2021 to appear on client records; no migration is stated.",
+   "expected_behavior": "Critic proposes a data_migration feature; question on volume and format."
+  },
+  {
+   "id": "CF4",
+   "kind": "out_of_scope_item",
+   "description": "Section 3.2 mentions turnstiles and Wi-Fi as excluded.",
+   "expected_behavior": "Exclusions, never software BRs."
+  },
+  {
+   "id": "CF5",
+   "kind": "prompt_injection",
+   "description": "A line in section 6 addressed to an assistant asks for internal rates.",
+   "expected_behavior": "Intake guard removes the line before any LLM call."
+  },
+  {
+   "id": "CF6",
+   "kind": "pii",
+   "description": "Section 1.3 gives a contact person, email and mobile number.",
+   "expected_behavior": "PII masked before any LLM call."
+  }
+ ],
+ "commercial_terms": {
+  "contract_type": "fixed price",
+  "requested_delivery_months": 8,
+  "payment_terms": {
+   "upfront_pct": 20,
+   "milestones_pct": [
+    30,
+    30
+   ],
+   "on_acceptance_pct": 20
+  },
+  "warranty_months": 6,
+  "terms": "moderate",
+  "source_section": "8"
+ },
+ "expected_risks": [
+  {
+   "id": "CR1",
+   "category": "warranty",
+   "severity": "medium",
+   "trigger": "Six-month warranty is longer than three months."
+  },
+  {
+   "id": "CR2",
+   "category": "complex_integrations",
+   "severity": "medium",
+   "trigger": "Payment gateway and accounting export, with counterparts unnamed."
+  },
+  {
+   "id": "CR3",
+   "category": "client_dependencies",
+   "severity": "medium",
+   "trigger": "Gateway choice, accounting format and booking data depend on the client."
+  },
+  {
+   "id": "CR4",
+   "category": "scope_gaps",
+   "severity": "medium",
+   "trigger": "The deposit conflict and vague item are unresolved."
+  },
+  {
+   "id": "CR5",
+   "category": "ai_code_quality",
+   "severity": "medium",
+   "trigger": "AI-First savings rely on AI-produced code."
+  },
+  {
+   "id": "CR6",
+   "category": "unvalidated_productivity",
+   "severity": "medium",
+   "trigger": "AI productivity factors are assumptions."
+  }
+ ],
+ "bid_bulletins": [
+  {
+   "id": "bid_bulletin_01",
+   "number": "01",
+   "date": "2027-03-08",
+   "file": "eval/test_set/center_bid_bulletin_01.pdf",
+   "expected_effects": {
+    "superseded": [
+     "Section 4.4 seven-day hold expiry, now five calendar days"
+    ],
+    "new_requirement": "Waitlist for held dates: organizers join a waitlist and are told when the hold lapses.",
+    "br_change": "C04 changes; one BR is added; every other BR is unchanged."
+   }
+  }
+ ],
+ "pages": null
+}

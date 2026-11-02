@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Payroll Data Exchange Record"], "feature_id": "F-d72740", "nfr_ids": [], "question_keys": [], "rule_ids": ["ST-b11ed35bb8"], "statement": "The system shall keep a record of every data exchange with the payroll system, including the cut-off period, the number of employees and the status of the exchange."}

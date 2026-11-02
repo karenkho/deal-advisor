@@ -1,0 +1,131 @@
+# Estimation model used by app/calculator.py (pure Python, no LLM). NOT indexed.
+#
+# Every value is an ASSUMPTION to be validated by a practitioner unless marked
+# ACTUAL (from internal delivery records) or DERIVED (computed from other values).
+# Scope = DEVELOPMENT PHASE ONLY: UAT support and warranty are not included
+# (see uat_support, disabled by default).
+
+version: 2
+
+roles:
+  feature_driven: [BA, Dev, UI, QA]   # hours = sum over features of size_hours[tier][role]
+  overhead: [PM, TA]                  # hours = FTE x project duration x hours_per_person_month
+# Developer seniority is not modeled: it changes cost, which stays in the Excel costing sheet.
+
+# Hours per feature by size tier and role (pre-AI baseline, domain_complexity = standard).
+# CALIBRATED as an exact fit on P01 only (standard complexity): one scale factor per role,
+# tier ratios fixed at S:M:L:XL = 1 : 2.5 : 5 : 10 (see docs/calibration.md).
+# Actual effort includes change requests and rework, so values are likely slightly high.
+# Both calibration teams were senior-led; an average-seniority team may need more hours.
+tier_ratios: {S: 1.0, M: 2.5, L: 5.0, XL: 10.0}   # ASSUMPTION (fixed during calibration)
+size_hours:   # filled by scripts/calibrate.py
+  S:  {BA: 4, Dev: 16, UI: 4, QA: 8}   # @calibrated
+  M:  {BA: 10, Dev: 41, UI: 9, QA: 20}   # @calibrated
+  L:  {BA: 20, Dev: 81, UI: 19, QA: 41}   # @calibrated
+  XL: {BA: 40, Dev: 163, UI: 37, QA: 81}   # @calibrated
+
+# Domain complexity multipliers on FEATURE hours of feature-driven roles (not foundation, not PM/TA).
+# standard = 1.0 by definition (P01). high is DERIVED from the P02 residual vs the P01 base
+# (computation-heavy domain: market rules, formula billing, settlement reconciliation).
+# The sizing agent suggests a level with a reason; the BA confirms it in the UI.
+complexity_multipliers:
+  standard: {BA: 1.0, Dev: 1.0, UI: 1.0, QA: 1.0}
+  high:     {BA: 1.38, Dev: 1.56, UI: 2.21, QA: 2.1}   # @derived
+
+# AI-assisted delivery multipliers on hours (1.0 = no change). ASSUMPTION.
+# BA unchanged: elicitation and client alignment are not automated.
+# PM/TA unchanged: overhead roles are sized by FTE x duration.
+ai_factors: {BA: 1.0, Dev: 0.6, UI: 0.7, QA: 0.7, PM: 1.0, TA: 1.0}
+
+# TA coding share: fraction of TA FTE counted as Dev capacity.
+# Traditional scenario and project size thresholds use calibration.ta_coding_share (0.75);
+# both AI scenarios use estimation.ta_coding_share.
+estimation:
+  ta_coding_share: 0.0    # ASSUMPTION for AI-enabled scenarios: TA does architecture, design and
+                          # AI-output review; no Dev capacity credit.
+  default_domain_complexity: standard
+
+# Buffer: exactly ONE mode is applied, never both.
+buffer:
+  mode: contingency       # contingency | utilization
+  contingency: 1.2        # ASSUMPTION: hours x 1.2 / 160 per person-month
+  utilization: 0.7        # ASSUMPTION: hours / (160 x 0.7) per person-month
+
+capacity:
+  hours_per_person_month: 160   # ACTUAL convention (20 days x 8 h)
+  hours_per_manday: 8           # ASSUMPTION
+  fte_rounding: 0.5             # ASSUMPTION: same-deadline scenario rounds FTE up to 0.5
+
+# Foundation epic: our standard architecture is cloud-deployed microservices.
+# Fixed hours per ground-up build, informed by both calibration repos (gateway, service
+# template/shared libs, JWT auth + RBAC, GitOps CI/CD, k8s manifests, tracing/metrics).
+# ASSUMPTION: sized for ~6-10 deployable services; neither repo had cloud IaC, so that item is new.
+# Cloud and license costs are excluded and handled in the costing sheet.
+foundation:
+  apply_ai_factor: true   # ASSUMPTION: foundation work benefits from AI assistance like features
+  items:
+    cloud_environments_iac:          {BA: 0,  Dev: 80,  UI: 0,  QA: 8}   # dev/UAT/prod via IaC. ASSUMPTION
+    container_platform:              {BA: 0,  Dev: 60,  UI: 0,  QA: 8}   # k8s/container apps, ingress, secrets. ASSUMPTION
+    api_gateway_service_template:    {BA: 0,  Dev: 60,  UI: 0,  QA: 8}   # gateway + service skeleton/shared libs. ASSUMPTION
+    identity_auth_service:           {BA: 16, Dev: 100, UI: 24, QA: 24}  # login, reset, SSO hook, RBAC. ASSUMPTION
+    ci_cd_per_service:               {BA: 0,  Dev: 60,  UI: 0,  QA: 16}  # pipeline template applied per service. ASSUMPTION
+    logging_monitoring_tracing:      {BA: 0,  Dev: 50,  UI: 0,  QA: 8}   # central logs, metrics, tracing. ASSUMPTION
+    core_data_model:                 {BA: 40, Dev: 60,  UI: 0,  QA: 8}   # base entities, reference data, audit columns. ASSUMPTION
+    ui_shell_design_system:          {BA: 8,  Dev: 0,   UI: 80, QA: 8}   # app shell, layout, navigation, shared components. ASSUMPTION
+  # totals: BA 64, Dev 470, UI 104, QA 88 (DERIVED)
+
+# Traditional team templates (pre-AI). Small/Mid/Large from ACTUAL team shapes; XL is an
+# ASSUMPTION to be confirmed with management.
+team_templates:
+  Small: {months: 4,  PM: 1, TA: 0.5, Dev: 2, UI: 1,   BA: 1, QA: 1}
+  Mid:   {months: 6,  PM: 1, TA: 0.5, Dev: 4, UI: 1,   BA: 1, QA: 2}   # ACTUAL (corpus project 01)
+  Large: {months: 9,  PM: 1, TA: 1,   Dev: 4, UI: 1.5, BA: 1, QA: 3}   # ACTUAL (corpus project 02)
+  XL:    {months: 14, PM: 1, TA: 1,   Dev: 8, UI: 2,   BA: 2, QA: 4}   # ASSUMPTION
+
+# Project size thresholds on total baseline Dev hours (features + foundation).
+# DERIVED by scripts/calibrate.py: template Dev capacity = (Dev + TA x calibration.ta_coding_share)
+# x months x 160 / contingency; boundaries at midpoints between adjacent templates.
+project_size_thresholds:   # upper bound (exclusive) of baseline Dev hours; filled by scripts/calibrate.py
+  Small: 2383   # @derived
+  Mid: 4600   # @derived
+  Large: 11017   # @derived
+  # XL: anything above Large
+
+# Organisation capacity.
+org_capacity:
+  ba_available_department: 6    # ACTUAL headcount
+  ba_warn_share: 0.33           # ASSUMPTION: warn if a scenario needs more than this share of department BAs
+
+# Optional UAT support (outside the development-phase estimate). Disabled by default.
+uat_support:
+  enabled: false
+  weeks: 4                                       # ASSUMPTION
+  fte: {PM: 0.5, TA: 0.0, BA: 1, Dev: 1, UI: 0, QA: 1}   # ASSUMPTION
+  hours_per_week: 40                             # ASSUMPTION
+
+# Calibration inputs (historical actuals). Used only by scripts/calibrate.py.
+calibration:
+  ta_coding_share: 0.75   # ACTUAL-based: both teams were senior-led and the technical architect
+                          # contributed heavily to coding. Also used by the traditional scenario
+                          # and the project size thresholds.
+  buffer_mode: contingency
+  notes:
+    - Durations are the development phase only (exclude UAT support and warranty).
+    - Port project excludes a 0.5 TA and 1.5 junior devs who joined for ~2 months with minimal
+      contribution (negligible; excluded on purpose).
+    - Both teams were senior-led; the technical architect contributed heavily to coding.
+    - Feature counts come from read-only repo inventories (kept outside this repo); labels
+      use the corpus/guideline.md rubrics.
+  projects:
+    P01:   # Port Management System with berth scheduling — ACTUAL
+      domain_complexity: standard   # base for size_hours (exact fit)
+      template: Mid
+      months: 6
+      team: {PM: 1, TA: 0.5, Dev: 4, UI: 1, BA: 1, QA: 2}
+      tier_counts: {S: 11, M: 28, L: 17, XL: 2}
+    P02:   # Energy Trading & Billing System — ACTUAL
+      domain_complexity: high       # defines complexity_multipliers.high
+      template: Large
+      months: 9
+      team: {PM: 1, TA: 1, Dev: 4, UI: 1.5, BA: 1, QA: 3}
+      tier_counts: {S: 11, M: 18, L: 16, XL: 7}

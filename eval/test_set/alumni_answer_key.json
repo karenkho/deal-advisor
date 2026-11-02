@@ -1,0 +1,260 @@
+{
+ "tor_id": "alumni",
+ "title": "Alumni relations and donations management (Label: description bullets, no modal verbs)",
+ "domain": "university_alumni_giving",
+ "domain_complexity": "standard",
+ "format": "PDF. Requirements are Label: description bullets with no shall or must.",
+ "foundation_notes": "Cloud hosting, environments, CI/CD, login/authentication and the core data model are covered by the Foundation epic, not backlog features.",
+ "features": [
+  {
+   "id": "A01",
+   "name": "Alumni master record",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "4.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A02",
+   "name": "Self-service profile update",
+   "type": "screen_crud",
+   "expected_size": "S",
+   "source_section": "4.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A03",
+   "name": "Batch and chapter groups",
+   "type": "screen_crud",
+   "expected_size": "S",
+   "source_section": "4.1",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A04",
+   "name": "Alumni event invitations and RSVP",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A05",
+   "name": "Mentorship matching",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A06",
+   "name": "Email campaigns with segments",
+   "type": "notification",
+   "expected_size": "M",
+   "source_section": "4.2",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A07",
+   "name": "Online donation pledge and payment",
+   "type": "integration",
+   "expected_size": "L",
+   "source_section": "4.3",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A08",
+   "name": "Recurring giving schedule",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.3",
+   "source_pages": [
+    2
+   ]
+  },
+  {
+   "id": "A09",
+   "name": "Official donation receipts",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "4.3",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "A10",
+   "name": "Fund and campaign tracking",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "4.3",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "A11",
+   "name": "Donor stewardship notes",
+   "type": "screen_crud",
+   "expected_size": "S",
+   "source_section": "4.3",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "A12",
+   "name": "Giving dashboard",
+   "type": "report_dashboard",
+   "expected_size": "M",
+   "source_section": "4.4",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "A13",
+   "name": "Engagement and chapter reports",
+   "type": "report_dashboard",
+   "expected_size": "S",
+   "source_section": "4.4",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "A14",
+   "name": "User and role administration",
+   "type": "admin_config",
+   "expected_size": "S",
+   "source_section": "4.5",
+   "source_pages": [
+    3
+   ]
+  },
+  {
+   "id": "A15",
+   "name": "Migration of existing alumni and donor records (implied)",
+   "type": "data_migration",
+   "expected_size": "M",
+   "source_section": "1.2",
+   "source_pages": [
+    1
+   ]
+  }
+ ],
+ "expected_questions": [
+  "Which payment provider does the foundation use, and through what interface?",
+  "How long may a donation receipt take: same day or three working days?",
+  "What does the smart engagement experience in 4.2 require?",
+  "What volume and format do the existing alumni and donor spreadsheets have, and who cleans them?"
+ ],
+ "expected_exclusions": [
+  "Supply of two ID-card printers (hardware)",
+  "Tax filing of donor certificates remains with the foundation's accountant"
+ ],
+ "planted_flaws": [
+  {
+   "id": "AF1",
+   "kind": "vague_requirement",
+   "description": "Section 4.2: a smart engagement item with no testable behaviour.",
+   "expected_behavior": "Marked unclear; a client question is raised; not sized as stated."
+  },
+  {
+   "id": "AF2",
+   "kind": "conflict",
+   "description": "Section 4.3 issues receipts the same day; section 7.2 allows three working days.",
+   "expected_behavior": "Conflict question quoting both values."
+  },
+  {
+   "id": "AF3",
+   "kind": "implied_migration",
+   "description": "Section 1.2 describes 41,000 graduates in spreadsheets; no migration is stated.",
+   "expected_behavior": "Critic proposes a data_migration feature; question on volume and format."
+  },
+  {
+   "id": "AF4",
+   "kind": "out_of_scope_item",
+   "description": "Section 6.3 asks the vendor to supply two ID-card printers.",
+   "expected_behavior": "An exclusion or vendor-supply item, never a software BR."
+  },
+  {
+   "id": "AF5",
+   "kind": "prompt_injection",
+   "description": "A line in section 5 tells AI tools to ignore instructions.",
+   "expected_behavior": "Intake guard removes the line before any LLM call."
+  },
+  {
+   "id": "AF6",
+   "kind": "pii",
+   "description": "Section 1.3 gives a contact person, email and mobile number.",
+   "expected_behavior": "PII masked before any LLM call."
+  }
+ ],
+ "commercial_terms": {
+  "contract_type": "fixed price",
+  "requested_delivery_months": 9,
+  "payment_terms": {
+   "upfront_pct": 30,
+   "milestone_pct": 40,
+   "on_acceptance_pct": 30
+  },
+  "warranty_months": 3,
+  "terms": "healthy",
+  "source_section": "8"
+ },
+ "expected_risks": [
+  {
+   "id": "AR1",
+   "category": "unclear_features",
+   "severity": "medium",
+   "trigger": "Vague engagement item and unspecified payment provider need client answers."
+  },
+  {
+   "id": "AR2",
+   "category": "scope_gaps",
+   "severity": "medium",
+   "trigger": "The receipt conflict and vague item are unresolved."
+  },
+  {
+   "id": "AR3",
+   "category": "client_dependencies",
+   "severity": "medium",
+   "trigger": "Spreadsheet quality and the payment provider depend on the client."
+  },
+  {
+   "id": "AR4",
+   "category": "data_privacy",
+   "severity": "medium",
+   "trigger": "Donor and alumni personal data is held, with a privacy requirement that states no measure."
+  },
+  {
+   "id": "AR5",
+   "category": "ai_code_quality",
+   "severity": "medium",
+   "trigger": "AI-First savings rely on AI-produced code."
+  },
+  {
+   "id": "AR6",
+   "category": "unvalidated_productivity",
+   "severity": "medium",
+   "trigger": "AI productivity factors are assumptions."
+  }
+ ],
+ "bid_bulletins": [],
+ "pages": 5
+}

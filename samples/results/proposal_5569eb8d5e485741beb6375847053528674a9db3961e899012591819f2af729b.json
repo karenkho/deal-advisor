@@ -1,0 +1,22 @@
+{
+"delivery_methodology": [
+"The project will be executed using an AI-enabled agile approach characterized by short, time-boxed iterations with regular demonstrations and continuous client feedback. This iterative process allows for incremental releases and early validation of features, ensuring alignment with client expectations.",
+"AI tools will assist in drafting documentation, code generation, and testing, while human experts will review, integrate, and approve all outputs. Quality assurance practices are embedded throughout the development cycle, and any changes to scope will be managed through controlled processes to maintain project focus and delivery timelines."
+],
+"executive_summary": [
+"Kalinaw Trading Corporation seeks to implement a comprehensive Human Resource Information System (HRIS) to streamline employee information management, leave and attendance tracking, and reporting. This system is critical to enhancing operational efficiency, ensuring data accuracy, and providing timely insights to management across all branches.",
+"Exist Software Labs proposes a cloud-deployed microservices solution built on a robust Java/Spring Boot backend with a React frontend and PostgreSQL database. The project will be delivered using an AI-enabled agile methodology, ensuring iterative development with continuous client feedback. Upon completion, Kalinaw Trading Corporation will have a unified, accessible, and secure HRIS that supports both employee self-service and management reporting needs."
+],
+"proposed_solution": [
+"The proposed HRIS solution integrates key functional modules including employee information management, time and attendance, employee self-service, dashboards and reports, and security controls. Employees, HR staff, approvers, and management will interact with the system according to their roles, enabling streamlined workflows such as leave application and approval, attendance corrections, and document management.",
+"This solution aligns with Kalinaw Trading Corporation\u2019s objectives by automating leave filing and approval, consolidating attendance data, and providing a single source of truth for employee information. The system supports data migration from existing records to ensure continuity from day one, and facilitates seamless data exchange with the payroll system for accurate payroll processing."
+],
+"technical_architecture": [
+"The HRIS is designed as a cloud-deployed microservices architecture leveraging Java and Spring Boot for backend services, React for the frontend interface, and PostgreSQL as the data store. The system is structured into application layers that separate concerns such as user interface, business logic, and data persistence.",
+"Integration with external systems, such as payroll, is handled through secure APIs with comprehensive audit trails for data exchanges. The architecture supports scalability to handle up to 300 concurrent users and ensures high availability with a target of 99.5% uptime. Role-based access control and audit logging provide robust security and compliance with organizational policies."
+],
+"warranty_support": [
+"The solution includes a warranty period during which any defects or issues identified will be promptly addressed and corrected at no additional cost. Defects can be reported through a defined support channel, ensuring timely response and resolution.",
+"The warranty covers all functionality delivered as part of the project scope. Issues arising from changes made outside the agreed scope or from third-party integrations are excluded. Additional support and maintenance services beyond the warranty period are available as separate options to ensure ongoing system reliability and performance."
+]
+}

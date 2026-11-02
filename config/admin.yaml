@@ -1,0 +1,4 @@
+# Opportunities the admin delete refuses, by code. Keep the demo examples here.
+protected_codes:
+  - HRIS
+  - HRIS-04

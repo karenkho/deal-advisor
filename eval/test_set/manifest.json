@@ -1,0 +1,15 @@
+{
+ "generated_on": "2026-11-01",
+ "generator": "scripts/build_test_set.py",
+ "author": "Claude Opus 5.5, spec first",
+ "note": "Frozen. Runs only in 5.4 (baseline) and 5.9 (final). Never used for tuning.",
+ "files": {
+  "alumni_answer_key.json": "a571ba8dbedab6adf7f5bf914ec5f80d9d827071ac9b608f8a605da11bb99121",
+  "center_answer_key.json": "48182cf1f7964c433dc51a9cb8980b23fd04bb315a52b1d55a17d89cfda92a64",
+  "center_bid_bulletin_01.pdf": "f1432dac4f473d536ac0dad0766c1be0ccea9a8593e29229a4204ed696095b85",
+  "fleet_answer_key.json": "87b1d9692f02a813e345a8fb8fbc2149b6b0a7f10490e14d357e488f45cc5f04",
+  "rfp_fleet_maintenance.pdf": "e856bdc7ba267c6b20e61fa87fc837345145c499258b1e63d03a5bffcf853d26",
+  "tor_alumni_giving.pdf": "8d95d1a349272cad7166a41fcd974e226685bc93ed8d60ddd6365c6330da31b5",
+  "tor_convention_center.docx": "1a92c29e4a9451d0f290c873bc4114a93b04698f07696cb952eca9771eeaf0ba"
+ }
+}

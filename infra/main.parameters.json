@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": { "value": "southeastasia" },
+    "rgName": { "value": "<resource-group>" },
+    "appName": { "value": "<app-name>" },
+    "alertEmail": { "value": "<alert-email>" },
+    "budgetAmount": { "value": 10 },
+    "aoaiEndpoint": { "value": "https://<openai-resource>.cognitiveservices.azure.com/" },
+    "aoaiApiVersion": { "value": "2024-10-21" },
+    "aoaiMainDeployment": { "value": "gpt-4.1-mini" },
+    "aoaiLightDeployment": { "value": "gpt-4.1-nano" },
+    "aoaiEmbedDeployment": { "value": "text-embedding-3-small" },
+    "maxRunUsd": { "value": "0.60" },
+    "maxDailyUsd": { "value": "2.00" }
+  }
+}

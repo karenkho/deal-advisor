@@ -1,0 +1,22 @@
+{
+"delivery_methodology": [
+"The project will be executed using an AI-enabled agile approach characterized by short, time-boxed development cycles and regular demonstrations to the client. This iterative process allows for continuous feedback and incremental delivery of functional components, ensuring alignment with client expectations and requirements.",
+"AI tools will assist in drafting and automating routine development tasks, while human experts will review, integrate, and approve all outputs to maintain quality and relevance. This collaboration between AI and people enhances productivity and responsiveness, enabling the project team to adapt swiftly to changes and deliver a high-quality solution on schedule."
+],
+"executive_summary": [
+"Kalinaw Trading Corporation seeks to enhance its human resource management through a comprehensive Human Resource Information System (HRIS) that streamlines employee data, leave management, attendance, and reporting. This initiative is critical to improving operational efficiency, data accuracy, and decision-making across branches and departments.",
+"Exist Software Labs proposes a cloud-deployed microservices solution built on a robust Java/Spring Boot backend with a React frontend and PostgreSQL database. The system will be delivered using an AI-enabled agile methodology, ensuring iterative development with continuous client feedback. Upon completion, Kalinaw Trading Corporation will have a scalable, secure, and user-friendly HRIS tailored to their operational needs."
+],
+"proposed_solution": [
+"The proposed HRIS solution integrates key capabilities including employee information management, leave and attendance tracking, payroll interfacing, and comprehensive reporting dashboards. Employees, HR staff, supervisors, and management will interact with the system through role-based access, enabling self-service functions and administrative controls aligned with the client\u2019s organizational structure and policies.",
+"This solution supports Kalinaw Trading Corporation\u2019s workflows by automating routine HR processes such as leave applications, approvals, attendance corrections, and document expiry notifications. The system\u2019s design ensures compliance with company policies and regulatory requirements while providing timely insights through management dashboards and audit trails, thereby enhancing transparency and operational control."
+],
+"technical_architecture": [
+"The system architecture is based on a cloud-hosted microservices model, leveraging Java and Spring Boot for backend services, React for the user interface, and PostgreSQL for data persistence. This layered architecture separates concerns across presentation, business logic, and data storage, facilitating scalability and maintainability.",
+"Integration with external payroll systems is handled through defined interfaces ensuring reliable data exchange and reconciliation. The system supports multiple environments including development, testing (UAT), and production, with security enforced via role-based access control and comprehensive audit logging. This architecture aligns with the performance, availability, and security requirements specified by the client."
+],
+"warranty_support": [
+"The warranty period covers defect correction and system stabilization following the go-live date, ensuring that any issues identified are promptly addressed. Defects can be reported through established channels and will be prioritized and resolved according to their impact on system functionality.",
+"The warranty excludes enhancements or changes outside the agreed scope, which can be addressed through separate support agreements. This approach provides Kalinaw Trading Corporation with confidence in system reliability while offering options for ongoing support and evolution of the HRIS as business needs grow."
+]
+}

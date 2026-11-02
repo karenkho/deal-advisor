@@ -1,0 +1,16 @@
+# LLM TOKEN pricing used ONLY to estimate the POC's own Azure OpenAI spend per run.
+# This is NOT project pricing — the app never outputs rates, costs, or prices for clients.
+#
+# EDITABLE: USD per 1M tokens, Global Standard. Verify against the Azure OpenAI
+# pricing page before relying on the numbers; prices change.
+currency: USD
+per_million_tokens:
+  gpt-4.1-mini:
+    input: 0.40
+    output: 1.60
+  gpt-4.1-nano:
+    input: 0.10
+    output: 0.40
+  text-embedding-3-small:
+    input: 0.02
+    output: 0.0

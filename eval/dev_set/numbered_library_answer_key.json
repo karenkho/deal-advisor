@@ -1,0 +1,132 @@
+{
+ "tor_id": "numbered_library",
+ "title": "City library lending and events (numbered paragraphs without shall)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 2,
+ "features": [
+  {
+   "id": "L01",
+   "name": "Member registration",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "3.1",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L02",
+   "name": "Catalogue search",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "3.2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L03",
+   "name": "Online reservation",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L04",
+   "name": "Loans and returns",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "3.4",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L05",
+   "name": "Loan renewal",
+   "type": "workflow",
+   "expected_size": "S",
+   "source_section": "3.5",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L06",
+   "name": "Overdue fines",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.6",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L07",
+   "name": "Due date notices",
+   "type": "notification",
+   "expected_size": "S",
+   "source_section": "3.7",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L08",
+   "name": "Acquisitions",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.8",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L09",
+   "name": "Inter-branch transfers",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.9",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L10",
+   "name": "Event calendar",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "3.10",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L11",
+   "name": "Usage reports",
+   "type": "report_dashboard",
+   "expected_size": "M",
+   "source_section": "3.11",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "L12",
+   "name": "Staff administration",
+   "type": "admin_config",
+   "expected_size": "S",
+   "source_section": "3.12",
+   "source_pages": [
+    1
+   ]
+  }
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

@@ -1,0 +1,68 @@
+{
+ "HRIS": {
+  "status": "Succeeded",
+  "features": 26,
+  "stated_brs": 27,
+  "brs": 28,
+  "critic": 1,
+  "recall_stated": 0.9615384615384616,
+  "precision_stated": 0.9259259259259259,
+  "recall_final": 1.0,
+  "sized": 26,
+  "size_exact": 13,
+  "size_within_one": 26,
+  "flaws": {
+   "G6": {
+    "kind": "prompt_injection",
+    "detected": true,
+    "reason": "not in any statement, BR or question"
+   },
+   "G7": {
+    "kind": "pii",
+    "detected": true,
+    "reason": "0 left in the text"
+   },
+   "G1": {
+    "kind": "unspecified_integration",
+    "detected": true,
+    "reason": "Open questions explicitly ask about the payroll system, format, frequency, and interface specifications, indicating detection of the unspecified integration flaw."
+   },
+   "G2": {
+    "kind": "implied_dependency",
+    "detected": true,
+    "reason": "Open questions inquire about device models and interface specifications for attendance capture, showing detection of the implied dependency flaw."
+   },
+   "G3": {
+    "kind": "implied_migration",
+    "detected": true,
+    "reason": "A suggested requirement for Data Migration is present, and open questions ask about source format, volume, and migration approach, indicating detection of the implied migration flaw."
+   },
+   "G4": {
+    "kind": "vague_requirement",
+    "detected": true,
+    "reason": "Open question explicitly asks for specific capabilities, controls or targets for data privacy, showing detection of the vague requirement flaw."
+   },
+   "G5": {
+    "kind": "conflict",
+    "detected": true,
+    "reason": "Open questions quote both two-level and three-level approval requirements, and the leave approval requirement is sized on the conservative three-level reading, indicating detection of the conflict flaw."
+   }
+  },
+  "risks_expected": 8,
+  "risks_found": 8,
+  "risks_missed": [],
+  "unsupported": 0,
+  "bulletin": {
+   "new_brs": 1,
+   "changed_brs": 1,
+   "added_requirement_found": false,
+   "superseded_value_found": true,
+   "others_unchanged": true
+  },
+  "seconds": 116,
+  "tokens": 100349,
+  "usd": 0.0624,
+  "judge_usd": 0.0014,
+  "missed": []
+ }
+}

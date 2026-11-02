@@ -1,0 +1,132 @@
+{
+ "tor_id": "matrix_clinic",
+ "title": "Clinic appointment and records (table-based requirements matrix)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 2,
+ "features": [
+  {
+   "id": "FR-01",
+   "name": "Patient self-registration",
+   "type": "screen_crud",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-02",
+   "name": "Appointment booking",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-03",
+   "name": "Appointment reminders",
+   "type": "notification",
+   "expected_size": "S",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-04",
+   "name": "Walk-in queue board",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-05",
+   "name": "Doctor schedule maintenance",
+   "type": "admin_config",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-06",
+   "name": "Patient medical record",
+   "type": "screen_crud",
+   "expected_size": "L",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-07",
+   "name": "Electronic prescription",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-08",
+   "name": "Laboratory request and result",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-09",
+   "name": "Billing and receipt",
+   "type": "workflow",
+   "expected_size": "L",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-10",
+   "name": "Health insurer claims export",
+   "type": "integration",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-11",
+   "name": "Clinic dashboard",
+   "type": "report_dashboard",
+   "expected_size": "M",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "FR-12",
+   "name": "User and role administration",
+   "type": "admin_config",
+   "expected_size": "S",
+   "source_section": "3",
+   "source_pages": [
+    1
+   ]
+  }
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

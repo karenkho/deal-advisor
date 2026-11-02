@@ -1,0 +1,8 @@
+# Where generated documents are published. The database stays authoritative either way.
+storage:
+  backend: gdrive           # gdrive | local. Drive verified 31 Oct (scripts/drive_check.py).
+  local:
+    root: data/published    # git-ignored
+gdrive:
+  # The ID at the end of the My Drive > PSIA_Capstone > dealadvisor folder link.
+  root_folder_id: "<drive-root-folder-id>"

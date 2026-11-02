@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Leave Applications", "Leave Balances"], "feature_id": "F-aac0fe", "nfr_ids": [], "question_keys": [], "rule_ids": ["ST-3c00127a8b"], "statement": "The system shall prevent filing leave applications beyond the available balance except for leave without pay."}

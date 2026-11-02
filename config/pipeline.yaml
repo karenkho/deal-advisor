@@ -1,0 +1,18 @@
+# POC v2 determinism and model pinning. Model name + version are part of every cache key; no model switching.
+models:
+  MAIN: {deployment: gpt-4.1-mini, version: "2025-04-14"}     # extraction, router, sizing, critic, agents
+  LIGHT: {deployment: gpt-4.1-nano, version: "2025-04-14"}    # intake checks
+  EMBED: {deployment: text-embedding-3-small, version: "1"}
+seed: 20261030            # fixed seed on every chat call (with temperature 0)
+
+canonical_names:
+  # After extraction each feature is matched to the nearest pattern-library name; the TOR wording stays as the
+  # description. Only matches at or above the threshold are renamed, and each pattern name is used once.
+  threshold: 0.72      # measured on TOR A/B: >=0.72 only for unambiguous matches (audit trail, user admin)
+  skip_epics: ["Vendor supply", "Clarifications"]
+
+stability_targets:        # eval/stability.py, 3 uncached runs of the same input
+  jaccard: 0.85
+  size_agreement: 0.85
+  total_hours_tolerance: 0.05
+  feature_match_similarity: 0.85   # two runs' features are "the same" at this embedding similarity (or same name)

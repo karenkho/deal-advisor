@@ -1,0 +1,132 @@
+{
+ "tor_id": "spaced_museum",
+ "title": "Museum collection and visitors (requirements table laid out with spacing, no ruled lines)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 2,
+ "features": [
+  {
+   "id": "M01",
+   "name": "Object catalogue record",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M02",
+   "name": "Loan and exhibition history",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M03",
+   "name": "Timed-entry ticket sales",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M04",
+   "name": "School group booking",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M05",
+   "name": "Membership renewal",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M06",
+   "name": "Condition report with photos",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M07",
+   "name": "Treatment approval workflow",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M08",
+   "name": "Gallery attendance report",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M09",
+   "name": "Staff role administration",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M10",
+   "name": "Barcode scanner input",
+   "type": "integration",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M11",
+   "name": "Card payment gateway",
+   "type": "integration",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  },
+  {
+   "id": "M12",
+   "name": "Finance system export",
+   "type": "integration",
+   "expected_size": "M",
+   "source_section": "2",
+   "source_pages": [
+    1
+   ]
+  }
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

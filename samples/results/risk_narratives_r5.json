@@ -1,0 +1,230 @@
+{
+"098af8e6d083304d66cad7923d9146b1c94d2855b8e52497c3d30895724a74b2": {
+"action": "Clarify scope with client early.",
+"impact": "Unclear scope due to open questions risks rework and cost overruns.",
+"mitigation": "Resolve open questions and finalize scope before development."
+},
+"115966f276d5933bf2ed8d50358dee76671cd3447ef4a60d5f47dfa9705f610e": {
+"action": "Review and adjust payment schedule.",
+"impact": "Large negative cash flow late in the project increases financial strain and risk.",
+"mitigation": "Negotiate payment terms to reduce peak cash exposure."
+},
+"13d6970d1f595b8163b5f32958d6ed8222ed57867425f13d385ea805b76c6f5c": {
+"conditions": [
+"Client dependencies must be resolved before project start.",
+"Acceptance criteria must be clearly defined and agreed.",
+"Data privacy requirements must be specified and measurable."
+],
+"reasons": [
+"Scenario B chosen as margin meets or exceeds price floor, ensuring financial viability.",
+"AI-first coding approach accepted with human review to maintain quality.",
+"Payment terms and cash flow risks identified but manageable with mitigation."
+]
+},
+"174b21950161efaf15309864aeadb9542b45616b40ffb637fddc4923f12fc960": {
+"conditions": [
+"Negotiate payment terms to reduce cash exposure.",
+"Clarify and resolve all client dependencies and scope gaps.",
+"Define measurable acceptance and privacy requirements.",
+"Plan for rigorous AI code review and integration testing.",
+"Validate productivity assumptions during project execution."
+],
+"reasons": [
+"Margin is at or above the floor, qualifying scenario B.",
+"AI-first productivity is planned but not empirically validated.",
+"Payment terms and cash flow create high financial exposure.",
+"Multiple high-severity risks related to client dependencies and data privacy.",
+"Schedule is slightly aggressive but manageable with conditions."
+]
+},
+"1bbd4ad010ec356255552e23e6873477890d1808eb6a5b0452c92b692782e2e5": {
+"action": "Allocate resources for AI code verification.",
+"impact": "AI-generated code requires thorough human review to ensure quality and reduce defects.",
+"mitigation": "Implement rigorous human review and testing of AI outputs."
+},
+"1dbf2c33dbfd8efecd267c8fc9e1be0533fabf2ebefa4011cfff193b7a720c99": {
+"action": "Consult legal on data residency compliance.",
+"impact": "Processing data outside the Philippines may violate local data residency laws.",
+"mitigation": "Assess legal implications and consider local data processing options."
+},
+"2b88828350655aa2357d7a1a0194919dc7da1f337f536ce6163ecc5d8713e16e": {
+"conditions": [
+"Negotiate payment terms to reduce cash exposure.",
+"Clarify client dependencies and acceptance criteria.",
+"Validate productivity assumptions before project start.",
+"Define measurable data privacy requirements."
+],
+"reasons": [
+"Scenario B chosen as margin meets or exceeds floor, supporting AI-first approach.",
+"Payment terms and cash exposure risks highlight financial strain under current terms.",
+"Unresolved client dependencies and undefined acceptance criteria pose schedule and delivery risks.",
+"Aggressive schedule and scope gaps increase risk of delays and rework."
+]
+},
+"3213f6596f1588d4279cf6b13b2ad70dec697df458ec2763de3627698a1f0466": {
+"action": "Work with client to specify privacy needs.",
+"impact": "Undefined privacy requirements risk non-compliance and rework.",
+"mitigation": "Define measurable privacy requirements clearly."
+},
+"380fd6ac6b9de6f09c8675f0e61f830870441926a343257dbb0f3a04190c0922": {
+"conditions": [
+"Resolve all client dependencies before project start.",
+"Define clear acceptance criteria for deliverables.",
+"Agree on data privacy requirements with client.",
+"Negotiate payment terms to reduce cash flow risk."
+],
+"reasons": [
+"Scenario B chosen as margin meets or exceeds price floor, validating AI-first assumptions.",
+"Payment terms and cash flow risks are significant but manageable under scenario B.",
+"Schedule is aggressive but achievable with current team and plan."
+]
+},
+"3dbf43f56ff70dba5ac45f437e8dcb0d53204bdaf3b68c35184cbf1ba65e7b08": {
+"action": "Review productivity estimates and adjust plans.",
+"impact": "Unvalidated productivity assumptions may lead to inaccurate planning and overruns.",
+"mitigation": "Validate productivity assumptions with historical data or pilot runs."
+},
+"4199b50c49c394bba9cc256ee810b4ec3d0ad791b6850fdf7b554413381fbb6f": {
+"action": "Monitor integration progress closely.",
+"impact": "Multiple external integrations increase complexity and risk of delays.",
+"mitigation": "Plan integration tasks carefully and allocate buffer time."
+},
+"46a14d52e823de98fef19da8c4d3a01a1db2fa43fcfd08a3b87cc494c0a1b361": {
+"action": "Reassess timeline feasibility.",
+"impact": "Requested timeline is shorter than computed, risking delays.",
+"mitigation": "Adjust schedule or increase resources to meet timeline."
+},
+"4b4de3c1e1b94c19d9e42b927d7fdbca03a41a09a2d63a636eb2124c0ac52030": {
+"action": "Establish clear data privacy standards.",
+"impact": "Undefined privacy requirements risk non-compliance and rework.",
+"mitigation": "Define measurable privacy requirements and controls."
+},
+"4ca0961508a98e1784220dcac3c083271d8c30f05809b81af346c39a87061830": {
+"action": "Review and adjust payment schedule to improve cash flow.",
+"impact": "Large negative cash flow peak increases financial strain and risk of liquidity issues.",
+"mitigation": "Negotiate payment terms to reduce peak cash exposure."
+},
+"5ee7d720cb488117a0e91ecd9f2e784d789676a2fb9b4c3f3290cbf155deca5f": {
+"action": "Plan for extensive code reviews.",
+"impact": "AI-generated code needs thorough human review to ensure quality.",
+"mitigation": "Implement rigorous human verification of AI outputs."
+},
+"6b79222d977e4b1a0725ba681e4ca1d1944365f634b8a61235571402e5faa1d7": {
+"action": "Agree acceptance terms with client before start.",
+"impact": "Undefined acceptance criteria may cause disputes and delay payments.",
+"mitigation": "Define clear acceptance criteria for all deliverables upfront."
+},
+"71873ff7c80265607dcd1bfa1249f61edfc97a626adec3e29d89413a54849435": {
+"action": "Review and adjust payment terms to improve cash flow.",
+"impact": "Large negative cash flow peak risks liquidity and project continuity.",
+"mitigation": "Negotiate payment schedule to reduce cash outflow peaks."
+},
+"7325e1007369983f0674c7c3c9dbb8c977166068973ddcd03155d5e783a1f272": {
+"action": "Propose revised payment schedule favoring vendor cash flow.",
+"impact": "Client-favouring payment terms increase financial risk and cash flow pressure.",
+"mitigation": "Negotiate more balanced payment terms to reduce financial exposure."
+},
+"7a19b22a8b315969169a535996783539472e7bb8785bd20e904af678dac9f6f3": {
+"action": "Review and adjust payment terms to smooth cash flow.",
+"impact": "Large negative cash flow peak risks liquidity and financial stability.",
+"mitigation": "Negotiate payment schedule to reduce cash outflow peaks."
+},
+"81875764707c4084d066dc8f396d1890ea9fbc09289b291404a9bc9cb7fd0aaf": {
+"action": "Communicate realistic timeline to client.",
+"impact": "Requested timeline is slightly shorter than feasible, risking delays.",
+"mitigation": "Adjust schedule realistically or add buffer time."
+},
+"9017cdad8748db2c98a42e9f6578b42d734917d1b4758807f87fa576bdcfdbc1": {
+"conditions": [
+"Payment terms must be renegotiated to reduce cash flow risk.",
+"Client dependencies and scope questions must be resolved before project start.",
+"Clear acceptance criteria must be defined and agreed upon.",
+"Privacy and data residency compliance must be ensured."
+],
+"reasons": [
+"Scenario B margin is above the price floor, qualifying it as acceptable.",
+"Payment terms and cash flow risks are significant and require mitigation.",
+"Multiple high-severity risks around data privacy, residency, and client dependencies exist.",
+"Undefined acceptance and scope gaps increase project uncertainty and risk."
+]
+},
+"9c56a43de667f585f069ff89d3e87425a9c2cdda746e18803d15f3f9b8d6cb2a": {
+"conditions": [
+"Negotiate payment terms to reduce cash exposure risk.",
+"Clarify all client dependencies and acceptance criteria before project start.",
+"Define measurable data privacy requirements with client.",
+"Validate productivity assumptions empirically before final planning."
+],
+"reasons": [
+"Scenario B chosen as margin meets or exceeds floor, validating AI-first approach.",
+"Payment terms and cash exposure risks highlight financial vulnerability under current terms.",
+"Multiple client dependencies and undefined acceptance criteria increase project uncertainty.",
+"Data privacy and scope gaps pose compliance and delivery risks requiring clarification."
+]
+},
+"a58baa1958121cb3ebd3972bbb7bce67f2aef195c544691b29701f72eef051db": {
+"action": "Engage client to finalize dependencies promptly.",
+"impact": "Unresolved client dependencies may delay project milestones and delivery.",
+"mitigation": "Clarify and resolve all client dependencies early in the project."
+},
+"aa9560fcd347907855623e9a24a6b4805d7d3b7198cd9133c0da140a089e4194": {
+"action": "Plan for AI output validation.",
+"impact": "AI-generated output needs verification to ensure quality.",
+"mitigation": "Implement thorough human review of AI outputs."
+},
+"aee545f975f3af5e88b124f97280e03a50af57d886118ff338665a777300db68": {
+"action": "Update pricing with real rates for accuracy.",
+"impact": "Using illustrative rates may misrepresent actual costs and margins.",
+"mitigation": "Use actual published rates for pricing and cost estimation."
+},
+"b5be203b4553cf9720661af1a11885250ed2d759a6592098008d0b97d7094af7": {
+"action": "Plan for warranty support in resource allocation.",
+"impact": "Longer warranty increases post-delivery support obligations and costs.",
+"mitigation": "Reserve adequate budget and resources for extended warranty support."
+},
+"b88f7bd7a3c0886609f315c5fccc17bee4a9755b6a9d4bc81d7f96d1c0c902cf": {
+"action": "Plan for extensive code review.",
+"impact": "AI-generated code requires thorough human review to ensure quality.",
+"mitigation": "Implement rigorous human verification of AI outputs."
+},
+"c94411dd1928eda80f82e944b8d1e54eac9b09c2e190855c7b3242979a820e3d": {
+"action": "Engage client to finalize dependencies.",
+"impact": "Unresolved client dependencies may cause delays or block progress.",
+"mitigation": "Clarify and resolve all client dependencies early."
+},
+"cd884f7aadbcfae0e3241345cdced8f5b60de8fd9172deda135877324140511f": {
+"action": "Work with client to specify privacy needs.",
+"impact": "Undefined privacy requirements risk non-compliance and rework.",
+"mitigation": "Define measurable privacy requirements clearly."
+},
+"d086569c2f096356dd8813c9fe330a1b4ddecf455548d73931619b60175e2dad": {
+"action": "Finalize scope with client.",
+"impact": "Scope not fully defined risks missed requirements and rework.",
+"mitigation": "Clarify scope and resolve conflicts before start."
+},
+"d52d4d9bf10794cc5d73fb03a73b49d9a1a7f2d86905388cccad1f6e2423dc97": {
+"action": "Establish clear privacy criteria with client.",
+"impact": "Undefined privacy requirements risk regulatory non-compliance and data breaches.",
+"mitigation": "Define measurable privacy requirements and compliance standards."
+},
+"dc6999b6d4a9191777eb764f27ef57addb5219e77b9a4a22cf8c33b0e623f9cd": {
+"action": "Clarify scope with client promptly.",
+"impact": "Unclear scope due to open questions risks scope creep or missed requirements.",
+"mitigation": "Resolve open questions to finalize scope."
+},
+"e620e257c3bc6cfb678be8eb1dda588946e76b59449e0f275d52de1a18ca3653": {
+"action": "Review and adjust payment schedule.",
+"impact": "Large negative cash flow peak risks liquidity and project funding.",
+"mitigation": "Negotiate payment terms to reduce cash exposure peak."
+},
+"e9f41de73c5683c4c520e6d7cc80d419cd9a49cb24efa3a891ef783d460c6ce8": {
+"action": "Clarify and finalize scope with client.",
+"impact": "Undefined scope and open conflicts risk scope creep and rework.",
+"mitigation": "Resolve open questions and conflicts before development."
+},
+"f9a251af5d5fa189fbffedbb67308e4c981e884a262b58cb9501dbdc0a5ea35b": {
+"action": "Review and adjust payment milestones.",
+"impact": "Large negative cash flow peak risks financial stability during project.",
+"mitigation": "Negotiate payment schedule to reduce cash exposure peak."
+}
+}

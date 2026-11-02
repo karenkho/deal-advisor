@@ -1,0 +1,44 @@
+# Activity breakdown (POC v2). Each feature's baseline role hours (size tier x domain complexity, from the frozen
+# calibration) are split into activities by these shares. ASSUMPTION: shares must sum to 1.0 per role.
+# PM and TA are overhead roles (FTE x duration), not split into activities.
+version: 1
+
+role_map:            # v1 calibration role -> v2 role
+  Dev: Backend
+  UI: Frontend
+  BA: BA
+  QA: QA
+
+devops_foundation_items:   # foundation items whose v1 "Dev" hours are DevOps work in v2
+  - cloud_environments_iac
+  - container_platform
+  - ci_cd_per_service
+  - logging_monitoring_tracing
+
+activities:
+  BA:
+    elicitation_clarification: {label: "Elicitation & clarification", share: 0.35}
+    wireframes_prototypes:     {label: "Wireframes & prototypes", share: 0.15}
+    stories_acceptance:        {label: "Story & acceptance-criteria writing", share: 0.30}
+    review_acceptance_support: {label: "Review & acceptance support", share: 0.20}
+  Backend:
+    technical_design:          {label: "Technical design", share: 0.15}
+    coding:                    {label: "Coding", share: 0.50}
+    unit_tests:                {label: "Unit tests", share: 0.20}
+    code_review_integration:   {label: "Code review & integration", share: 0.15}
+  Frontend:
+    ui_implementation:         {label: "UI implementation", share: 0.60}
+    component_tests:           {label: "Component tests", share: 0.20}
+    api_integration:           {label: "API integration", share: 0.20}
+  QA:
+    test_design:               {label: "Test design", share: 0.30}
+    test_execution:            {label: "Test execution", share: 0.40}
+    test_automation:           {label: "Test automation", share: 0.15}
+    regression_defects:        {label: "Regression & defect verification", share: 0.15}
+  DevOps:
+    pipeline_environment:      {label: "Pipeline & environment setup", share: 0.70}
+    ops_verification:          {label: "Ops verification", share: 0.30}
+
+# Calibrated delivery overhead (v1 "contingency" 1.2: meetings, rework, ramp-up) is applied to every baseline
+# activity hour, so 1 FTE delivers 160 h of these hours per month. It is NOT the 15% commercial contingency.
+delivery_overhead: 1.2

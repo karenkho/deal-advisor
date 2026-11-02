@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Employment Movement", "Employee", "Branch", "Position"], "feature_id": "F-2f7285", "nfr_ids": [], "question_keys": [], "rule_ids": ["ST-87b8a912a4"], "statement": "The system shall update the employee's current branch, position or status on the effective date of a movement."}

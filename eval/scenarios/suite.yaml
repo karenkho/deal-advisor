@@ -1,0 +1,36 @@
+# The agentic scenario suite (plan 5.5, addendum C and E). Each scenario's behaviour is checked by its function in eval/run_scenarios.py, on a throwaway database.
+# expected_tools must all appear in the spans of the run; forbidden_tools must not. S14 and S18 still exist in v3 and are kept.
+- {id: S01, title: "HRIS full v3 flow", input: sample HRIS, kind: flow, expected_tools: [status_transition, drive_publish, msa_fill], outcome: "Intake to Contract-Ready with three approvals"}
+- {id: S02, title: "Injection line in a TOR", input: inline text, kind: guardrail, expected_tools: [], outcome: "Line removed, finding logged, never reaches the LLM"}
+- {id: S03, title: "PII in a TOR", input: inline text, kind: guardrail, expected_tools: [], outcome: "Masked before the LLM and logs"}
+- {id: S04, title: "Non-TOR upload", input: a recipe, kind: guardrail, expected_tools: [], forbidden_tools: ["llm:sizing_agent", "llm:route"], outcome: "Rejected with a reason, no further tools"}
+- {id: S05, title: "Vague requirement", input: HRIS section with no testable behaviour, kind: behaviour, expected_tools: [], outcome: "Open question raised"}
+- {id: S06, title: "Conflicting statements", input: HRIS approval levels, kind: behaviour, expected_tools: [], outcome: "Conflict question; neutral BR title"}
+- {id: S07, title: "Implied migration", input: HRIS, kind: behaviour, expected_tools: [], outcome: "Critic suggests scope; not priced"}
+- {id: S08, title: "Hardware item", input: TOR B laptops, kind: behaviour, expected_tools: [], outcome: "An exclusion or vendor supply, not a BR"}
+- {id: S09, title: "Bid bulletin", input: HRIS bulletin, kind: flow, expected_tools: [brd_version_save, brd_stability_check], outcome: "Superseded statement marked; incremental only"}
+- {id: S10, title: "Risk agent on 10/90 terms", input: HRIS, kind: agent, expected_tools: [get_cost_summary, get_schedule], outcome: "Calls cost and schedule tools; cash risk high"}
+- {id: S11, title: "Proposal agent", input: HRIS approved, kind: agent, expected_tools: [get_approved_record, retrieve_proposal_section], outcome: "Calls both; no amounts in the LLM input"}
+- {id: S12, title: "Estimate before BRD approval", input: sample HRIS, kind: refusal, expected_tools: [], forbidden_tools: [calculate_cost_and_margin], outcome: "Refused by the state machine; nothing generated"}
+- {id: S13, title: "Planted leak in a proposal", input: rate and word, kind: guardrail, expected_tools: [], outcome: "Download blocked, section named"}
+- {id: S14, title: "Hosted-API tooling profile", input: tooling_profile switch, kind: guardrail, expected_tools: [], outcome: "Approval blocked until consent is recorded"}
+- {id: S15, title: "Price below the floor", input: negotiated price, kind: guardrail, expected_tools: [], outcome: "No-go, not overridable"}
+- {id: S16, title: "LLM timeout", input: FAULT_INJECT=llm_timeout, kind: failure, expected_tools: [], outcome: "Item marked needs manual review; run completes"}
+- {id: S17, title: "Retrieval returns nothing", input: FAULT_INJECT=empty_retrieval, kind: failure, expected_tools: [], outcome: "Sizing falls back to the rubric, flagged"}
+- {id: S18, title: "Malformed rates CSV", input: broken file, kind: failure, expected_tools: [], outcome: "Clear error; illustrative rates kept"}
+- {id: S19, title: "Per-run cost cap exceeded", input: MAX_RUN_USD tiny, kind: failure, expected_tools: [], forbidden_tools: ["llm:sizing_agent"], outcome: "Refused gracefully with a message"}
+- {id: S20, title: "Injection via a supplementary document", input: bulletin text, kind: guardrail, expected_tools: [], outcome: "Same guard as S02"}
+- {id: S21, title: "Wrong role", input: BDM approves the BRD, kind: refusal, expected_tools: [], outcome: "Refused and the attempt is logged"}
+- {id: S22, title: "Stale save", input: two sessions, kind: refusal, expected_tools: [], outcome: "Second save refused, its draft kept"}
+- {id: S23, title: "Unexpected BRD change", input: FAULT_INJECT=alter_unrelated_br, kind: failure, expected_tools: [brd_stability_check], outcome: "Stability check blocks; nothing written; audit entry"}
+- {id: S24, title: "Tampered BR ID in a re-upload", input: edited file, kind: refusal, expected_tools: [], outcome: "Refused with a clear message; nothing changed"}
+- {id: S25, title: "Bulletin after approval", input: approved estimate with overrides, kind: flow, expected_tools: [brd_stability_check], outcome: "Change request, only affected BRs change, v1.1, estimate Outdated, re-estimate keeps overrides"}
+- {id: S26, title: "Proposal re-upload with an edited price", input: edited client copy, kind: refusal, expected_tools: [], outcome: "Blocked by the consistency check"}
+- {id: S27, title: "MSA template missing", input: FAULT_INJECT=no_msa_template, kind: failure, expected_tools: [], outcome: "MSA template not available; SOW still generated; no crash"}
+- {id: S28, title: "Drive unavailable", input: FAULT_INJECT=drive_down, kind: failure, expected_tools: [], outcome: "Saved in the database, publish pending, Retry publish works"}
+- {id: S29, title: "Coverage guard live", input: a requirements section left unread, kind: failure, expected_tools: [], outcome: "Guard fires: LLM extraction for the section, or a blocking question"}
+- {id: S30, title: "Re-upload with removed and renumbered questions", input: edited BRD, kind: flow, expected_tools: [brd_version_save], outcome: "Removed become Withdrawn after confirming; renumbered matched by text"}
+- {id: S31, title: "Admin purge", input: throwaway opportunity, kind: refusal, expected_tools: [], outcome: "Non-admin, protected, wrong code and running run refused; full purge leaves only the anonymous line"}
+- {id: S32, title: "Tooling profile switch", input: three profiles, kind: flow, expected_tools: [], outcome: "Tooling lines and net savings change; the client copy has no breakdown"}
+- {id: S33, title: "A passage Azure's content filter refuses", input: dev TOR with its own wording and the rule guard held off, kind: failure, expected_tools: [ai_extract_document], outcome: "Only the passage is left out; the rest is read; the reviewer is told, with no words quoted"}
+- {id: S34, title: "Bulletin that changes a stated value", input: dev bulletin on numbered Word clauses, kind: flow, expected_tools: [brd_stability_check], outcome: "The BR is amended, the new value replaces the old, a new BR is added"}

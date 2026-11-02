@@ -1,0 +1,1 @@
+{"assumption_ids": [], "context_ids": [], "entities": ["Holiday Calendar", "Leave"], "feature_id": "F-82546d", "nfr_ids": [], "question_keys": [], "rule_ids": ["ST-31bb3868b0"], "statement": "The system shall exclude holidays when counting leave days."}

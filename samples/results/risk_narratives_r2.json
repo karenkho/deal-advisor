@@ -1,0 +1,84 @@
+{
+"003e6927430aa984589a1bc12a9c92e13d32766cc72e46353ed2945c3f23352d": {
+"action": "Review and adjust payment schedule to reduce cash exposure.",
+"impact": "Large cash outflow late in the project stresses finances and risks liquidity.",
+"mitigation": "Negotiate payment terms to reduce peak cash outflow."
+},
+"03d51f9810d9a733439763d9ea51ac4c809c6e12a9763a3ece548e4d4d960c96": {
+"action": "Collaborate with client to clarify and approve criteria.",
+"impact": "Incomplete acceptance criteria may cause disputes and delays.",
+"mitigation": "Refine and finalize all acceptance criteria with client."
+},
+"39b8716774d85c979a3333b00530b67c7ad523744cb9c51e5330784fba289371": {
+"action": "Clarify and finalize scope with client agreement.",
+"impact": "Undefined scope items can cause scope creep and disputes.",
+"mitigation": "Resolve open questions and conflicts before start."
+},
+"3fc4f6b2e8bfe805115cf7fdb46175f47d5db95f6a7622df6d8a50e266131b00": {
+"action": "Engage client to finalize dependencies before project start.",
+"impact": "Unresolved client dependencies can delay progress and cause rework.",
+"mitigation": "Clarify and resolve all open client questions early."
+},
+"65f691b2c78debcabf89235beef995fb7f64c693b4b645c93142db6c4baf69b7": {
+"action": "Implement rigorous QA for AI-generated components.",
+"impact": "AI-generated code needs thorough human review to ensure quality.",
+"mitigation": "Allocate sufficient review and testing resources."
+},
+"8ffe4d26b8a8842dc0daf59c6351abfaf47412f6cd6539786d3f9e5405608c8c": {
+"action": "Ensure warranty reserve and support plan are in place.",
+"impact": "Longer warranty increases post-delivery support costs and risks.",
+"mitigation": "Reserve adequate budget and plan support resources."
+},
+"a928ae81240aba98dd11713659f333e9306f020db7246718b0b39dd4e936f66d": {
+"action": "Allocate resources for integration management and testing.",
+"impact": "Multiple integrations increase complexity and risk of delays.",
+"mitigation": "Plan detailed integration testing and contingency."
+},
+"bb3a84d6eb56a77b3465f31928555835ba0e500155c6b80549b60c8483f5d6fc": {
+"action": "Monitor AI effectiveness and adjust plans as needed.",
+"impact": "Savings rely heavily on AI-first activities, which may be uncertain.",
+"mitigation": "Validate AI productivity assumptions and have fallback plans."
+},
+"ca7ef2e81c4c526918226784cff1982996af71ca1aa1bfa33d70ab94b8478df7": {
+"action": "Recalculate costs with official rates for decision making.",
+"impact": "Using illustrative rates may misrepresent true costs and margins.",
+"mitigation": "Use published company rates for accurate pricing."
+},
+"d9263e094d6d965e8ea053fa0e6026eccd7600060a809b8d9c4094e5de1ebda0": {
+"action": "Work with client to specify and document privacy needs.",
+"impact": "Undefined privacy requirements risk non-compliance and rework.",
+"mitigation": "Define measurable privacy requirements and controls."
+},
+"db66b1602f8d225d0598fd94028f39290ca449621ccea83fb4ec9bac7f8d9cfe": {
+"action": "Negotiate to increase upfront payment percentage.",
+"impact": "Payment terms favor client, increasing financial risk for us.",
+"mitigation": "Seek more balanced payment terms with higher upfront."
+},
+"e2e977ade60542c6abf9064dd8d9b54f4998dc257e9fc63e10f3ebddadd8c929": {
+"action": "Conduct productivity validation before full execution.",
+"impact": "Productivity assumptions are estimated, risking inaccurate planning.",
+"mitigation": "Validate assumptions with historical data or pilot runs."
+},
+"ed847f6f6c89bf9556c57ca536131d94968377e2a88816173b54a92b8c8dc63f": {
+"action": "Plan for schedule buffer or resource increase.",
+"impact": "Timeline is tighter than computed, risking quality and delivery.",
+"mitigation": "Adjust schedule or add resources to meet deadlines."
+},
+"ee229cc96c1eecc76213a625c185b5162a2b99ed70eda161f86dc76ff000c0ad": {
+"conditions": [
+"Negotiate improved payment terms with higher upfront percentage.",
+"Resolve all client dependencies and scope questions before start.",
+"Validate AI productivity assumptions and plan for thorough QA.",
+"Adjust schedule or resources to accommodate realistic timeline."
+],
+"reasons": [
+"High peak cash exposure requires careful cash flow management.",
+"Multiple unresolved client dependencies and scope gaps need resolution.",
+"Payment terms favor client, increasing financial risk.",
+"Schedule is aggressive and AI-related assumptions need validation."
+],
+"recommended_scenario": "B",
+"source": "agent",
+"verdict": "go_with_conditions"
+}
+}

@@ -1,0 +1,26 @@
+# Internal costing and pricing (POC v2). Internal only: never client-facing. All values ASSUMPTIONS, editable.
+version: 1
+currency: PHP
+target_gross_margin: 0.40          # price = delivery cost / (1 - margin)
+contingency_rate: 0.15             # x eligible cost base
+contingency_eligible: [labor, ai_tooling, infrastructure, warranty_reserve]
+vat_rate: 0.12                     # shown separately; price excludes VAT
+contract_type: fixed price
+discount_pct: 0.0                  # optional discount on published rates -> applied rates
+infrastructure:
+  dev_uat_cloud_php_per_month: 25000
+payment_milestones:                # "Common practice — configurable" (not an industry standard)
+  - {name: Contract signing (mobilization), pct: 0.30, event: start}
+  - {name: Requirements & design sign-off, pct: 0.20, event: architecture_end}
+  - {name: UAT acceptance, pct: 0.30, event: uat_end}
+  - {name: Go-live, pct: 0.20, event: deployment_end}
+retention:
+  enabled: false
+  pct_of_go_live: 0.10             # held until warranty end
+  warranty_months: 6
+ai_first_validated: false          # false: recommend B whenever it qualifies, and show C as an upside; true: highest net savings
+show_ai_engineer_in_proposal: false   # false: client documents fold the role into "Development team"; internal views unchanged
+min_gross_margin: 0.30             # price floor = delivery cost / (1 - minimum margin)
+warranty:                          # reserve = hours x active rates; its own delivery-cost line
+  default_months: 3                # used when the TOR states no warranty period
+  fte: {BA: 0.1, Backend: 0.25, Frontend: 0.1, QA: 0.1, DevOps: 0.1}

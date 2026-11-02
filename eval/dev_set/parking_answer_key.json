@@ -1,0 +1,68 @@
+{
+ "tor_id": "parking",
+ "title": "City parking permits (numbered clauses in Word, a passage Azure refuses, and a bulletin that changes a value)",
+ "domain": "synthetic",
+ "domain_complexity": "standard",
+ "pages": 2,
+ "features": [
+  {
+   "id": "P01",
+   "name": "Permit application",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.1",
+   "source_pages": []
+  },
+  {
+   "id": "P02",
+   "name": "Renewal window",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.2",
+   "source_pages": []
+  },
+  {
+   "id": "P03",
+   "name": "Permit fee payment",
+   "type": "integration",
+   "expected_size": "L",
+   "source_section": "3.3",
+   "source_pages": []
+  },
+  {
+   "id": "P04",
+   "name": "Digital permit",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.4",
+   "source_pages": []
+  },
+  {
+   "id": "P05",
+   "name": "Violation notices",
+   "type": "workflow",
+   "expected_size": "M",
+   "source_section": "3.5",
+   "source_pages": []
+  },
+  {
+   "id": "P06",
+   "name": "Zone maintenance",
+   "type": "admin_config",
+   "expected_size": "S",
+   "source_section": "3.6",
+   "source_pages": []
+  },
+  {
+   "id": "P07",
+   "name": "Permit reports",
+   "type": "report_dashboard",
+   "expected_size": "S",
+   "source_section": "4.1",
+   "source_pages": []
+  }
+ ],
+ "expected_questions": [],
+ "expected_exclusions": [],
+ "planted_flaws": []
+}

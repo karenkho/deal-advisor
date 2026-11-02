@@ -1,0 +1,26 @@
+# ILLUSTRATIVE RATES — clearly fake, round numbers for tests, cached demo results and the default deployment.
+# NOT the company's published rates. Real rates are uploaded at runtime (session memory only).
+source: illustrative
+currency: PHP
+unit: per hour
+rates:
+  Project Manager: 2000
+  Business Analyst: 1500
+  Technical Architect: 2500
+  Senior Software Developer: 2000
+  Software Developer 1: 1000
+  Software Developer 2: 1250
+  Software Developer 3: 1500
+  Mobile Developer: 1500
+  UI/UX Developer 1: 1000
+  UI/UX Developer 2: 1250
+  Senior Quality Assurance Engineer: 1500
+  Quality Assurance Engineer 1: 900
+  Quality Assurance Engineer 2: 1100
+  Quality Assurance Engineer 3: 1300
+  Infra Engineer: 1500
+  Infra Architect/DevOps: 2200
+  Data Solution Architect/DBA: 2200
+  Data Analyst: 1200
+  Technical Writer: 900
+  AI Engineer: 1400
